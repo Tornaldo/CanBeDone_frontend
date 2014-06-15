@@ -38,8 +38,23 @@ The front end of the social network for ideas.
 	http://gruntjs.com/getting-started
 
 
+3.  Install bower by running the command:
 
-3. Navigate your shell to the git repository folder to install project dependencies. Run this command:
+	```
+	npm install -g bower
+	```
+
+
+4. Install ruby and compass for SASS css files.
+	```
+	sudo apt-get install ruby1.9.1
+	```
+	```
+	sudo gem install compass
+	```
+
+
+5. Navigate your shell to the git repository folder to install project dependencies. Run this command:
 
 	```
 	npm install
@@ -49,14 +64,9 @@ The front end of the social network for ideas.
 
 
 
-4.  Install bower by running the command:
-
-	```
-	npm install -g bower
-	```
 
 
-5. Then in the git repository folder run the command:
+6. Then in the git repository folder run the command:
 
 	bower install
 
@@ -67,7 +77,7 @@ The front end of the social network for ideas.
 
 
 
-6. To access canBeDone locally, start the grunt server task by writing:
+7. To access canBeDone locally, start the grunt server task by writing:
 
 	```	
 	grunt serve
