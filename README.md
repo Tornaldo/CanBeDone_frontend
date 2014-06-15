@@ -1,6 +1,7 @@
 # CanBeDone Front end
 ==================
 The front end of the social network for ideas.
+==================
 
 ## Dependencies
 - [Node.js (npm)](http://nodejs.org/)
@@ -16,14 +17,15 @@ From the node.js homepage, download node.js and install using the install wizard
 
 Ubuntu
 From Ubuntu 12.04 to 13.04, an old version (0.6.x) of Node is in the standard repository. For Ubuntu 13.10 and 14.04, 0.10.X versions are present. To install, just run:
+	
 	```
 	sudo apt-get install nodejs
 	```
 To install npm on Ubuntu 13.10 and 14.04, run:
 
-	 ```
-	 sudo apt-get install npm
-	 ```
+	```
+	sudo apt-get install npm
+	```
 
 2. (Restart your shell and) Install the grunt client by entering the command:
 
@@ -63,6 +65,6 @@ Use git bash or a git shell running the same command
 
 6. To access canBeDone locally, start the grunt server task by writing:
 
-```	
-grunt serve
-```
+	```	
+	grunt serve
+	```
