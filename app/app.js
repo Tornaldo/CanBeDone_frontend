@@ -16,12 +16,19 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
+    'ui.bootstrap',
     'cbdFront',
+    'cbdCommon',
   ])
 
-  .config(function ($routeProvider) {
+  .config(['$routeProvider', function ($routeProvider) {
     $routeProvider
       .otherwise({
         redirectTo: '/'
       });
+  }])
+
+
+  .constant('config', {
+    apiBaseUrl: 'http://localhost:8080/A/web/app_dev.php/api/',
   });

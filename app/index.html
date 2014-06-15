@@ -13,6 +13,7 @@
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/custom.css">
     <!-- endbuild -->
   </head>
   <body ng-app="canBeDoneApp">
@@ -22,8 +23,8 @@
 
     <!-- Add your site or application content here -->
    
-
-      <div ng-view=""></div>
+    <ng-include src="'/common/navbar/navbar.tpl.html'"></ng-include>
+    <div ng-view=""></div>
 
     <!--[if lt IE 9]>
     <script src="bower_components/es5-shim/es5-shim.js"></script>
@@ -35,6 +36,7 @@
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
@@ -47,6 +49,9 @@
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="app.js"></script>
         <script src="src/front/front.js"></script>
+        <script src="common/navbar/navbar.js"></script>
+        <script src="common/services/baseService.js"></script>
+        <script src="common/services/ideaService.js"></script>
         <!-- endbuild -->
 </body>
 </html>

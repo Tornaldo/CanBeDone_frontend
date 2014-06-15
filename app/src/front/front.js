@@ -1,16 +1,18 @@
 'use strict';
 
 angular.module('cbdFront', [])
-  .config(function ($routeProvider) {
+  .config(['$routeProvider', function ($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'src/front/front.tpl.html',
         controller: 'FrontCtrl'
       })
-  })
+  }])
 
 
-  .controller('FrontCtrl', function ($scope,$routeParams, $location) {
+  .controller('FrontCtrl', 
+    ['$scope', '$routeParams', '$location', 'ideaService', 
+    function ($scope,$routeParams, $location, ideaService) {
 
     $scope.redirectToAddIdea = function() {
         $location.path('/addIdea');
@@ -23,12 +25,12 @@ angular.module('cbdFront', [])
 
     $scope.getPopularIdeas = function(category) {
        ideaService.getPopularIdeas(category)
-           .success(function (ideas) {
+           .then(function (ideas) {
                $scope.popularIdeas = ideas;
-           })
-           .error(function (error) {
-            $scope.status = 'unable to load ideas data' + error.message;
-        });
+           }, function(error) {
+              $scope.status = 'unable to load ideas data' + error.message;
+           });
+            
     };
 
 
@@ -37,4 +39,4 @@ angular.module('cbdFront', [])
         $scope.getPopularIdeas("all");
 
     };
-});
+}]);

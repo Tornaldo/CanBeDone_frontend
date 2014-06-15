@@ -1,0 +1,136 @@
+<nav class="navbar navbar-fixed-top" role="navigation" ng-controller="headerCtrl">
+    <div class="common-header clearfix">
+        <div class="header-container clearfix col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="navbar-search-box-container col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <!-- <p>zeki</p> -->
+                <div class="navbar-search-box">
+                    <div class="input-group clearfix">
+                        <input type="text" class="form-control navbar-search-box-font" placeholder="Search for ideas...">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default btn-search" type="submit">
+                                <i class="glyphicon glyphicon-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="navbar-header-li-container col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <!-- <p>zeki</p> -->
+                <ul class="nav navbar-nav navbar-header-li-ul clearfix">
+                    <li>
+                        <a class="navbar-brand" href="#">IDEA</a>
+                    </li>
+                    <li ng-class="{ active: isActive('/') }">
+                        <a href="" ng-click="toggeSidebar()">Toggle sidebar</a>
+                    </li>
+                    <li ng-class="{ active: isActive('/browse') }">
+                        <a href="#/browse">Browse ideas</a>
+                    </li>
+                    <li ng-class="{ active: isActive('/addIdea') }">
+                        <a href="#/addIdea">Add idea </a>
+                    </li>
+                    <li>
+                        <a href="#/login">Register/Login</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="navigator-place-holder col-lg-3 col-md-3 col-sm-3 col-xs-3"></div>
+        </div>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div ng-if="sidebar" class="collapse navbar-collapse navbar-ex1-collapse">
+        <div class="side-nav-left">
+            <ul class="nav navbar-nav  idea-profile-navigator-box">
+                <li class="side-nav-top">
+                    <a href="#"><i class="fa fa-star-o"></i>&nbsp;Recommended for you</a>
+                </li>
+                <li class="side-nav-top">
+                    <a href="#"><i class="fa fa-fire"></i>&nbsp;Popular ideas</a>
+                </li>
+                <li class="side-nav-top">
+                    <a href="#"><i class="fa fa-bullseye"></i>&nbsp;Ideas from your area</a>
+                </li>
+                <li class="side-nav-top">
+                    <a href="#"><i class="fa fa-flag"></i>&nbsp;Ideas from your country</a>
+                </li>
+                <li class="side-nav-top">
+                    <a href="#"><i class="fa fa-clock-o"></i>&nbsp;New ideas</a>
+                </li>
+
+            </ul>
+
+            <ul class="nav navbar-nav navbar-nav-categories-popular">
+                <li class="side-nav-categories-popular-main">
+                    <a href="#"><b>CATEGORIES</b></a>
+                </li>
+
+                <li class="side-nav-categories-popular">
+                    <a href="#">Culture</a>
+                </li>
+
+                <li class="side-nav-categories-popular">
+                    <a href="#">Global issues</a>
+                </li>
+
+                <li class="side-nav-categories-popular">
+                    <a href="#">Environment</a>
+                </li>
+
+                <li class="side-nav-categories-popular">
+                    <a href="#">Humorous</a>
+                </li>
+
+                <li class="side-nav-categories-popular">
+                    <a href="#">Web</a>
+                </li>
+
+                <li class="side-nav-categories-popular">
+                    <a href="#">Entertainment</a>
+                </li>
+
+                <li class="side-nav-categories-popular">
+                    <a href="#">Academia</a>
+                </li>
+                <li class="dropdown side-nav-categories-popular">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">more <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#" class="list-group-item">Education</a>
+                        </li>
+                        <li>
+                            <a href="#">Another Item</a>
+                        </li>
+                        <li>
+                            <a href="#">Third Item</a>
+                        </li>
+                        <li>
+                            <a href="#">Last Item</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-nav-categories-popular">
+                <li class="side-nav-categories-popular-main">
+                    <a href="#"><b>POPULAR</b></a>
+                </li>
+                <li class="side-nav-categories-popular">
+                    <a href="#">Global issues</a>
+                </li>
+
+                <li class="side-nav-categories-popular">
+                    <a href="#">Environment</a>
+                </li>
+
+                <li class="side-nav-categories-popular">
+                    <a href="#">Humorous</a>
+                </li>
+
+                <li class="side-nav-categories-popular">
+                    <a href="#">Web</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- /.navbar-collapse -->
+    <!-- /.navbar-collapse -->
+</nav>
