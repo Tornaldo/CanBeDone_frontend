@@ -1,7 +1,6 @@
 # CanBeDone Front end
 ==================
 The front end of the social network for ideas.
-==================
 
 ## Dependencies
 - [Node.js (npm)](http://nodejs.org/)
