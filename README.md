@@ -26,6 +26,7 @@ The front end of the social network for ideas.
 	sudo apt-get install npm
 	```
 
+
 2. (Restart your shell and) Install the grunt client by entering the command:
 
 	```
@@ -37,6 +38,7 @@ The front end of the social network for ideas.
 	http://gruntjs.com/getting-started
 
 
+
 3. Navigate your shell to the git repository folder to install project dependencies. Run this command:
 
 	```
@@ -46,11 +48,13 @@ The front end of the social network for ideas.
 	Since the repository already contains a package.json and a grunt-file, this command should do the trick. take a look in package.json to see the dependencies that just got installed.
 
 
+
 4.  Install bower by running the command:
 
 	```
 	npm install -g bower
 	```
+
 
 5. Then in the git repository folder run the command:
 
@@ -60,6 +64,7 @@ The front end of the social network for ideas.
 
 	NOTE: If you get an ENOGIT error your shell does not have access to git.
 	Use git bash or a git shell running the same command 
+
 
 
 6. To access canBeDone locally, start the grunt server task by writing:
