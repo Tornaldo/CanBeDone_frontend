@@ -20,6 +20,11 @@ function (baseService, config) {
         var url = config.apiBaseUrl + 'ideas/' + id;
         return baseService.getResources(url);
         },
+
+        postIdea: function (idea) {
+        var url = 'api/ideas';
+        return baseService.postResource(url, idea);
+        },
     };
 
     /*
@@ -30,9 +35,7 @@ function (baseService, config) {
         return $http.get(url);
     };
 
-    this.postIdea = function (idea) {
-        var url = 'api/ideas';
-        return $http.post(url, idea);
+    
     }*/
 
 

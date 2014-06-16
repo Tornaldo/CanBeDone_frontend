@@ -21,6 +21,7 @@ angular
     'cbdCommon',
     'cbdBrowse',
     'cbdIdea',
+    'cbdIdeaConstruction',
   ])
 
   .config(['$routeProvider', function ($routeProvider) {
