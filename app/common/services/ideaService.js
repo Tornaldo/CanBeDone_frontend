@@ -4,7 +4,14 @@ factory('ideaService', ['baseService', 'config',
 
     return {
         getPopularIdeas: function(category) {
+        //wrong url. need api endpoint.
         var url = config.apiBaseUrl + 'ideas?page=0&pageSize=15';
+        return baseService.getResources(url);
+        },
+
+        getSearchResult: function(searchQuery, page, pageSize) {
+        //wrong url. need api endpoint.
+        var url = config.apiBaseUrl + 'ideas?page='+page+'&pageSize='+ pageSize;
         return baseService.getResources(url);
         },
     };
@@ -12,18 +19,6 @@ factory('ideaService', ['baseService', 'config',
         var url = 'api/ideas/' + id;
         return $http.get(url);
 
-    };
-
-    this.getIdeaResultSet = function (searchQuery, page, pageSize) {
-        var url = 'api/ideas?page='+page +"&pageSize=" + pageSize ;
-        return $http.get(url);
-
-    };
-
-
-    this.getPopularIdeas = function (category) {
-        var url = 'api/ideas?page=0&pageSize=15';
-        return $http.get(url);
     };
 
     this.getRelatedIdeas = function (id) {

@@ -1,0 +1,22 @@
+<div class="browse">
+    <div class="container">
+        <div class="row">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term"
+                       ng-model="search">
+
+                <div class="input-group-btn">
+                    <button class="btn btn-info" type="submit" ng-click="searchForIdeas(search)"><i
+                            class="glyphicon glyphicon-search"></i></button>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-12 col-lg-12">
+                    <search-result result-model="results" search-function="" error-model="error" max-row="4" max-column ="4"></search-result>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -19,6 +19,7 @@ angular
     'ui.bootstrap',
     'cbdFront',
     'cbdCommon',
+    'cbdBrowse',
   ])
 
   .config(['$routeProvider', function ($routeProvider) {

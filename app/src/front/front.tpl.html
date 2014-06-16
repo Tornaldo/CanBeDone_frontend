@@ -16,9 +16,9 @@
         <div class="home-intro-search">
             <form >
                 <div class="input-group clearfix">
-                    <input type="text" placeholder="Search..." class="form-control home-intro-search-text">
+                    <input type="text" placeholder="Search..." class="form-control home-intro-search-text" ng-model="query">
                     <div class="input-group-btn">
-                        <button class="btn btn-info">
+                        <button class="btn btn-info" ng-click="redirectToBrowse(query)">
                             <span class="glyphicon glyphicon-search"></span>
                         </button>
                     </div>

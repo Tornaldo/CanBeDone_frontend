@@ -29,7 +29,6 @@ angular.module('cbdFront', ['cbdCommon'])
     };
 
     $scope.redirectToBrowse = function(query) {
-        $log.info('/browse?search=' + query);
         $location.path('/browse').search({'search': query});
     };
 
