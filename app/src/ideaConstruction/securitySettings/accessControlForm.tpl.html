@@ -6,52 +6,52 @@
                 <div class="row" style=" border-radius: 10px;margin: 3px "
                 ng-style="idea.access =='public' && {'background-color': '#99D6FF'}  || idea.access !='public' && {'background-color': 'white'}">
 
+                    <div class="col-md-8">
+                        <div class="radio" ng-class="{
+                        'has-error': form.restrictOption.$invalid && form.$submitted,
+                        'has-success': form.$submitted && form.restrictOption.$valid}">
+
+                            <input id="publicRadio" type="radio" name="restrictOption" value="public"
+                            ng-model="idea.access" ng-click="showOptionsForRestricted(false)" ng-required="!idea.access">
+                            <label class="control-label" for="publicRadio"> <strong>Public (recommended)</strong></label>
+                        </div>
+                        <p>Everyone can see your idea, increasing your chances of finding help for implementing
+                            it.</p>
+                            <a href="#">learn More...</a>
+
+                        </div>
+
+                        <div class="col-md-4">
+                            <img src="../bundles/idesidejsandcss/images/public.png">
+                        </div>
+                    </div>
+                </div>
+            <div class="col-md-6">
+
+                <div class="row" style=" border-radius: 10px;margin: 3px "
+                ng-style="idea.access =='restricted' && {'background-color': '#99D6FF'} || idea.access !='restricted' && {'background-color': 'white'}">
+
                 <div class="col-md-8">
+
                     <div class="radio" ng-class="{
+
                     'has-error': form.restrictOption.$invalid && form.$submitted,
                     'has-success': form.$submitted && form.restrictOption.$valid}">
-
-                    <input id="publicRadio" type="radio" name="restrictOption" value="public"
-                    ng-model="idea.access" ng-click="showOptionsForRestricted(false)" ng-required="!idea.access">
-                    <label class="control-label" for="publicRadio"> <strong>Public (recommended)</strong></label>
-                </div>
-                <p>Everyone can see your idea, increasing your chances of finding help for implementing
-                    it.</p>
+                        <input id="restrictedRadio" type="radio" name="restrictOption" value="restricted"
+                        ng-model="idea.access" ng-click="showOptionsForRestricted(true)" ng-required="!idea.access">
+                        <label for="restrictedRadio" class="control-label" ><strong>Restricted</strong></label>
+                    </div>
+                    <p>You set rules for who can see the idea and who cannot.</p>
                     <a href="#">learn More...</a>
 
                 </div>
 
                 <div class="col-md-4">
-                    <img src="../bundles/idesidejsandcss/images/public.png">
+                    <img src="../bundles/idesidejsandcss/images/restricted.png">
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
-
-            <div class="row" style=" border-radius: 10px;margin: 3px "
-            ng-style="idea.access =='restricted' && {'background-color': '#99D6FF'} || idea.access !='restricted' && {'background-color': 'white'}">
-
-            <div class="col-md-8">
-
-                <div class="radio" ng-class="{
-
-                'has-error': form.restrictOption.$invalid && form.$submitted,
-                'has-success': form.$submitted && form.restrictOption.$valid}">
-                <input id="restrictedRadio" type="radio" name="restrictOption" value="restricted"
-                ng-model="idea.access" ng-click="showOptionsForRestricted(true)" ng-required="!idea.access">
-                <label for="restrictedRadio" class="control-label" ><strong>Restricted</strong></label>
-            </div>
-            <p>You set rules for who can see the idea and who cannot.</p>
-            <a href="#">learn More...</a>
-
-        </div>
-
-        <div class="col-md-4">
-            <img src="../bundles/idesidejsandcss/images/restricted.png">
-        </div>
     </div>
-</div>
-</div>
 <div class="row">
     <div class="col-md-12" ng-show="isRestrictedSelected">
         <div class="row" style=" border-radius: 10px;margin: 3px ">
