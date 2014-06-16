@@ -12,8 +12,8 @@ angular.module('cbdBrowse', ['cbdCommon'])
             
             if(angular.isDefined(searchParam)) {
               return ideaService.getSearchResult(searchParam, 0, 20).then(function (response) {
-                    return response;
-                });
+                return response;
+              });
             }
             else {
               return null;
