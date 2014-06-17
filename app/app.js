@@ -17,6 +17,8 @@ angular
     'ngSanitize',
     'ngTouch',
     'ui.bootstrap',
+    'ngTagsInput',
+    'summernote',
     'cbdFront',
     'cbdCommon',
     'cbdBrowse',
