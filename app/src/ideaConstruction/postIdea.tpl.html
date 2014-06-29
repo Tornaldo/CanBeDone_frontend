@@ -1,92 +1,88 @@
 <div class="browse">
-    <div class="container">
+    <div class="row">
+        <h1>Add idea</h1>
+    </div>
+    <form name="form" novalidate valid-submit="submit()" >
+
+        <ng-include src="'/src/ideaConstruction/securitySettings/accessControlForm.tpl.html'" ></ng-include>
+
         <div class="row">
-            <h1>Add idea</h1>
-        </div>
-        <form name="form" novalidate valid-submit="submit()" >
-            
-                <ng-include src="'/src/ideaConstruction/securitySettings/accessControlForm.tpl.html'" ></ng-include>
-            
-            <div class="row">
-                <div class="col-xs-12 col-md-8">
-                    <div control-group label="Title">
-                        <input 
-                            type="text" 
-                            class="form-control" 
-                            id="title" 
-                            name="title" 
-                            placeholder="Enter title" 
-                            ng-model="idea.title" 
-                            required />
-                        <span class="help-inline" ng-show="form.title.$error.required">This input is required</span>
-                    </div>
-
-                    <div control-group label="What">
-                        <textarea 
-                            type="text" 
-                            class="form-control" 
-                            id="what" 
-                            name="what" 
-                            placeholder="Summarize what your idea is in 160 characters or less." 
-                            ng-model="idea.what"
-                            ng-maxlength="160" 
-                            required> 
-                        </textarea>
-                        <span class="help-inline" ng-show="form.what.$error.required">This input is required</span>
-                        <span class="help-inline"
-                        ng-show="form.what.$error.maxlength">Max 160 characters! Short and sweet</span>
-                    </div>
-
-                    <div control-group label="Why">
-                        <textarea 
-                            type="text" 
-                            class="form-control" 
-                            id="why" 
-                            name="why" 
-                            placeholder="Summarize in 160 characters or less what the point of the idea is. What good will it do?" 
-                            ng-model="idea.why" 
-                            required ng-maxlength="160">
-                        </textarea>
-                        <span class="help-inline" ng-show="form.why.$error.required">This input is required</span>
-                        <span class="help-inline"
-                        ng-show="form.why.$error.maxlength">Max 160 characters! Short and sweet</span>
-                    </div>
+            <div class="col-xs-12 col-md-8">
+                <div control-group label="Title">
+                    <input 
+                    type="text" 
+                    class="form-control" 
+                    id="title" 
+                    name="title" 
+                    placeholder="Enter title" 
+                    ng-model="idea.title" 
+                    required />
+                    <span class="help-inline" ng-show="form.title.$error.required">This input is required</span>
                 </div>
 
-                <div class="col-xs-6 col-md-4">
-                    <div class="form-group spacer">
-                        <img src="../bundles/idesidejsandcss/images/noImage.gif" class="img-rounded">
-                    </div>
-                    <div class="form-group">
-                        <select ng-model="language" ng-options="language.name for language in languages"
-                        class="form-control"></select>
-                    </div>
-                </div>
-            </div>
-    
-    
-   
-
-            <div class="row">
-                <div class="form-group">
-                    <label>Tags</label>
-                    <tags-input custom-class="bootstrapCustom" ng-model="idea.tags" id="tagsInput"></tags-input>
+                <div control-group label="What">
+                    <textarea 
+                    type="text" 
+                    class="form-control" 
+                    id="what" 
+                    name="what" 
+                    placeholder="Summarize what your idea is in 160 characters or less." 
+                    ng-model="idea.what"
+                    ng-maxlength="160" 
+                    required> 
+                    </textarea>
+                    <span class="help-inline" ng-show="form.what.$error.required">This input is required</span>
+                    <span class="help-inline"
+                    ng-show="form.what.$error.maxlength">Max 160 characters! Short and sweet</span>
                 </div>
 
-                <div class="form-group">
-                    <label for="ideaDescription">Idea description</label>
-                    <summernote class="form-control" ng-model="idea.description" id="ideaDescription"
-                    placeholder="Describe your idea" height="400"></summernote>
-
-                </div>
-
-
-            </div>
-
-            <div class="row">
-                <input type="submit"  class="btn btn-primary btn-lg" value="Post idea" />
+                <div control-group label="Why">
+                    <textarea 
+                    type="text" 
+                    class="form-control" 
+                    id="why" 
+                    name="why" 
+                    placeholder="Summarize in 160 characters or less what the point of the idea is. What good will it do?" 
+                    ng-model="idea.why" 
+                    required ng-maxlength="160">
+                </textarea>
+                <span class="help-inline" ng-show="form.why.$error.required">This input is required</span>
+                <span class="help-inline"
+                ng-show="form.why.$error.maxlength">Max 160 characters! Short and sweet</span>
             </div>
         </div>
+        <div class="col-xs-6 col-md-4">
+            <div class="form-group spacer">
+                <img src="../bundles/idesidejsandcss/images/noImage.gif" class="img-rounded">
+            </div>
+            <div class="form-group">
+                <select ng-model="language" ng-options="language.name for language in languages"
+                class="form-control"></select>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="form-group">
+            <label>Tags</label>
+            <tags-input custom-class="bootstrapCustom" ng-model="idea.tags" id="tagsInput"></tags-input>
+        </div>
+
+        <div class="form-group">
+            <label for="ideaDescription">Idea description</label>
+            <summernote class="form-control" ng-model="idea.description" id="ideaDescription"
+            placeholder="Describe your idea" height="400"></summernote>
+
+        </div>
+
+
+    </div>
+
+    <div class="row">
+        <input type="submit"  class="btn btn-primary btn-lg" value="Post idea" />
+    </div>
+
     </form>
 </div>
 
