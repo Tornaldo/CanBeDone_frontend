@@ -8,9 +8,9 @@
  *
  * Main module of the application.
  */
-angular
+  angular
   .module('canBeDoneApp', [
-    'ngAnimate',
+    //'ngAnimate',
     'ngCookies',
     'ngResource',
     'ngRoute',
@@ -35,5 +35,25 @@ angular
 
 
   .constant('config', {
-    apiBaseUrl: 'http://localhost:8080/A/web/app_dev.php/api/',
+    apiBaseUrl: 'http://localhost/A/web/app_dev.php/api/',
+  })
+
+
+ .factory('cbdShared', function($rootScope) {
+      var cbdshared = {};
+
+      cbdshared.searchnav = '';
+
+      cbdshared.broadcastinput = function(searchnav1) {
+          this.searchnav = searchnav1;
+          this.broadcastSearch();
+      };
+      cbdshared.broadcastSearch = function() {
+          $rootScope.$broadcast('searchNav', {
+              searchText: cbdshared.searchnav // send whatever you want
+        });
+      };
+
+      return cbdshared;
   });
+

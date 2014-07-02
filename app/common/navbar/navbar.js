@@ -1,5 +1,5 @@
 angular.module('cbdCommon', ['ui.bootstrap'])
-	.controller('headerCtrl', function($scope, $location) {
+	.controller('headerCtrl', function($scope, $location, cbdShared) {
 	    $scope.sidebar = false;
 
 	    $scope.toggeSidebar = function() {
@@ -8,4 +8,12 @@ angular.module('cbdCommon', ['ui.bootstrap'])
 	    $scope.isActive = function (viewLocation) {
 	        return viewLocation === $location.path();
 	    };
+
+		$scope.searchForIdeasNav = function(searchnav) {
+	        cbdShared.broadcastinput(searchnav);
+	    };
+
 	});
+
+
+
