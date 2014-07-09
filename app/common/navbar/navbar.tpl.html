@@ -5,9 +5,9 @@
                 <!-- <p>zeki</p> -->
                 <div class="navbar-search-box">
                     <div class="input-group clearfix">
-                        <input type="text" class="form-control navbar-search-box-font" placeholder="Search for ideas...">
+                        <input type="text" ng-model="searchfromnav" class="form-control navbar-search-box-font" placeholder="Search for ideas...">
                         <div class="input-group-btn">
-                            <button class="btn btn-default btn-search" type="submit">
+                            <button class="btn btn-default btn-search" type="submit" ng-click="searchForIdeasNav(searchfromnav)">
                                 <i class="glyphicon glyphicon-search"></i>
                             </button>
                         </div>

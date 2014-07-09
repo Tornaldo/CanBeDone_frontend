@@ -8,4 +8,8 @@ angular.module('cbdCommon', ['ui.bootstrap'])
 	    $scope.isActive = function (viewLocation) {
 	        return viewLocation === $location.path();
 	    };
+
+	    $scope.searchForIdeasNav = function(searchnav) { 
+			 $location.path('/browse').search({search: searchnav});
+	    };
 	});

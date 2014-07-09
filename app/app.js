@@ -10,7 +10,7 @@
  */
 angular
   .module('canBeDoneApp', [
-    'ngAnimate',
+    //'ngAnimate',
     'ngCookies',
     'ngResource',
     'ngRoute',
@@ -35,5 +35,5 @@ angular
 
 
   .constant('config', {
-    apiBaseUrl: 'http://localhost:8080/A/web/app_dev.php/api/',
+    apiBaseUrl: 'http://localhost/A/web/app_dev.php/api/',
   });
