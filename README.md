@@ -17,19 +17,19 @@ The front end of the social network for ideas.
 	Ubuntu
 	From Ubuntu 12.04 to 13.04, an old version (0.6.x) of Node is in the standard repository. For Ubuntu 13.10 and 14.04, 0.10.X versions are present. To install, just run:
 		
-	```
+	```bash
 	sudo apt-get install nodejs
 	```
 	To install npm on Ubuntu 13.10 and 14.04, run:
 
-	```
+	```bash
 	sudo apt-get install npm
 	```
 
 
 2. (Restart your shell and) Install the grunt client by entering the command:
 
-	```
+	```bash
 	npm install -g grunt-cli
 	```
 
@@ -40,23 +40,33 @@ The front end of the social network for ideas.
 
 3.  Install bower by running the command:
 
-	```
+	```bash
 	npm install -g bower
 	```
 
 
 4. Install ruby and compass for SASS css files.
-	```
+	```bash
 	sudo apt-get install ruby1.9.1
 	```
-	```
+	```bash
 	sudo gem install compass
+	```
+	
+	On Windows:
+	use [Windows ruby installer](http://rubyinstaller.org/downloads/)
+	and add it po path. (replace ruby home with installation folder)
+	```shell
+	set PATH=[RUBY_HOME]\bin;%PATH%
+	```
+	```shell
+	gem install compass
 	```
 
 
 5. Navigate your shell to the git repository folder to install project dependencies. Run this command:
 
-	```
+	```bash
 	npm install
 	```
 
@@ -79,6 +89,6 @@ The front end of the social network for ideas.
 
 7. To access canBeDone locally, start the grunt server task by writing:
 
-	```	
+	```bash
 	grunt serve
 	```
