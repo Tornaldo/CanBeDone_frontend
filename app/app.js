@@ -19,6 +19,7 @@ angular
     'ui.bootstrap',
     'ngTagsInput',
     'summernote',
+    'cbdConfig',
     'cbdFront',
     'cbdCommon',
     'cbdBrowse',
@@ -31,9 +32,5 @@ angular
       .otherwise({
         redirectTo: '/'
       });
-  }])
+  }]);
 
-
-  .constant('config', {
-    apiBaseUrl: 'http://localhost:8080/A/web/app_dev.php/api/',
-  });
