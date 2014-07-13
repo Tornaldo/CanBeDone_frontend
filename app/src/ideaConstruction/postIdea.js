@@ -8,8 +8,8 @@ angular.module('cbdIdeaConstruction', ['cbdCommon'])
   }])
 
 
-.controller('postIdeaCtrl', ['$scope','ideaService',
-function ($scope,ideaService) {
+.controller('postIdeaCtrl', ['$scope','ideaService', 'notification',
+function ($scope,ideaService, notification) {
 
     
     $scope.submitted = false;
@@ -24,9 +24,9 @@ function ($scope,ideaService) {
 
         ideaService.postIdea($scope.idea)
             .then(function(data) {
-                console.log("funket");
+                notification.success("Idea posted");
             }, function(error) {
-                console.log(error);
+                notification.error("Could not post your idea." + error);
             });
             
 
