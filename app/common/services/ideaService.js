@@ -22,7 +22,8 @@ function (baseService, config) {
         },
 
         postIdea: function (idea) {
-        var url = 'api/ideas';
+        console.log(idea);
+        var url = config.apiBaseUrl + 'ideas';
         return baseService.postResource(url, idea);
         },
     };

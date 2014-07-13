@@ -1,4 +1,4 @@
-angular.module('cbdCommon', ['ui.bootstrap'])
+angular.module('cbdCommon')
 	.controller('headerCtrl', function($scope, $location) {
 	    $scope.sidebar = false;
 

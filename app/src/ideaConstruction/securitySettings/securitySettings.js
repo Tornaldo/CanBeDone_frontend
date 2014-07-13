@@ -13,7 +13,7 @@ angular.module('cbdIdeaConstruction').directive('securityPanel', [ function() {
 
 	      		scope.isRestrictedSelected = show;
 		        if(show == false) {
-		            scope.securityModel = {};
+		            //scope.securityModel = {};
 
 		        }
 		    };

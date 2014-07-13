@@ -8,32 +8,25 @@ angular.module('cbdIdeaConstruction', ['cbdCommon'])
   }])
 
 
-.controller('postIdeaCtrl', ['$scope','ideaService',
-function ($scope,ideaService) {
+.controller('postIdeaCtrl', ['$scope','ideaService', 'notification',
+function ($scope,ideaService, notification) {
 
-    $scope.isRestrictedSelected = false;
+    
     $scope.submitted = false;
     $scope.languages = [{name: 'English'}, {name: 'Norwegian'}];
     $scope.language = $scope.languages[0];
     $scope.idea = {};
     $scope.idea.accessOptions = {};
 
-    $scope.showOptionsForRestricted = function(show) {
-
-       $scope.isRestrictedSelected = show;
-        if(show == false) {
-            $scope.idea.accessOptions = {};
-
-        }
-    };
+    
 
     $scope.submit = function() {
 
         ideaService.postIdea($scope.idea)
             .then(function(data) {
-                console.log("funket");
+                notification.success("Idea posted");
             }, function(error) {
-                console.log("funket ikke");
+                notification.error("Could not post your idea." + error);
             });
             
 

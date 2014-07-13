@@ -4,13 +4,11 @@
  * @requires sessionStorage 
  * @requires $rootScope 
  * @requires api 
- * @description A wrapper service for $window.localStorage.
- * Data can be put into localStorage, and will persist even
- * if user exit site. Data will disappear when user close
- * the browser tab. Different browser tabs does not share
- * the same localStorage. 
- *
- * TODO: cookieStore or localStorage?
+ * @description SessionManager take care of configuring a session.
+ * Putting data in localStorage, rootscope and in http header.
+ * SessionManager can be used on application init, to see if 
+ * user is already logged in (Has token), and when user has logged in,
+ * or logging out
  * 
 **/
 angular.module('cbdCommon').
@@ -83,7 +81,7 @@ factory('sessionManager', ['sessionStorage', '$rootScope', 'api',
 
     };
 
-}]);
+}])
 
 
 /**

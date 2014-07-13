@@ -27,7 +27,7 @@
                     id="what" 
                     name="what" 
                     placeholder="Summarize what your idea is in 160 characters or less." 
-                    ng-model="idea.what"
+                    ng-model="idea.shortDescriptionWhat"
                     ng-maxlength="160" 
                     required> 
                     </textarea>
@@ -43,8 +43,8 @@
                     id="why" 
                     name="why" 
                     placeholder="Summarize in 160 characters or less what the point of the idea is. What good will it do?" 
-                    ng-model="idea.why" 
-                    required ng-maxlength="160">
+                    ng-model="idea.shortDescriptionWhy" 
+                    ng-maxlength="160">
                 </textarea>
                 <span class="help-inline" ng-show="form.why.$error.required">This input is required</span>
                 <span class="help-inline"
