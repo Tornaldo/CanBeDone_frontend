@@ -26,6 +26,12 @@ function (baseService, config) {
         var url = config.apiBaseUrl + 'ideas';
         return baseService.postResource(url, idea);
         },
+
+        login: function (credentials) {
+            console.log(credentials);
+            var url = config.apiBaseUrl + 'ideas/' + credentials;
+            return baseService.postResource(url, credentials);
+        },
     };
 
     /*

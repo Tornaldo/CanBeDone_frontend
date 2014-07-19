@@ -12,4 +12,6 @@ angular.module('cbdCommon')
 	    $scope.searchForIdeasNav = function(searchnav) { 
 			 $location.path('/browse').search({search: searchnav});
 	    };
+
+
 	});

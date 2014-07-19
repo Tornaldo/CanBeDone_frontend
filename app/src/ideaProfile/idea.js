@@ -9,7 +9,7 @@ angular.module('cbdIdea', ['cbdCommon'])
         resolve: {
           idea: ['ideaService','$route', function(ideaService, $route) {
             var ideaParam = $route.current.params.ideaId;
-
+            console.log('ideaParam: ' + ideaParam);
             if(angular.isDefined(ideaParam)) {
                 return ideaService.getIdea(ideaParam).then(function (response) {
                     return response;
@@ -26,8 +26,10 @@ angular.module('cbdIdea', ['cbdCommon'])
 
 .controller('IdeaCtrl', ['$scope', 'idea', function ($scope, idea) {
 
-    $scope.idea = idea.idea[0];
+    $scope.idea = idea.idea;
+    console.log('idea:' +  $scope.idea)
 
+     
 
 }])
 

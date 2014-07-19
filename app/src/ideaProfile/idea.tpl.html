@@ -7,7 +7,7 @@
                 </div>
             </div>
             <div class="sid-nav-right-title col-lg-8 col-md-8 col-sm-8 col-xs-8">
-                <p class="other-ideas-text">{{ idea.Idea_title }}</p>
+                <p class="other-ideas-text">Idea for funny animated show for teenagers and adults</p>
             </div>
         </li>
         <li class="side-nav-right-idea-container clearfix">
@@ -47,25 +47,25 @@
     <div class="idea-profile-container clearfix">
         <div class="idea-profile-image-container">
             <div class="well">
-                <img src="http://th08.deviantart.net/fs71/PRE/i/2011/314/3/e/mount_fuji_by_elfullero-d4fq1xt.jpg""
+                <img src="http://th08.deviantart.net/fs71/PRE/i/2011/314/3/e/mount_fuji_by_elfullero-d4fq1xt.jpg"
                 class="image-title" alt="My Image">
             </div>
         </div>
         <!--Title + What and why-->
         <h1 class="idea-profile-title  col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-            <b>{{idea.Idea_title}}</b>
+            <b>{{idea.title}}</b>
         </h1>
 
         <div class="row idea-profile-why-what-container">
             <div class="idea-profile-what col-xs-6 col-sm-6 col-md-6 col-lg-6">
                 <p class="idea-profile-what-why-heading">What:</p>
 
-                <p><i><b>{{idea.Idea_shortDescriptionWhat}}</b></i></p>
+                <p><i><b>{{idea.shortDescriptionWhat}}</b></i></p>
             </div>
             <div class="idea-profile-why col-xs-6 col-sm-6 col-md-6 col-lg-6">
                 <p class="idea-profile-what-why-heading">Why:</p>
 
-                <p><i><b>{{idea.Idea_shortDescriptionWhy}}</b></i></p>
+                <p><i><b>{{idea.shortDescriptionWhy}}</b></i></p>
             </div>
             <div class="idea-profile-what-why-date-view col-xs-2 col-sm-2 col-md-2 col-lg-2">
                 <div class="idea-profile-wants-team-members-category pull-left"></div>
@@ -81,7 +81,7 @@
             </a>
 
             <div class="media-body">
-                <h4 class="media-heading written-by-heading"><a>{{idea.user }}</a></h4>
+                <h4 class="media-heading written-by-heading"><a>{{idea.user.username }}</a></h4>
 
                 <div class="btn btn-primary written-by-message-btn clearfix">
                     <p class="written-by-message-btn-para"><i class="fa fa-envelope-o"></i> Message</p>
@@ -95,12 +95,29 @@
                 <p class="idea-profile-like-this-idea-text col-xs-7 col-sm-7 col-md-7 col-lg-7"><b>Do you like this
                     idea?:</b></p>
 
-                <p><i class="fa fa-thumbs-o-up like-idea-icon col-xs-1 col-sm-1 col-md-1 col-lg-1"></i></p>
+                <p><i ng-click="slide()" class=" clickme1 fa fa-thumbs-o-up like-idea-icon col-xs-1 col-sm-1 col-md-1 col-lg-1"></i></p>
             </div>
         </div>
+
+    <script>
+
+       
+        
+        $( ".clickme1" ).click(function() {
+
+            if($( "#drop1" ).is( ":hidden" ) ) {
+              $("#drop1").slideDown(400);
+              $(".idea-profile-like-this-idea").hide();
+
+            } else {
+              $( "#drop1" ).hide();
+
+            }
+          })
+      </script>
         <!--Thanks for liking - share!-->
         <!--Thanks for liking - your competence is wanted!-->
-        <div class="idea-profile-after-liking col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="idea-profile-after-liking col-xs-12 col-sm-12 col-md-12 col-lg-12" id="drop1">
             <div class="text-center">
                 <div>
                     <p class="idea-profile-after-liking-text-A">Thanks for liking the idea! Your strengths are needed on
@@ -158,6 +175,10 @@
                             class="fa fa-coffee"></i>&nbsp;Get in touch</b></a>
                 </div>
             </div>
+        </div>
+
+        <div class="idea-profile-faq">
+            <h2>FAQ</h2>
         </div>
         <!--See additional teams-->
         <!--Multiple teams are working on this idea-->

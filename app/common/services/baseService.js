@@ -15,6 +15,7 @@ factory('baseService', ['$http', '$q', function ($http, $q) {
         var deferred = $q.defer();
         $http.get(url).success(function(data){
             //Passing data to deferred's resolve function on successful completion
+            console.log('data'+ data);
             deferred.resolve(data);
         }).error(function(error){
 
