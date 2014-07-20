@@ -52,27 +52,63 @@
             </div>
         </div>
         <!--Title + What and why-->
-        <h1 class="idea-profile-title  col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-            <b>{{idea.title}}</b>
-        </h1>
+        <div ng-hide="titleEditorOn">
+            <h1 class="idea-profile-title  col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                <b>{{idea.title}}</b> <button class="bun btn-info btn-idea-editor" ng-click="enableIdeaEditor('title')"> Edit </button>
+            </h1>
+        </div>
+        <div ng-show="titleEditorOn">
+            <h1 class="idea-profile-title  col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                <input ng-model="editIdeaTitle" class="form-control">
+                <a  ng-click="save('title')">save</a> or
+                <a  ng-click="disableIdeaEditor('title')">cancel</a>
+            </h1>
+        </div>
 
         <div class="row idea-profile-why-what-container">
-            <div class="idea-profile-what col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                <p class="idea-profile-what-why-heading">What:</p>
-
+            <div ng-hide="whatEditorOn" class="idea-profile-what col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <p class="idea-profile-what-why-heading">What:</p> 
                 <p><i><b>{{idea.shortDescriptionWhat}}</b></i></p>
+                <p><button class="bun btn-info btn-idea-editor" ng-click="enableIdeaEditor('what')"> Edit </button></p>
             </div>
-            <div class="idea-profile-why col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                <p class="idea-profile-what-why-heading">Why:</p>
+            <div ng-show="whatEditorOn" class="idea-profile-what col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <p class="idea-profile-what-why-heading">What:</p> 
+                <p>
+                    <textarea ng-model="editIdeaWhat" type="text" class="form-control" id="what" name="what" > </textarea>    
+                    <p> 
+                        <a  ng-click="save('what')">save</a> or
+                        <a  ng-click="disableIdeaEditor('what')">cancel</a>
+                    </p>
+                </p>
+            </div>
 
-                <p><i><b>{{idea.shortDescriptionWhy}}</b></i></p>
+            <div ng-hide="whyEditorOn" class="idea-profile-why col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <p class="idea-profile-what-why-heading">Why:</p>   
+                <p><i><b>{{idea.shortDescriptionWhy}}</b></i></p>  
+                <p><button class="bun btn-info btn-idea-editor" ng-click="enableIdeaEditor('why')"> Edit </button></p>
             </div>
-            <div class="idea-profile-what-why-date-view col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                <div class="idea-profile-wants-team-members-category pull-left"></div>
+            <div ng-show="whyEditorOn" class="idea-profile-why col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <p class="idea-profile-what-why-heading">Why:</p>   
+                <p>
+                    <textarea ng-model="editIdeaWhy" type="text" class="form-control" id="what" name="what" > </textarea>    
+                    <p> 
+                        <a  ng-click="save('why')">save</a> or
+                        <a  ng-click="disableIdeaEditor('why')">cancel</a>
+                    </p>
+                </p>
             </div>
         </div>
-        <div class="idea-profile-description col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            {{idea.description}}
+        <div ng-hide="descriptionEditorOn" class="idea-profile-description col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            {{idea.description}} <button class="bun btn-info btn-idea-editor" ng-click="enableIdeaEditor('description')"> Edit </button>
+        </div>
+        <div ng-show="descriptionEditorOn" class="idea-profile-description col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <p>
+                <textarea ng-model="editIdeadescription" type="text" class="form-control" id="what" name="what" > </textarea>    
+                <p> 
+                    <a  ng-click="save('description')">save</a> or
+                    <a  ng-click="disableIdeaEditor('description')">cancel</a>
+                </p>
+            </p>
         </div>
         <div class="media written-by pull-right col-xs-3 col-sm-3 col-md-3 col-lg-3">
             <a class="pull-left" href="#">
@@ -137,10 +173,20 @@
                 <br>
                 <h4 class="team-box-sub-header"><b>About team</b></h4>
 
-                <p class="about-team-text">Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel
-                    ports. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ut velocity magna. Etiam
-                    vehicula nunc non leo hendrerit commodo. Vestibulum vulputate mauris eget erat congue dapibus
-                    imperdiet justo scelerisque.</p>
+                <p ng-hide="teamEditorOn" lass="about-team-text">
+                     {{ideaabt0}}
+                     <button class="bun btn-info btn-idea-editor" ng-click="enableIdeaEditor('about')"> Edit </button> 
+                </p>
+
+                <p ng-show="teamEditorOn" class="about-team-text">
+                    
+                    <textarea ng-model="editIdeateam" type="text" class="form-control" id="what" name="what" > </textarea>    
+                    
+                        <a  ng-click="save('about')">save</a> or
+                        <a  ng-click="disableIdeaEditor('about')">cancel</a>
+                    </p>
+                </p>
+                </p>
                 <a href="#" class="team-box-more hidden">...more</a>
             </div>
             <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
@@ -160,7 +206,7 @@
                         <b>Marketing </b>
                     </li>
                     <li>
-                        <b>Something: </b>Something, Something else
+                        <b>Something: </b>Something, Something else <button class="bun btn-info btn-idea-editor"> Edit </button>
                     </li>
                 </ul>
                 <a href="#" class="team-box-more hidden">...more</a>

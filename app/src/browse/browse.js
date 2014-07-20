@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('cbdBrowse', ['cbdCommon'])
-  .config(['$routeProvider', function ($routeProvider, cbdShared) {
+  .config(['$routeProvider', function ($routeProvider) {
     $routeProvider
       .when('/browse', {
         templateUrl: 'src/browse/browse.tpl.html',
@@ -26,7 +26,7 @@ angular.module('cbdBrowse', ['cbdCommon'])
 
   .controller('BrowseCtrl', 
   ['$scope', '$routeParams', '$location', '$routeParams','ideaService' ,'searchResult', 
-  function ($scope,$routeParams, $location, routeParams, ideaService, searchResult, cbdShared) {
+  function ($scope,$routeParams, $location, routeParams, ideaService, searchResult) {
     $scope.results = searchResult;
     console.log('searresult: ' +  searchResult);
     $scope.error = null;

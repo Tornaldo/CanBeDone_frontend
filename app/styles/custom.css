@@ -12,6 +12,30 @@ author: bootply.com
 
 }
 
+.btn-idea-editor:hover {
+color: #ffffff;
+text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+background-color: #da4f49;
+border-color: #bd362f #bd362f #802420;
+padding: 4px 12px;
+margin-bottom: 0;
+font-size: 13px;
+vertical-align: middle;
+cursor: pointer;
+}
+
+.btn-idea-editor {
+	color: black;
+	background: white;
+	line-height: 10px;
+	text-align: center;
+	font-size: 13px;
+	text-shadow: 0 1px 0 white;
+	border-color: white white white;
+	padding: 4px 12px;
+
+
+}
 
 .navbar-nav > li > .btn-post {
 	padding-top: 3px;
@@ -177,9 +201,7 @@ width:450px;
 .carousel-indicators {
 	display: none;
 }
-input {
-	height:7px;
-}
+
 .icon-bar-nav {
 	display: block;
 background: rgb(65, 65, 65);
