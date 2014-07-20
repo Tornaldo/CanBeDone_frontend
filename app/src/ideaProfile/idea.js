@@ -137,13 +137,13 @@ angular.module('cbdIdea', ['cbdCommon'])
         $scope.disableIdeaEditor('what');}
       else if(edittype == 'why'){
         $scope.idea.shortDescriptionWhy = $scope.editIdeaWhy;
-        $scope.disableWhyEditor('why');}
+        $scope.disableIdeaEditor('why');}
       else if(edittype == 'description'){
         $scope.idea.description = $scope.editIdeadescription;
-        $scope.disabledescriptionEditor('description');}
+        $scope.disableIdeaEditor('description');}
       else if(edittype == 'about'){
         $scope.ideaabt0 = $scope.editIdeateam;
-        $scope.disableTeamEditor('about');}        
+        $scope.disableIdeaEditor('about');}        
     }; 
 
 }])
