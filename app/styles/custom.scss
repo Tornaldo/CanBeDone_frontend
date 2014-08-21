@@ -2,10 +2,14 @@
 /*
 **  IMPORTS
 */
+@import "compass/css3/filter";
 
 @import "partials/bits",
         "partials/mixins";
 
+@import "modules/home",
+        "modules/common",
+        "modules/ideaPage";
 
 //Navbar
 $navbarLinks: #1e1e1e;
@@ -417,6 +421,7 @@ body {
   width: 220px;
   height: 290px;
 }
+/*
 .thumbnail-modified-ideas {
   box-shadow: $thumbnailBoxShadow 0 2px 2px 0;
   color: $fontColor_7;
@@ -432,6 +437,7 @@ body {
   &:hover {
   }
 }
+
 .image-inside-thumb-container-ideas {
   overflow: hidden;
   position: relative;
@@ -441,6 +447,7 @@ body {
   padding-top: 0;
   cursor: pointer;
 }
+*/
 .carousel-control {
   position: absolute;
   top: 0;
@@ -710,11 +717,13 @@ iframe {
   background: #FFF;
   border-bottom: 1px solid #c0c0c0;
 }
+/*
 .sid-nav-right-title {
   font-weight: 700;
   margin: 0;
   padding: 0 0 0 8px;
 }
+
 .other-ideas-text {
   font-size: 11px;
   font-style: default;
@@ -723,6 +732,7 @@ iframe {
     color: #fe9a2e;
   }
 }
+
 .image-inside-thumb-container-other-ideas {
   width: 110px;
   height: 80px;
@@ -737,6 +747,7 @@ iframe {
   margin: -100px -1055px 100px -105px;
   padding: 0;
 }
+*/
 .idea-profile-other-ideas-super-containter {
   background: #ecf8e0;
   position: fixed;
@@ -772,9 +783,12 @@ iframe {
 .team-box-sub-header {
   color: #383838;
 }
+
+/*
 .idea-profile {
   width: 100%;
 }
+
 .idea-profile-container {
   float: none;
   background: $commonHeaderAndOtherBackgroundColor;
@@ -788,6 +802,7 @@ iframe {
   z-index: -1;
   margin: auto;
 }
+
 .idea-profile-title {
   font-style: default;
   font-family: $font_4;
@@ -798,6 +813,7 @@ iframe {
   padding-right: 10%;
   font-size: 24px;
 }
+
 .idea-profile-image-container {
   overflow: hidden;
   width: 664px;
@@ -808,6 +824,7 @@ iframe {
   z-index: 1;
   position: relative;
 }
+*/
 .well {
   display: table;
   width: 664px;
@@ -1007,6 +1024,7 @@ iframe {
   background: none;
   color: $fontColor_1;
 }
+/*
 .navbar-nav > li {
   &.dropdown-reg > {
     a {
@@ -1034,6 +1052,7 @@ iframe {
     }
   }
 }
+*/
 li.dropdown-submenu2 > a {
   color: $fontColor_5;
   padding-left: 35px;
@@ -1085,7 +1104,7 @@ ul.dropdown-menu-mod1 > .dropdown-menu-mod1-li {
 .home-find-team-col:hover {
   background: #808080;
 }
-
+/*
 .side-nav-right> li.side-nav-right-idea-container {
   margin-top: 20px;
   margin-left: 5px;
@@ -1096,6 +1115,7 @@ ul.dropdown-menu-mod1 > .dropdown-menu-mod1-li {
   background: #f0f0f0;
   opacity: .8;
 }
+*/
 .media-body > h4 {
   padding-bottom: 4px;
   margin: 0;

@@ -1,0 +1,31 @@
+
+/*
+**	NAVBAR
+*/
+.navbar-nav > li {
+  &.dropdown-reg > {
+    a {
+      padding-bottom: 0;
+      margin-top: 0;
+      margin-left: 0;
+    }
+    ul {
+      margin-top: 16px;
+    }
+  }
+  > .btn-post {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    background: #5cb85c;
+    color: $fontColor_1;
+    margin-top: 10px;
+    box-shadow: 1px 1px 1px #888888;
+    border: 1px solid #BFD8C8;
+    margin-right: 5px;
+    border-color: #4cae4c;
+    &:hover {
+      background-color: #47a447;
+      border-color: #398439;
+    }
+  }
+}

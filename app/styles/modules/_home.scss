@@ -1,0 +1,37 @@
+
+
+
+/*
+** IDEA BOX
+*/
+
+$ideaboxBorderRadius: $cornerRadius_small;
+
+.thumbnail-modified-ideas {
+	box-shadow: $thumbnailBoxShadow 0 2px 2px 0;
+	color: $fontColor_7;
+	position: relative;
+	text-align: left;
+	border-radius: $ideaboxBorderRadius;
+	font: normal normal normal 12px/18px $font_0, $font_1, $font_2, $font_3;
+	outline: $fontColor_7 none 0;
+	width: 100%;
+	height: 290px;
+	background: #FFF;
+	padding: 0;
+	&:hover {
+		.image-inside-thumb-container-ideas {
+			@include filter(grayscale(0%));
+		}
+	}
+	.image-inside-thumb-container-ideas {
+		overflow: hidden;
+		position: relative;
+		height: 50%;
+		width: 100%;
+		padding-top: 0;
+		border-radius: $ideaboxBorderRadius $ideaboxBorderRadius 0px 0px;
+		cursor: pointer;
+		@include filter(grayscale(70%));
+	}
+}

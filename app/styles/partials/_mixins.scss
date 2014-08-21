@@ -3,3 +3,15 @@
 **	MIXINS
 **
 */
+
+@mixin grayscale {
+	filter: grayscale(100%);
+	filter: url(greyscale);
+	filter: gray;
+	-webkit-filter: grayscale(1);
+}
+
+@mixin deGrayscale {
+	filter: grayscale(0%);
+	filter: color;
+}
