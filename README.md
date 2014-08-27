@@ -92,3 +92,15 @@ The front end of the social network for ideas.
 	```bash
 	grunt serve
 	```
+	
+	
+NOTE:	To get project working:
+1. Create "config" folder inside "app" folder.
+2. Make a file config.js
+3. Enter:
+
+angular.module('cbdConfig', []).constant('config', {
+apiBaseUrl: 'http://localhost:8080/A/web/app_dev.php/api/',
+});
+
+Change apiBaseUrl as you please
