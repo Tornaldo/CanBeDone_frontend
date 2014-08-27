@@ -7,7 +7,7 @@
                 </div>
             </div>
             <div class="sid-nav-right-title col-lg-8 col-md-8 col-sm-8 col-xs-8">
-                <p class="other-ideas-text">{{ idea.Idea_title }}</p>
+                <p class="other-ideas-text">Idea for funny animated show for teenagers and adults</p>
             </div>
         </li>
         <li class="side-nav-right-idea-container clearfix">
@@ -42,37 +42,74 @@
         </li>
     </ul>
 </div>
+
 <div class="idea-profile clearfix">
     <!--picture-->
     <div class="idea-profile-container clearfix">
         <div class="idea-profile-image-container">
             <div class="well">
-                <img src="http://th08.deviantart.net/fs71/PRE/i/2011/314/3/e/mount_fuji_by_elfullero-d4fq1xt.jpg""
+                <img src="http://th08.deviantart.net/fs71/PRE/i/2011/314/3/e/mount_fuji_by_elfullero-d4fq1xt.jpg"
                 class="image-title" alt="My Image">
             </div>
         </div>
         <!--Title + What and why-->
-        <h1 class="idea-profile-title  col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-            <b>{{idea.Idea_title}}</b>
-        </h1>
+        <div ng-hide="titleEditorOn">
+            <h1 class="idea-profile-title  col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                <b>{{idea.title}}</b> <a class="btn-idea-editor" ng-click="enableIdeaEditor('title')"> Edit </a>
+            </h1>
+        </div>
+        <div ng-show="titleEditorOn">
+            <h1 class="idea-profile-title  col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                <input ng-model="editIdeaTitle" class="form-control">
+                <a  class="btn-idea-editor" ng-click="save('title')">save</a> <span class="btn-idea-editor"> or</span>
+                <a  class="btn-idea-editor" ng-click="disableIdeaEditor('title')">cancel</a>
+            </h1>
+        </div>
 
         <div class="row idea-profile-why-what-container">
-            <div class="idea-profile-what col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                <p class="idea-profile-what-why-heading">What:</p>
-
-                <p><i><b>{{idea.Idea_shortDescriptionWhat}}</b></i></p>
+            <div ng-hide="whatEditorOn" class="idea-profile-what col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <p class="idea-profile-what-why-heading">What:</p> 
+                <p><i><b>{{idea.shortDescriptionWhat}}</b></i></p>
+                <p><a class="btn-idea-editor" ng-click="enableIdeaEditor('what')"> Edit </a></p>
             </div>
-            <div class="idea-profile-why col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                <p class="idea-profile-what-why-heading">Why:</p>
-
-                <p><i><b>{{idea.Idea_shortDescriptionWhy}}</b></i></p>
+            <div ng-show="whatEditorOn" class="idea-profile-what col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <p class="idea-profile-what-why-heading">What:</p> 
+                <p>
+                    <textarea ng-model="editIdeaWhat" type="text" class="form-control" id="what" name="what" > </textarea>    
+                    <p> 
+                        <a  ng-click="save('what')">save</a> or
+                        <a  ng-click="disableIdeaEditor('what')">cancel</a>
+                    </p>
+                </p>
             </div>
-            <div class="idea-profile-what-why-date-view col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                <div class="idea-profile-wants-team-members-category pull-left"></div>
+
+            <div ng-hide="whyEditorOn" class="idea-profile-why col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <p class="idea-profile-what-why-heading">Why:</p>   
+                <p><i><b>{{idea.shortDescriptionWhy}}</b></i></p>  
+                <p><a class="btn-idea-editor" ng-click="enableIdeaEditor('why')"> Edit </a></p>
+            </div>
+            <div ng-show="whyEditorOn" class="idea-profile-why col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <p class="idea-profile-what-why-heading">Why:</p>   
+                <p>
+                    <textarea ng-model="editIdeaWhy" type="text" class="form-control" id="what" name="what" > </textarea>    
+                    <p> 
+                        <a  ng-click="save('why')">save</a> or
+                        <a  ng-click="disableIdeaEditor('why')">cancel</a>
+                    </p>
+                </p>
             </div>
         </div>
-        <div class="idea-profile-description col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            {{idea.description}}
+        <div ng-hide="descriptionEditorOn" class="idea-profile-description col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            {{idea.description}} <a class="btn-idea-editor" ng-click="enableIdeaEditor('description')"> Edit </a>
+        </div>
+        <div ng-show="descriptionEditorOn" class="idea-profile-description col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <p>
+                <textarea ng-model="editIdeadescription" type="text" class="form-control" id="what" name="what" > </textarea>    
+                <p> 
+                    <a  ng-click="save('description')">save</a> or
+                    <a  ng-click="disableIdeaEditor('description')">cancel</a>
+                </p>
+            </p>
         </div>
         <div class="media written-by pull-right col-xs-3 col-sm-3 col-md-3 col-lg-3">
             <a class="pull-left" href="#">
@@ -81,7 +118,7 @@
             </a>
 
             <div class="media-body">
-                <h4 class="media-heading written-by-heading"><a>{{idea.user }}</a></h4>
+                <h4 class="media-heading written-by-heading"><a>{{idea.user.username }}</a></h4>
 
                 <div class="btn btn-primary written-by-message-btn clearfix">
                     <p class="written-by-message-btn-para"><i class="fa fa-envelope-o"></i> Message</p>
@@ -95,12 +132,25 @@
                 <p class="idea-profile-like-this-idea-text col-xs-7 col-sm-7 col-md-7 col-lg-7"><b>Do you like this
                     idea?:</b></p>
 
-                <p><i class="fa fa-thumbs-o-up like-idea-icon col-xs-1 col-sm-1 col-md-1 col-lg-1"></i></p>
+                <p><i ng-click="slide()" class=" clickme1 fa fa-thumbs-o-up like-idea-icon col-xs-1 col-sm-1 col-md-1 col-lg-1"></i></p>
             </div>
         </div>
+
+        <script>
+            $( ".clickme1" ).click(function() {
+                if($( "#drop1" ).is( ":hidden" ) ) {
+                  $("#drop1").slideDown(400);
+                  $(".idea-profile-like-this-idea").hide();
+
+                } else {
+                  $( "#drop1" ).hide();
+
+                }
+              })  
+        </script>
         <!--Thanks for liking - share!-->
         <!--Thanks for liking - your competence is wanted!-->
-        <div class="idea-profile-after-liking col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="idea-profile-after-liking col-xs-12 col-sm-12 col-md-12 col-lg-12" id="drop1">
             <div class="text-center">
                 <div>
                     <p class="idea-profile-after-liking-text-A">Thanks for liking the idea! Your strengths are needed on
@@ -108,8 +158,8 @@
 
                     <p class="idea-profile-after-liking-text-B"><b>Would it be ok if the team leader contacted you?</b>
                     </p>
-                    <a class="btn btn-success idea-profile-after-liking-team-leader-contact-btn"><b>Yes</b></a><a
-                        class="btn btn-warning idea-profile-after-liking-team-leader-contact-btn"><b>No</b></a>
+                    <a class="btn btn-success idea-profile-after-liking-team-leader-contact-btn"><b>Yes</b></a>
+                    <a class="btn btn-warning idea-profile-after-liking-team-leader-contact-btn"><b>No</b></a>
                 </div>
             </div>
         </div>
@@ -120,10 +170,20 @@
                 <br>
                 <h4 class="team-box-sub-header"><b>About team</b></h4>
 
-                <p class="about-team-text">Lorem ipsum dolor sit amet, consectetur adipiscing eletra electrify denim vel
-                    ports. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ut velocity magna. Etiam
-                    vehicula nunc non leo hendrerit commodo. Vestibulum vulputate mauris eget erat congue dapibus
-                    imperdiet justo scelerisque.</p>
+                <p ng-hide="teamEditorOn" class="about-team-text">
+                     {{ideaabt0}}
+                     <a class="btn-idea-editor" ng-click="enableIdeaEditor('about')"> Edit </a> 
+                </p>
+
+                <p ng-show="teamEditorOn" class="about-team-text">
+                    
+                    <textarea ng-model="editIdeateam" type="text" class="form-control" id="what" name="what" > </textarea>    
+                    
+                        <a  ng-click="save('about')">save</a> or
+                        <a  ng-click="disableIdeaEditor('about')">cancel</a>
+                    </p>
+                </p>
+                </p>
                 <a href="#" class="team-box-more hidden">...more</a>
             </div>
             <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
@@ -143,7 +203,7 @@
                         <b>Marketing </b>
                     </li>
                     <li>
-                        <b>Something: </b>Something, Something else
+                        <b>Something: </b>Something, Something else <a class="btn-idea-editor"> Edit </a>
                     </li>
                 </ul>
                 <a href="#" class="team-box-more hidden">...more</a>
@@ -158,6 +218,10 @@
                             class="fa fa-coffee"></i>&nbsp;Get in touch</b></a>
                 </div>
             </div>
+        </div>
+
+        <div class="idea-profile-faq">
+            <h2>FAQ</h2>
         </div>
         <!--See additional teams-->
         <!--Multiple teams are working on this idea-->

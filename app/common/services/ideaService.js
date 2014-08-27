@@ -22,10 +22,16 @@ function (baseService, config) {
         },
 
         postIdea: function (idea) {
-        console.log(idea);
-        var url = config.apiBaseUrl + 'ideas';
-        return baseService.postResource(url, idea);
+            console.log(idea);
+            var url = config.apiBaseUrl + 'ideas';
+            return baseService.postResource(url, idea);
         },
+
+        editIdea: function (idea) {
+            console.log('edit: '+ idea);
+            var url = config.apiBaseUrl + 'ideas/' + 'editideas';
+            return baseService.postResource(url, idea);
+        },        
     };
 
     /*
