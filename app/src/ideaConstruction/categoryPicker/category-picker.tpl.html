@@ -1,1 +1,19 @@
-<h1>Category picker v1</h1>
+<div ng-repeat="category in main">
+	<input 	type="checkbox" 
+			ng-change="getSubcategory(category, cb)"
+			ng-model="cb">
+	</input>
+	<p>{{category.name}}</p>
+</div>
+<div ng-repeat="category in sub">
+	<div ng-repeat="s in category.category.subCategories">
+		<input 	type="checkbox" 
+				ng-change="getSubcategory(s, cb)"
+				ng-model="cb">
+		</input>
+		<p>{{s.name}}</p>
+	</div>
+</div>
+<pre>
+	{{sub | json}}
+</pre>
