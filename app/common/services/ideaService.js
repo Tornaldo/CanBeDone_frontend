@@ -5,7 +5,7 @@ function (baseService, config) {
     return {
         getPopularIdeas: function(category) {
         //wrong url. need api endpoint.
-        var url = config.apiBaseUrl + 'ideas?page=0&pageSize=15';
+        var url = config.apiBaseUrl + 'ideas?page=1&pageSize=15';
         return baseService.getResources(url);
         },
 
@@ -23,6 +23,9 @@ function (baseService, config) {
 
         postIdea: function (idea) {
             console.log(idea);
+            //TODO: WHERE TO PLACE
+            //Need to convert array into a string, because of backend
+            idea.categoryIds = idea.categoryIds.toString();
             var url = config.apiBaseUrl + 'ideas';
             return baseService.postResource(url, idea);
         },

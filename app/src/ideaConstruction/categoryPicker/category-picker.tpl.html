@@ -1,0 +1,26 @@
+<div class="row">
+	<p><strong>Main categories</storng></p>
+	<hr style="margin-top:2px; margin-bottom: 2px">
+	<div class="col-md-2" ng-repeat="category in main">
+		<label class="checkbox inline"  style="font-weight: normal">
+			<input 	type="checkbox" 
+					ng-change="getSubcategory(category, cb)"
+					ng-model="cb">
+			</input>
+			{{category.name}}
+		</label>
+	</div>
+</div>
+<div class="row" ng-repeat="category in sub" style="margin-top: 20px; margin-bottom: 20px" >
+	<p ng-if="category"><strong>Subcategories of {{category.category.name}}</storng></p>
+	<hr ng-if="category" style="margin-top:2px; margin-bottom: 2px">
+	<div class="col-md-2" ng-repeat="s in category.category.subCategories">
+		<label class="checkbox inline" style="font-weight: normal">
+			<input 	type="checkbox" 
+					ng-change="getSubcategory(s, cb)"
+					ng-model="cb">
+			</input>
+		{{s.name}}
+		</label>
+	</div>
+</div>

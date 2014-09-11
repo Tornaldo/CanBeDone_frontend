@@ -8,11 +8,40 @@ angular.module('cbdIdeaConstruction')
     },
 
     templateUrl: 'src/ideaConstruction/categoryPicker/category-picker.tpl.html',
-    controller: ['$scope', function($scope) {
-      
+    controller: ['$scope','categoryService', function($scope, categoryService) {
+      $scope.main = [];
+      $scope.sub = {};
+
+      $scope.getMain = function() {
+        categoryService.getMainCategories()
+        .then(function(data) {
+          $scope.main = data.categories;
+        });
+
+        $scope.getSubcategory = function(category, show) {
+          if(show) {
+            categoryService.getSubcategory(category.id)
+          .then(function(data) {
+            $scope.sub[category.id] = data;
+            $scope.result.push(category.id);
+          });
+          }
+          else {
+            //TODO: Recursive hide when clicking subcategory.
+            //parent dict, Each child register something something
+            $scope.sub[category.id] = undefined;
+            var index = $scope.result.indexOf(category.id);
+            if(index > -1) {
+              $scope.result.splice(index, 1);
+            }
+          }
+          
+        }
+      }
     }],
 
     link: function(scope, elem, attrs) {
+      scope.getMain();
     }
   };
 }]);
