@@ -17,6 +17,7 @@ function ($scope,ideaService, notification) {
     $scope.language = $scope.languages[0];
     $scope.idea = {};
     $scope.idea.accessOptions = {};
+    $scope.idea.categoryIds = []
 
     
 

@@ -1,18 +1,24 @@
 <div ng-repeat="category in main">
-	<input 	type="checkbox" 
-			ng-change="getSubcategory(category, cb)"
-			ng-model="cb">
-	</input>
-	<p>{{category.name}}</p>
-</div>
-<div ng-repeat="category in sub">
-	<div ng-repeat="s in category.category.subCategories">
+	<label class="checkbox inline">
 		<input 	type="checkbox" 
-				ng-change="getSubcategory(s, cb)"
+				ng-change="getSubcategory(category, cb)"
 				ng-model="cb">
 		</input>
-		<p>{{s.name}}</p>
+		{{category.name}}
+	</label>
+</div>
+<div ng-repeat="category in sub" >
+	<hr>
+	<div ng-repeat="s in category.category.subCategories">
+		<label class="checkbox inline">
+			<input 	type="checkbox" 
+					ng-change="getSubcategory(s, cb)"
+					ng-model="cb">
+			</input>
+		{{s.id}} - {{s.name}}
+		</label>
 	</div>
+	<hr>
 </div>
 <pre>
 	{{sub | json}}
