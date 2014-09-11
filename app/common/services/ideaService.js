@@ -23,6 +23,9 @@ function (baseService, config) {
 
         postIdea: function (idea) {
             console.log(idea);
+            //TODO: WHERE TO PLACE
+            //Need to convert array into a string, because of backend
+            idea.categoryIds = idea.categoryIds.toString();
             var url = config.apiBaseUrl + 'ideas';
             return baseService.postResource(url, idea);
         },

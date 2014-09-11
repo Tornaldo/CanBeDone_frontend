@@ -11,6 +11,7 @@ angular.module('cbdIdeaConstruction')
     controller: ['$scope','categoryService', function($scope, categoryService) {
       $scope.main = [];
       $scope.sub = {};
+
       $scope.getMain = function() {
         categoryService.getMainCategories()
         .then(function(data) {
@@ -22,10 +23,16 @@ angular.module('cbdIdeaConstruction')
             categoryService.getSubcategory(category.id)
           .then(function(data) {
             $scope.sub[category.id] = data;
+            $scope.result.push(category.id);
           });
           }
           else {
+            //TODO: Recursive hide when clicking subcategory.
             $scope.sub[category.id] = undefined;
+            var index = $scope.result.indexOf(category.id);
+            if(index > -1) {
+              $scope.result.splice(index, 1);
+            }
           }
           
         }
