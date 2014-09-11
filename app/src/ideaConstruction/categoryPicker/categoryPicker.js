@@ -28,6 +28,7 @@ angular.module('cbdIdeaConstruction')
           }
           else {
             //TODO: Recursive hide when clicking subcategory.
+            //parent dict, Each child register something something
             $scope.sub[category.id] = undefined;
             var index = $scope.result.indexOf(category.id);
             if(index > -1) {
