@@ -22,17 +22,30 @@ angular.module('cbdIdeaConstruction')
           if(show) {
             categoryService.getSubcategory(category.id)
           .then(function(data) {
-            $scope.sub[category.id] = data;
+            var subCategory = {'parent': category.id, 'data': data};
+            $scope.sub[category.id] = subCategory;
             $scope.result.push(category.id);
           });
           }
           else {
-            //TODO: Recursive hide when clicking subcategory.
-            //parent dict, Each child register something something
-            $scope.sub[category.id] = undefined;
-            var index = $scope.result.indexOf(category.id);
-            if(index > -1) {
-              $scope.result.splice(index, 1);
+            var queue = [];
+            queue.push(category);
+            while(queue.length > 0) {
+              var cat = queue.shift();
+              var sub = $scope.sub[cat.id];
+              var subCatList = sub.data.category.subCategories;
+              
+              //For each sub category A of category check to see if 
+              //There exist another sub category of A. If it exist
+              //add to queue. This will ensure that removing a category will
+              //propagate to all sub categories
+              for(var i = 0; i < subCatList.length; i++) {
+                if($scope.sub[subCatList[i].id]) {
+                  queue.push(subCatList[i]);
+
+                }
+              }
+              $scope.sub[cat.id] = undefined;
             }
           }
           
