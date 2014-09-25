@@ -11,6 +11,7 @@ angular.module('cbdIdeaConstruction')
     controller: ['$scope','categoryService', function($scope, categoryService) {
       $scope.main = [];
       $scope.sub = {};
+      $scope.ordered = [];
 
       $scope.getMain = function() {
         categoryService.getMainCategories()
@@ -24,7 +25,7 @@ angular.module('cbdIdeaConstruction')
           .then(function(data) {
             var subCategory = {'parent': category.id, 'data': data};
             $scope.sub[category.id] = subCategory;
-            $scope.result.push(category.id);
+            $scope.ordered.push(subCategory);
           });
           }
           else {
@@ -46,6 +47,9 @@ angular.module('cbdIdeaConstruction')
                 }
               }
               $scope.sub[cat.id] = undefined;
+              //Use list to keep order the same!
+              var index = $scope.ordered.indexOf(cat);
+              $scope.ordered.splice(index, 1);
             }
           }
           

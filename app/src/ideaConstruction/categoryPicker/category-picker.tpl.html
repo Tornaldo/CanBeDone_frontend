@@ -11,7 +11,7 @@
 		</label>
 	</div>
 </div>
-<div class="row" ng-repeat="category in sub" style="margin-top: 20px; margin-bottom: 20px" >
+<div class="row" ng-repeat="category in ordered" style="margin-top: 20px; margin-bottom: 20px" >
 	<p ng-if="category.data"><strong>Subcategories of {{category.data.category.name}}</storng></p>
 	<hr ng-if="category.data" style="margin-top:2px; margin-bottom: 2px">
 	<div class="col-md-2" ng-repeat="s in category.data.category.subCategories">
