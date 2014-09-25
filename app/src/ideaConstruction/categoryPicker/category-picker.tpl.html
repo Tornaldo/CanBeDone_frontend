@@ -12,8 +12,8 @@
 	</div>
 </div>
 <div class="row" ng-repeat="category in ordered" style="margin-top: 20px; margin-bottom: 20px" >
-	<p ng-if="category.data"><strong>Subcategories of {{category.data.category.name}}</storng></p>
-	<hr ng-if="category.data" style="margin-top:2px; margin-bottom: 2px">
+	<p ng-if="category.data.category.subCategories.length >0"><strong>Subcategories of {{category.data.category.name}}</storng></p>
+	<hr ng-if="category.data.category.subCategories.length >0" style="margin-top:2px; margin-bottom: 2px">
 	<div class="col-md-2" ng-repeat="s in category.data.category.subCategories">
 		<label class="checkbox inline" style="font-weight: normal">
 			<input 	type="checkbox" 
