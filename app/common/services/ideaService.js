@@ -30,7 +30,7 @@ function (baseService, config) {
             return baseService.postResource(url, idea);
         },
 
-<<<<<<< HEAD
+
         editIdea: function (idea) {
             console.log('edit: '+ idea);
             var url = config.apiBaseUrl + 'ideas/' + 'editideas';
@@ -52,13 +52,7 @@ function (baseService, config) {
             return baseService.postResource(url, comment);
         },           
         
-=======
-        login: function (credentials) {
-            console.log(credentials);
-            var url = config.apiBaseUrl + 'ideas/' + credentials;
-            return baseService.postResource(url, credentials);
-        },
->>>>>>> 6f9afff51a406e6af93ff1e89e680a1eee9e7782
+
     };
 
     /*
