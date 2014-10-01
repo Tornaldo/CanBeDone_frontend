@@ -55,14 +55,23 @@
         <!--Title + What and why-->
         <div ng-hide="titleEditorOn">
             <h1 class="idea-profile-title  col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+<<<<<<< HEAD
                 <b>{{idea.title}}</b> <a class="btn-idea-editor" ng-click="enableIdeaEditor('title')"> Edit </a>
+=======
+                <b>{{idea.title}}</b> <button class="bun btn-info btn-idea-editor" ng-click="enableIdeaEditor('title')"> Edit </button>
+>>>>>>> 6f9afff51a406e6af93ff1e89e680a1eee9e7782
             </h1>
         </div>
         <div ng-show="titleEditorOn">
             <h1 class="idea-profile-title  col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
                 <input ng-model="editIdeaTitle" class="form-control">
+<<<<<<< HEAD
                 <a  class="btn-idea-editor" ng-click="save('title')">save</a> <span class="btn-idea-editor"> or</span>
                 <a  class="btn-idea-editor" ng-click="disableIdeaEditor('title')">cancel</a>
+=======
+                <a  ng-click="save('title')">save</a> or
+                <a  ng-click="disableIdeaEditor('title')">cancel</a>
+>>>>>>> 6f9afff51a406e6af93ff1e89e680a1eee9e7782
             </h1>
         </div>
 
@@ -70,7 +79,11 @@
             <div ng-hide="whatEditorOn" class="idea-profile-what col-xs-6 col-sm-6 col-md-6 col-lg-6">
                 <p class="idea-profile-what-why-heading">What:</p> 
                 <p><i><b>{{idea.shortDescriptionWhat}}</b></i></p>
+<<<<<<< HEAD
                 <p><a class="btn-idea-editor" ng-click="enableIdeaEditor('what')"> Edit </a></p>
+=======
+                <p><button class="bun btn-info btn-idea-editor" ng-click="enableIdeaEditor('what')"> Edit </button></p>
+>>>>>>> 6f9afff51a406e6af93ff1e89e680a1eee9e7782
             </div>
             <div ng-show="whatEditorOn" class="idea-profile-what col-xs-6 col-sm-6 col-md-6 col-lg-6">
                 <p class="idea-profile-what-why-heading">What:</p> 
@@ -86,7 +99,11 @@
             <div ng-hide="whyEditorOn" class="idea-profile-why col-xs-6 col-sm-6 col-md-6 col-lg-6">
                 <p class="idea-profile-what-why-heading">Why:</p>   
                 <p><i><b>{{idea.shortDescriptionWhy}}</b></i></p>  
+<<<<<<< HEAD
                 <p><a class="btn-idea-editor" ng-click="enableIdeaEditor('why')"> Edit </a></p>
+=======
+                <p><button class="bun btn-info btn-idea-editor" ng-click="enableIdeaEditor('why')"> Edit </button></p>
+>>>>>>> 6f9afff51a406e6af93ff1e89e680a1eee9e7782
             </div>
             <div ng-show="whyEditorOn" class="idea-profile-why col-xs-6 col-sm-6 col-md-6 col-lg-6">
                 <p class="idea-profile-what-why-heading">Why:</p>   
@@ -100,7 +117,11 @@
             </div>
         </div>
         <div ng-hide="descriptionEditorOn" class="idea-profile-description col-xs-12 col-sm-12 col-md-12 col-lg-12">
+<<<<<<< HEAD
             {{idea.description}} <a class="btn-idea-editor" ng-click="enableIdeaEditor('description')"> Edit </a>
+=======
+            {{idea.description}} <button class="bun btn-info btn-idea-editor" ng-click="enableIdeaEditor('description')"> Edit </button>
+>>>>>>> 6f9afff51a406e6af93ff1e89e680a1eee9e7782
         </div>
         <div ng-show="descriptionEditorOn" class="idea-profile-description col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <p>
@@ -136,6 +157,7 @@
             </div>
         </div>
 
+<<<<<<< HEAD
         <script>
             $( ".clickme1" ).click(function() {
                 if($( "#drop1" ).is( ":hidden" ) ) {
@@ -148,6 +170,24 @@
                 }
               })  
         </script>
+=======
+    <script>
+
+       
+        
+        $( ".clickme1" ).click(function() {
+
+            if($( "#drop1" ).is( ":hidden" ) ) {
+              $("#drop1").slideDown(400);
+              $(".idea-profile-like-this-idea").hide();
+
+            } else {
+              $( "#drop1" ).hide();
+
+            }
+          })
+      </script>
+>>>>>>> 6f9afff51a406e6af93ff1e89e680a1eee9e7782
         <!--Thanks for liking - share!-->
         <!--Thanks for liking - your competence is wanted!-->
         <div class="idea-profile-after-liking col-xs-12 col-sm-12 col-md-12 col-lg-12" id="drop1">
@@ -170,9 +210,15 @@
                 <br>
                 <h4 class="team-box-sub-header"><b>About team</b></h4>
 
+<<<<<<< HEAD
                 <p ng-hide="teamEditorOn" class="about-team-text">
                      {{ideaabt0}}
                      <a class="btn-idea-editor" ng-click="enableIdeaEditor('about')"> Edit </a> 
+=======
+                <p ng-hide="teamEditorOn" lass="about-team-text">
+                     {{ideaabt0}}
+                     <button class="bun btn-info btn-idea-editor" ng-click="enableIdeaEditor('about')"> Edit </button> 
+>>>>>>> 6f9afff51a406e6af93ff1e89e680a1eee9e7782
                 </p>
 
                 <p ng-show="teamEditorOn" class="about-team-text">
@@ -203,7 +249,11 @@
                         <b>Marketing </b>
                     </li>
                     <li>
+<<<<<<< HEAD
                         <b>Something: </b>Something, Something else <a class="btn-idea-editor"> Edit </a>
+=======
+                        <b>Something: </b>Something, Something else <button class="bun btn-info btn-idea-editor"> Edit </button>
+>>>>>>> 6f9afff51a406e6af93ff1e89e680a1eee9e7782
                     </li>
                 </ul>
                 <a href="#" class="team-box-more hidden">...more</a>
@@ -220,6 +270,7 @@
             </div>
         </div>
 
+<<<<<<< HEAD
         <hr>
 
         <br><br>
@@ -247,6 +298,11 @@
 
         <hr>
         <br><br>
+=======
+        <div class="idea-profile-faq">
+            <h2>FAQ</h2>
+        </div>
+>>>>>>> 6f9afff51a406e6af93ff1e89e680a1eee9e7782
         <!--See additional teams-->
         <!--Multiple teams are working on this idea-->
   

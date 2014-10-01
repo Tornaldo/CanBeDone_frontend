@@ -24,15 +24,17 @@ angular.module('cbdBrowse', ['cbdCommon'])
       })
   }])
 
-
   .controller('BrowseCtrl', 
   ['$scope', '$routeParams', '$location', '$routeParams','ideaService' ,'searchResult', 
   function ($scope,$routeParams, $location, routeParams, ideaService, searchResult) {
     $scope.results = searchResult;
+    console.log('searresult: ' +  searchResult);
     $scope.error = null;
     $scope.search = $routeParams.search;
 
+
     $scope.searchForIdeas = function (search, page) {
+      console.log('page:' +  page + 'search' + search);
       page = typeof page !== 'undefined' ? page : 1;
       var query = search;
       if (query) {
@@ -40,7 +42,7 @@ angular.module('cbdBrowse', ['cbdCommon'])
 
           ideaService.getSearchResult(query, page - 1, $scope.itemPerPage)
               .then(function (data) {
-                console.log(data);
+                console.log('data'+ data);
                 $scope.results = data;
               }, function(error) {
                 $scope.error = 'Found no ideas matching your search criterias';
@@ -49,6 +51,18 @@ angular.module('cbdBrowse', ['cbdCommon'])
       else {
           $scope.error = 'You forgot enter query into the search field!';
       }
-  };
-}]);
+      console.log('page2:' +  page + 'search2' + search);
+
+    };
+    $scope.count = 0;
+    $scope.$on('searchNav', function (event, data) {
+      
+      console.log('data: ' + data.searchText); // 'Data to send'
+      
+      $scope.searchForIdeas(data.searchText);
+    });    
+
+   
+
+}]);      
 
