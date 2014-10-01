@@ -99,9 +99,10 @@ angular.module('cbdCommon')
   return {
     restrict: 'AE',
 
-    scope: {'size': '=size',
-    'ideas': '=ideaModel'
-  },
+    scope: {
+      'size': '=size',
+      'ideas': '=ideaModel'
+    },
 
   template:
   '<carousel class = "carousel-container" interval="myInterval" >' +
@@ -148,4 +149,256 @@ angular.module('cbdCommon')
 };
 }]);
 
+angular.module('cbdCommon')
+.directive('ppcommentViewer', [ function() {   //pcommentViwer --   Post Parent Comment Viewer (place holder to add new comment to idea)
+  return {
+    restrict: 'AE',
 
+    scope: {
+      'idea': '=ideaModel',
+      'parentComment': '=commentModel',
+    },
+
+    template: 
+        '<div class="panel panel-default panel-comment col-lg-12">'+
+          '<div class="panel-footer clearfix">'+
+              '<div class="img-placeholder-container" ng-class="{inputplaceholderselected: isPlaceHolderHidden }" >'+
+                  '<div class="col-lg-2 img-container">'+
+                      '<img class="" src="img/avatar.png" alt="Image"/>'+
+                  '</div>'+
+                  '<div class="col-lg-10 placeholder-container pull-left">'+
+                      '<div class="input-placeholder" ng-click="toggleParentCommet()">Add a comment...</div>'+
+                  '</div>'+
+              '</div>'+
+          
+              '<div class="comment-text-area-container-hidden" ng-class="{commenttextareacontainervisible: isParentTextAreaVisible }" >'+                  
+                    '<div class="row img-placeholder-container img-placeholder-container-hidden">'+
+                      '<div class="col-lg-2 img-container">'+
+                          '<img class="" src="img/avatar.png" alt="Image" />'+
+                      '</div>'+
+                      '<div class="textarea-container col-lg-10 pull-left">'+
+                          '<textarea name="comment" rows="3" column="8" ng-keyup="enableCommentButton()" ng-model="commentText"></textarea>   '+
+                      '</div>'+
+                    '</div>'+
+                    '<div class="row">'+                      
+                      '<div class="post-cancel pull-right">'+
+                          '<button type="submit" class="btn btn-success btn-sm" ng-class="{disabled:!isParentCommentButtonDisabled}" ng-click="postParentComment()">Post Comment</button>'+
+                          '<span>&nbsp;</span>'+
+                          '<button type="reset" class="btn btn-default btn-sm" ng-click="parentCommentClose()">Cancel</button>'+
+                      '</div>'+   
+                    '</div>'+                                                         
+              '</div>'+           
+          '</div>'+
+        '</div>'+
+        '<br><br><br>',
+
+
+    controller: ['$scope','ideaService', 'notification', function($scope,ideaService,notification) {
+      //$scope.template = '/common/partials/parentComment.tpl.html';
+      //$scope.parentComments = "something writeen here";
+      $scope.commentText;
+      $scope.ideaComment;
+      $scope.comment={
+        text:'',
+        ideaId:''
+      };
+      $scope.toggleParentCommet = function(){
+        $scope.isPlaceHolderHidden = true;
+        $scope.isParentTextAreaVisible=true;
+      }    
+
+      $scope.parentCommentClose = function() {        
+       $scope.isPlaceHolderHidden = false;
+       $scope.isParentTextAreaVisible=false;
+       $scope.commentText = '';
+      }     
+
+  
+      $scope.enableCommentButton = function(){
+        $scope.isParentCommentButtonDisabled = true;
+        if($scope.commentText == '') {
+          $scope.isParentCommentButtonDisabled = false;
+        }
+
+     }
+
+     $scope.postParentComment = function(){ 
+        $scope.isPlaceHolderHidden = false;
+        $scope.isParentTextAreaVisible=false;        
+        $scope.comment.text = $scope.commentText;
+        $scope.comment.ideaId = $scope.idea.id;
+        ideaService.postComment($scope.comment)
+          .then(function(data) {          
+
+              ideaService.getParentComment($scope.idea.id).then(function(response){
+                  $scope.parentComment = response;       
+              });
+
+              notification.success("Comment posted");
+          }, function(error) {
+              notification.error("Could not post comment" + error);
+          });
+        $scope.commentText = '';
+     }
+
+    }], 
+
+    link: function(scope, elem, attrs){
+
+    }
+  };
+}]);
+
+
+angular.module('cbdCommon')
+.directive('pcommentViewer', [ function() {   //pcommentViwer --   Parent Comment Viewer (parent and child comment viewer)
+  return {
+    restrict: 'AE',
+
+    scope: {
+      'parentComment': '=commentModel'
+    },
+
+    template: 
+
+        '<div class="panel panel-default panel-comment col-lg-12">'+
+          '<div class="panel-footer">'+
+              '<div class="row img-placeholder-container">'+            
+                  '<div class="col-lg-2 img-container">'+
+                      '<img class="" src="img/avatar.png" alt=" Image" />'+
+                  '</div>'+
+                  '<div class="col-lg-10 placeholder-container pull-left">'+
+                      '<p class="comment-user-name">'+
+                          '<span class="highlight"> <a href=""> <b>Zekarias</b> </a></span>'+
+                          '<time datetime= "{{ parentComment.created| date:\'dd-M-yyyy H:mm\' }}">'+
+                          '{{ parentComment.created | date:\'medium\'  }} </time>'+
+                      '</p>'+
+                      '<p class="comment-user-text">{{ parentComment.text }}</p>'+
+                  '</div>'+   
+              '</div>'+
+              '<div class="row img-reply-like-dislike-container">'+
+                  '<div class="col-lg-2 img-container"></div>'+
+                  '<div class="col-lg-10 reply-like-dislike-container pull-left">'+
+                        '<div class="col-lg-2 reply-link-container pull-left">'+
+                            '<a class="replylink" ng-click="Reply()">reply</a>'+
+                        '</div>'+                      
+                        '<div class="col-lg-3 like-dislike-container pull-left">'+
+                          '<div class="col-lg-6 like-container pull-left">'+
+                              '<p><i class="fa fa-thumbs-o-up"></i></p>'+
+                          '</div>'+
+                          '<div class="col-lg-6 dislike-container pull-left">'+
+                              '<p><i class="fa fa-thumbs-o-down"></i></p>'+
+                          '</div>'+
+                        '</div>'+
+                  '</div>'+                
+              '</div>'+
+          '</div>'+
+          '<div class="panel-footer" ng-repeat="reply in parentComment.replies">'+
+              '<div class="row child-comment-container">'+
+                '<div class="col-lg-2 img-container"></div>'+
+                '<div class="col-lg-10">'+                          
+                    '<div class="col-lg-2 img-container img-container-child">'+
+                        '<img class="" src="img/avatar.png" alt=" Image" />'+
+                    '</div>'+
+                    '<div class="placeholder-container placeholder-container-child col-lg-10 pull-left ">'+
+                        '<p class="comment-user-name"> <span class="highlight"> <a href=""> <b>Zekarias</b> </a></span></p>'+
+                        '<p class="comment-user-text"> {{ reply.text}} </p>'+                                          
+                    '</div>'+
+                '</div>'+
+              '</div>'+
+              '<div class="row">'+
+                  '<div class="col-lg-2 img-container"></div>'+
+                  '<div class="col-lg-10 reply-like-dislike-container pull-left">'+
+                    '<div class="col-lg-2 reply-link-container pull-left"></div>'+
+                    '<div class="reply-like-dislike">'+                        
+                        '<div class="col-lg-2 reply-link-container reply-link-container-child pull-left">'+
+                            '<a class="replylink" ng-click="Reply()">reply</a>'+
+                        '</div>'+                      
+                        '<div class="col-lg-3 like-dislike-container pull-left">'+
+                          '<div class="col-lg-6 like-container pull-left">'+
+                              '<p><i class="fa fa-thumbs-o-up"></i></p>'+
+                          '</div>'+
+                          '<div class="col-lg-6 dislike-container pull-left">'+
+                              '<p><i class="fa fa-thumbs-o-down"></i></p>'+
+                          '</div>'+
+                        '</div>'+
+                    '</div>'+                      
+                  '</div>'+
+              '</div>'+              
+          '</div>'+ 
+          '<div class="panel-footer comment-text-area-container-hidden clearfix" ng-class="{commentreplytextareacontainer: isReplyTextAreaVisible }" >'+                  
+              '<div class="row child-comment-container">'+
+                '<div class="col-lg-2 img-container"></div>'+
+                '<div class="col-lg-10">'+
+                  '<div class="col-lg-2 img-container img-container-child">'+
+                      '<img class="" src="img/avatar.png" alt="Image" />'+
+                  '</div>'+
+                  '<div class="placeholder-container placeholder-container-child col-lg-10 pull-left">'+
+                      '<textarea name="comment" rows="3" column="8" ng-keyup="enableCommentButton()" ng-model="childCommenText"></textarea>   '+
+                  '</div>'+
+                  '<br><br>'+
+                '</div>'+
+              '</div>'+
+              '<div class="row">'+
+                  '<div class="post-cancel post-cancel-child pull-right">'+
+                    '<button type="submit" class="btn btn-success" ng-class="{disabled:!isParentCommentButtonDisabled}" ng-click="postChildComment()">Post Comment</button>'+
+                    '<span>&nbsp;</span>'+
+                    '<button type="reset" class="btn btn-default" ng-click="CommentAreaClose()">Cancel</button>'+
+                  '</div>'+
+              '</div>'+            
+          '</div>'+                                        
+        '</div>',
+
+
+
+    controller: ['$scope', 'ideaService', 'notification', function($scope, ideaService, notification) {
+      
+      $scope.comment={
+        text:'',  
+        parentId:''
+      };
+
+      $scope.parentComment;
+
+
+      $scope.Reply = function (){
+        $scope.isReplyTextAreaVisible = true;
+        $scope.childCommenText = "Zekarias";
+      }
+
+      $scope.CommentAreaClose = function() {        
+       $scope.isReplyTextAreaVisible=false;
+       $scope.childCommenText ='';
+      }     
+
+      $scope.enableCommentButton = function(){
+        $scope.isParentCommentButtonDisabled = true;
+        if($scope.childCommenText == '') {
+          $scope.isParentCommentButtonDisabled = false;
+        }
+     }
+
+     $scope.postChildComment = function(){ 
+        $scope.isReplyTextAreaVisible=false;       
+        $scope.comment.text = $scope.childCommenText;
+        $scope.comment.parentId =  $scope.parentComment.id;
+
+        ideaService.postComment($scope.comment)
+          .then(function(data) {          
+              ideaService.getChildComment($scope.comment.parentId).then(function(response){
+                  $scope.parentComment.replies = response.replies;
+              });
+              notification.success("Reply posted");
+          }, function(error) {
+              notification.error("Could not reply comment" + error);
+          });
+        $scope.childCommenText = '';          
+     }     
+
+    }], 
+
+    link: function(scope, elem, attrs){
+
+    }
+  };
+}]);

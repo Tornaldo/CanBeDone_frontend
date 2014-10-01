@@ -220,11 +220,36 @@
             </div>
         </div>
 
-        <div class="idea-profile-faq">
-            <h2>FAQ</h2>
-        </div>
+        <hr>
+
+        <br><br>
+        <div class="row">
+            <div class="comment-container col-lg-10 clearfix">
+                    <h1 class="comment-title">
+                        <b>Comment</b>
+                    </h1>
+                    
+                    <ppcomment-viewer idea-model="idea" comment-model="ideaComment"></ppcomment-viewer>
+                    
+                    <hr>
+                    <br>
+                    <div class="row">
+                        <div ng-hide="noCommentView"><b> NO COMMENTS </b></div>
+                        <div ng-hide="sortCommentView" class="sort-by clearfix"><p >Sort comment: <select ng-model="sortCommentBy" class="" ng-options="option as option for option in commentSortOptions"></select> </p></div>
+
+                    </div>                   
+
+                    <article class="comment" ng-repeat="parentComment in ideaComment | orderBy:sortAttribute">
+                        <pcomment-viewer comment-model="parentComment" ></pcomment-viewer>
+                    </article>   
+            </div> 
+        </div>    
+
+        <hr>
+        <br><br>
         <!--See additional teams-->
         <!--Multiple teams are working on this idea-->
+  
         <div class="idea-profile-team-box">
             <div class="idea-profile-team-box-competence-wanted"></div>
             <div class="idea-profile-team-box-general-info"></div>
