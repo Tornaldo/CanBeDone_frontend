@@ -20,7 +20,8 @@
     "angular-bootstrap": "~0.11.0",
     "angular-summernote": "~0.2.2",
     "ng-tags-input": "2.0.1",
-    "toastr": "~2.0.3"
+    "toastr": "~2.0.3",
+    "angular-file-upload": "~1.1.1"
   },
   "appPath": "app"
 }

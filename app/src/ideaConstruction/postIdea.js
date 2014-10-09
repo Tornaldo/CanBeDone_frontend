@@ -1,4 +1,4 @@
-angular.module('cbdIdeaConstruction', ['cbdCommon'])
+angular.module('cbdIdeaConstruction', ['cbdCommon', 'angularFileUpload'])
   .config(['$routeProvider', function ($routeProvider) {
     $routeProvider
       .when('/post-idea', {
@@ -8,10 +8,11 @@ angular.module('cbdIdeaConstruction', ['cbdCommon'])
   }])
 
 
-.controller('postIdeaCtrl', ['$scope','ideaService', 'notification',
-function ($scope,ideaService, notification) {
+.controller('postIdeaCtrl', ['$scope','ideaService', 'notification', 'FileUploader',
+function ($scope,ideaService, notification, FileUploader) {
 
-    
+    $scope.uploader = new FileUploader();
+    //$scope.uploader.queueLimit = 1;
     $scope.submitted = false;
     $scope.languages = [{name: 'English'}, {name: 'Norwegian'}];
     $scope.language = $scope.languages[0];
