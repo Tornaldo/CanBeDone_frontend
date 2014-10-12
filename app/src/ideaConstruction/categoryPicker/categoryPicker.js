@@ -1,3 +1,21 @@
+/**
+ * @ngdoc directive
+ * @name cbdIdeaConstruction.directive:categoryPicker
+ * @restrict AE
+ * @require categoryService
+ * @param  {object} result Object containing list of user selected categories.
+ * @description
+ * Directive for dynamically retrieve and show sub categories to the user when
+ * the user click a category. The directive will manage the hierarchy of categories.
+ * For example if user remove a category, all displayed subcategories, and subcat of
+ * subcategories has to be removed from result.
+ *
+ * TODO: Preload more than one sublevel of categories. To increase perceived
+ * performance. IE preload the main categories and the first level of subcategories.
+ *
+ * TODO: Include a "more" link that retrieve more category options if available
+ * at the backend 
+ */
 angular.module('cbdIdeaConstruction')
 .directive('categoryPicker', [ function() {
   return {
@@ -21,8 +39,11 @@ angular.module('cbdIdeaConstruction')
 
         $scope.getSubcategory = function(category, show) {
           if(show) {
+            //If the user dont want the category hidden, retrive subcategories.
             categoryService.getSubcategory(category.id)
           .then(function(data) {
+            //Inclue the parent of the subcategories, and add them to the
+            //datastructure
             var subCategory = {'parent': category.id, 'data': data};
             $scope.sub[category.id] = subCategory;
             $scope.ordered.push(subCategory);
