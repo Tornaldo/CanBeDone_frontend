@@ -4,13 +4,31 @@ angular.module('cbdIdeaConstruction')
     restrict: 'AE',
 
     scope: {
-      conent: '=',
+      content: '=',
     },
 
-    template: '<summernote class="form-control" ng-model="idea.description" id="ideaDescription"'+
-            'placeholder="Describe your idea" height="400"></summernote>',
+    template: '<summernote config="options" ng-model="content" id="ideaDescription"'+
+            '></summernote><a ng-click="test()">CLick<a>',
     controller: ['$scope', function($scope) {
+        //TODO: Automatically delete font styling
       
+      $scope.options = {
+        height: 700,
+        minHeight: null,
+        maxHeight: null,
+        toolbar: [
+          ['misc', ['undo', 'redo']],
+          ['style', ['bold', 'italic', 'underline']],
+          ['para', ['ul', 'ol', 'paragraph']],
+          ['table', ['table']],
+          ['insert', ['picture', 'link', 'video']],
+          ['fullscreen', ['fullscreen']]
+        ]
+      };
+
+      $scope.test = function() {
+        console.log("TEST");
+      };
     }],
 
     link: function(scope, elem, attrs) {
