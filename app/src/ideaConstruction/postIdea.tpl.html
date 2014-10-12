@@ -47,11 +47,13 @@
                 ng-show="form.why.$error.maxlength">Max 160 characters! Short and sweet</span>
             </div>
     </div>
-    <div ng-controller="uploaderCtrl" class="row">
+    <div ng-controller="uploaderCtrl" class="row" style="margin:30px">
         <!--uploader use legazy mode if not html5-->
         <div ng-show="uploader.isHTML5">
-               <div  nv-file-over="" uploader="uploader">
-                Base drop zone
+                <div nv-file-drop="" uploader="uploader">
+                <div nv-file-over="" uploader="uploader" over-class="another-file-over-class" class=" my-drop-zone">
+                    Another drop zone with its own settings
+                </div>
             </div>
         </div>
         <input type="file" nv-file-select uploader="uploader">
@@ -83,8 +85,3 @@
 
     </form>
 </div>
-
-
-<pre>
-    {{ idea }}
-</pre>
