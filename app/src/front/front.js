@@ -44,3 +44,14 @@ angular.module('cbdFront', ['cbdCommon'])
 
 }]);
 
+/*
+
+(function() {
+  $(document).ready(function(){skrollr.init();});
+})();
+
+window.onload=function() {
+  skrollr.init({
+    forceHeight: false
+  })
+};*/
