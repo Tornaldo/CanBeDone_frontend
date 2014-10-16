@@ -1,0 +1,15 @@
+
+// =========================================================
+//		Base
+// =========================================================
+
+/*	In the base we'll style the base properties
+**	NB: NOT classes, ids etc. !!
+*/
+
+body {
+  background: $bodyBackgroundColor;
+  z-index: -1;
+  min-height: 100%;
+}
+
