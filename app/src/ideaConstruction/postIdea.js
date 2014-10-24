@@ -16,10 +16,10 @@ function ($scope,ideaService, notification, FileUploader) {
     $scope.idea = {};
     $scope.idea.categoryIds = []
 
+   
     
 
     $scope.submit = function() {
-
         ideaService.postIdea($scope.idea)
             .then(function(data) {
                 notification.success("Idea posted");

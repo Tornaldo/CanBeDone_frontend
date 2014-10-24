@@ -4,6 +4,9 @@
     </div>
     <form name="form" novalidate valid-submit="submit()" >
         <div class="row">
+            <security-panel model="idea"></security-panel>
+        </div>
+        <div class="row">
 
                 <div control-group label="Title" validate>
                     <input 
@@ -74,8 +77,8 @@
 
             </div>
 
-
         </div>
+
         <div class="row">
             <category-picker result="idea.categoryIds"></category-picker>
         </div>
@@ -85,3 +88,6 @@
 
     </form>
 </div>
+<pre>
+    {{idea}}
+</pre>
