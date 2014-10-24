@@ -27,7 +27,8 @@ angular.module('cbdIdea', ['cbdCommon'])
 .controller('IdeaCtrl', ['$scope','ideaService','idea', 'notification', function ($scope,  ideaService, idea, notification) {
 
     $scope.idea = idea.idea;
-    console.log('idea:' +  $scope.idea.title)
+    $scope.ideaComment = idea.comment_section;
+   
     $scope.titleEditorOn = false;
     $scope.whatEditorOn = false;
     $scope.whyEditorOn = false;    
@@ -98,6 +99,40 @@ angular.module('cbdIdea', ['cbdCommon'])
       
     }; 
 
+    //Comment sorting 
+    $scope.commentSortOptions = ['Likes', 'Dislikes', 'Replies', 'id', 'Date'];
+    $scope.sortCommentBy = "id";  
+    $scope.sortAttribute = "id";    
+
+
+    $scope.sortCommentView = true;
+    $scope.noCommentView = true;
+
+    $scope.$watch('ideaComment', function() {
+      if($scope.ideaComment.length>1){
+        $scope.sortCommentView = false;      
+      } else if ($scope.ideaComment.length==1){
+        $scope.noCommentView = true;
+        $scope.sortCommentView = true;
+      } else if ($scope.ideaComment.length==0){
+        $scope.sortCommentView = true; 
+        $scope.noCommentView = false;
+      }
+    });
+
+    /*for (var i = 0; i < $scope.ideaComment.length; i++) {
+        $scope.NoofReplies[i] = $scope.ideaComment[i].replies.length
+    };*/  
+    
+    $scope.$watch('sortCommentBy', function() {
+        if ($scope.sortCommentBy== 'Replies') {
+          $scope.sortAttribute = "numberOfAnswers";
+        }
+        if ($scope.sortCommentBy== 'id') {
+          $scope.sortAttribute = "id";
+        }
+      });    
+   
 }])
 
 .controller('IdeaThumbCtrl', ['$scope', '$location', function ($scope, $location) {

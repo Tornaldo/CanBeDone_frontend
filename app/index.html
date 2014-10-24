@@ -10,15 +10,18 @@
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <!-- endbower -->
-     <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+     <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
      <link rel="stylesheet" type="text/css" href="bower_components/summernote/dist/summernote.css">
      <link rel="stylesheet" type="text/css" href="bower_components/ng-tags-input/ng-tags-input.css">
       <link rel="stylesheet" type="text/css" href="bower_components/toastr/toastr.min.css">
+
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <!--<link rel="stylesheet" href="styles/main.css">-->
     <link rel="stylesheet" href="styles/custom.css">
+    <link rel="stylesheet" href="styles/comment.css">
     <!-- endbuild -->
+
   </head>
   <body ng-app="canBeDoneApp">
     <!--[if lt IE 7]>
@@ -28,7 +31,7 @@
     <!-- Add your site or application content here -->
    
     <ng-include src="'/common/navbar/navbar.tpl.html'"></ng-include>
-    <div ng-view=""></div>
+    <div ng-view></div>
 
     <!--[if lt IE 9]>
     <script src="bower_components/es5-shim/es5-shim.js"></script>
@@ -39,7 +42,6 @@
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/json3/lib/json3.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
@@ -69,6 +71,7 @@
         <script src="src/ideaConstruction/imageUpload/imageUpload.js"></script>
         <script src="src/ideaConstruction/editor/editor.js"></script>
         <script src="config/config.js"></script>
+        <script src="src/login/login.js"></script>
         <script src="common/common.js"></script>
         <script src="common/navbar/navbar.js"></script>
         <script src="common/services/baseService.js"></script>
@@ -79,5 +82,7 @@
         <script src="common/form/validation.js"></script>
         <script src="common/auth/auth.js"></script>
         <!-- endbuild -->
+                <link rel="icon" href="favicon.ico" type="image/x-icon">
+
 </body>
 </html>

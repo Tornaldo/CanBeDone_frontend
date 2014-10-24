@@ -30,11 +30,29 @@ function (baseService, config) {
             return baseService.postResource(url, idea);
         },
 
+
         editIdea: function (idea) {
             console.log('edit: '+ idea);
             var url = config.apiBaseUrl + 'ideas/' + 'editideas';
             return baseService.postResource(url, idea);
-        },        
+        },
+
+        getParentComment: function (id) {
+            var url = config.apiBaseUrl + 'comments?ideaId='+ id + '&includeAllAnswers=1';
+            return baseService.getResources(url);
+        },
+
+        getChildComment: function(id) {
+            var url = config.apiBaseUrl + 'comments/' + id;
+            return baseService.getResources(url);
+        },
+        postComment: function (comment) {
+            console.log("test: " + comment);
+            var url = config.apiBaseUrl + 'comments';
+            return baseService.postResource(url, comment);
+        },           
+        
+
     };
 
     /*

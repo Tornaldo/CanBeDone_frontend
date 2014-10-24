@@ -8,7 +8,7 @@
  *
  * Main module of the application.
  */
-angular
+  angular
   .module('canBeDoneApp', [
     //'ngAnimate',
     'ngCookies',
@@ -25,6 +25,7 @@ angular
     'cbdBrowse',
     'cbdIdea',
     'cbdIdeaConstruction',
+    'cbdLogin'
   ])
 
   .config(['$routeProvider', function ($routeProvider) {
@@ -33,4 +34,5 @@ angular
         redirectTo: '/'
       });
   }]);
+
 

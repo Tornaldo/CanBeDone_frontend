@@ -1,5 +1,7 @@
-angular.module('cbdCommon')
+
+angular.module('cbdCommon', ['ui.bootstrap'])
 	.controller('headerCtrl', function($scope, $location) {
+
 	    $scope.sidebar = false;
 
 	    $scope.toggeSidebar = function() {
@@ -12,4 +14,13 @@ angular.module('cbdCommon')
 	    $scope.searchForIdeasNav = function(searchnav) { 
 			 $location.path('/browse').search({search: searchnav});
 	    };
+
+
 	});
+
+
+
+
+
+
+

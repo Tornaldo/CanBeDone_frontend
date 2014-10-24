@@ -56,6 +56,7 @@
         <div ng-hide="titleEditorOn">
             <h1 class="idea-profile-title  col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
                 <b>{{idea.title}}</b> <a class="btn-idea-editor" ng-click="enableIdeaEditor('title')"> Edit </a>
+
             </h1>
         </div>
         <div ng-show="titleEditorOn">
@@ -63,6 +64,8 @@
                 <input ng-model="editIdeaTitle" class="form-control">
                 <a  class="btn-idea-editor" ng-click="save('title')">save</a> <span class="btn-idea-editor"> or</span>
                 <a  class="btn-idea-editor" ng-click="disableIdeaEditor('title')">cancel</a>
+
+
             </h1>
         </div>
 
@@ -71,6 +74,7 @@
                 <p class="idea-profile-what-why-heading">What:</p> 
                 <p><i><b>{{idea.shortDescriptionWhat}}</b></i></p>
                 <p><a class="btn-idea-editor" ng-click="enableIdeaEditor('what')"> Edit </a></p>
+
             </div>
             <div ng-show="whatEditorOn" class="idea-profile-what col-xs-6 col-sm-6 col-md-6 col-lg-6">
                 <p class="idea-profile-what-why-heading">What:</p> 
@@ -87,6 +91,7 @@
                 <p class="idea-profile-what-why-heading">Why:</p>   
                 <p><i><b>{{idea.shortDescriptionWhy}}</b></i></p>  
                 <p><a class="btn-idea-editor" ng-click="enableIdeaEditor('why')"> Edit </a></p>
+
             </div>
             <div ng-show="whyEditorOn" class="idea-profile-why col-xs-6 col-sm-6 col-md-6 col-lg-6">
                 <p class="idea-profile-what-why-heading">Why:</p>   
@@ -148,6 +153,12 @@
                 }
               })  
         </script>
+
+  
+
+       
+        
+
         <!--Thanks for liking - share!-->
         <!--Thanks for liking - your competence is wanted!-->
         <div class="idea-profile-after-liking col-xs-12 col-sm-12 col-md-12 col-lg-12" id="drop1">
@@ -170,10 +181,12 @@
                 <br>
                 <h4 class="team-box-sub-header"><b>About team</b></h4>
 
+
                 <p ng-hide="teamEditorOn" class="about-team-text">
                      {{ideaabt0}}
                      <a class="btn-idea-editor" ng-click="enableIdeaEditor('about')"> Edit </a> 
-                </p>
+
+
 
                 <p ng-show="teamEditorOn" class="about-team-text">
                     
@@ -204,6 +217,7 @@
                     </li>
                     <li>
                         <b>Something: </b>Something, Something else <a class="btn-idea-editor"> Edit </a>
+
                     </li>
                 </ul>
                 <a href="#" class="team-box-more hidden">...more</a>
@@ -220,11 +234,38 @@
             </div>
         </div>
 
-        <div class="idea-profile-faq">
-            <h2>FAQ</h2>
-        </div>
+        <hr>
+
+        <br><br>
+        <div class="row">
+            <div class="comment-container col-lg-10 clearfix">
+                    <h1 class="comment-title">
+                        <b>Comment</b>
+                    </h1>
+                    
+                    <ppcomment-viewer idea-model="idea" comment-model="ideaComment"></ppcomment-viewer>
+                    
+                    <hr>
+                    <br>
+                    <div class="row">
+                        <div ng-hide="noCommentView"><b> NO COMMENTS </b></div>
+                        <div ng-hide="sortCommentView" class="sort-by clearfix"><p >Sort comment: <select ng-model="sortCommentBy" class="" ng-options="option as option for option in commentSortOptions"></select> </p></div>
+
+                    </div>                   
+
+                    <article class="comment" ng-repeat="parentComment in ideaComment | orderBy:sortAttribute">
+                        <pcomment-viewer comment-model="parentComment" ></pcomment-viewer>
+                    </article>   
+            </div> 
+        </div>    
+
+        <hr>
+        <br><br>
+
+
         <!--See additional teams-->
         <!--Multiple teams are working on this idea-->
+  
         <div class="idea-profile-team-box">
             <div class="idea-profile-team-box-competence-wanted"></div>
             <div class="idea-profile-team-box-general-info"></div>
