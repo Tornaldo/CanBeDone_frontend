@@ -36,7 +36,7 @@ function ($scope,ideaService, notification, FileUploader) {
 .directive("controlGroup", function () {
     return {
         template:
-        '<div class="control-group" ng-class="{ error: isError }">\
+        '<div class="control-group" ng-class="{ \'has-error\': isError && submitted}">\
             <label class="control-label" for="{{for}}">{{label}}</label>\
             <div class="controls" ng-transclude></div>\
         </div>',
@@ -46,7 +46,7 @@ function ($scope,ideaService, notification, FileUploader) {
         require: "^form",
 
         scope: {
-            label: "@" // Gets the string contents of the `label` attribute
+            label: "@", // Gets the string contents of the `label` attribute
         },
 
         link: function (scope, element, attrs, formController) {
@@ -63,7 +63,11 @@ function ($scope,ideaService, notification, FileUploader) {
             var errorExpression = [formController.$name, inputName, "$invalid"].join(".");
             // Watch the parent scope, because current scope is isolated.
             scope.$parent.$watch(errorExpression, function (isError) {
-                scope.isError = isError;
+
+                    scope.isError = isError;
+            }); var submittedExpression = [formController.$name, "$submitted"].join(".");
+            scope.$parent.$watch(submittedExpression, function (isSubmitted) {
+                scope.submitted = isSubmitted;
             });
         }
 

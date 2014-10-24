@@ -8,7 +8,7 @@ angular.module('cbdIdeaConstruction')
     },
 
     template: '<summernote config="options" ng-model="content" id="ideaDescription"'+
-            '></summernote><a ng-click="test()">CLick<a>',
+            '></summernote>',
     controller: ['$scope', function($scope) {
         //TODO: Automatically delete font styling
       
