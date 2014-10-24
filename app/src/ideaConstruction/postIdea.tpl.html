@@ -30,7 +30,7 @@
                     </textarea>
                     <span class="help-inline" ng-show="form.what.$error.required && form.$submitted">This input is required</span>
                     <span class="help-inline"
-                    ng-show="form.what.$error.maxlength && form.$submitted">Max 160 characters! Short and sweet</span>
+                    ng-show="form.what.$error.maxlength">Max 160 characters! Short and sweet</span>
                 </div>
 
                 <div control-group label="Why">
@@ -45,7 +45,7 @@
                 </textarea>
                 <span class="help-inline" ng-show="form.why.$error.required && form.$submitted">This input is required</span>
                 <span class="help-inline"
-                ng-show="form.why.$error.maxlength && form.$submitted">Max 160 characters! Short and sweet</span>
+                ng-show="form.why.$error.maxlength">Max 160 characters! Short and sweet</span>
             </div>
         </div>
         <div ng-controller="uploaderCtrl" class="row" style="margin:30px">
