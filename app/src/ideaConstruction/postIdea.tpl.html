@@ -1,11 +1,17 @@
 <div class="browse">
     <div class="row">
-        <h1>Add idea</h1>
+        <h1>Describe your idea!</h1>
     </div>
     <form name="form" novalidate valid-submit="submit()" >
         <div class="row">
             <security-panel model="idea"></security-panel>
         </div>
+        <div ng-controller="questionaireCtrl">
+            <div class="row" ng-repeat="q in purposeQuestionaire">
+                <question text="{{q.question}}" answer="idea.purpose[q.name]" alternatives="q.alternatives"></question>
+            </div>
+        </div>
+
         <div class="row">
 
                 <div control-group label="Title" validate>
@@ -82,6 +88,7 @@
         <div class="row">
             <category-picker result="idea.categoryIds"></category-picker>
         </div>
+
         <div class="row">
             <input type="submit"  class="btn btn-primary btn-lg" value="Post idea" />
         </div>

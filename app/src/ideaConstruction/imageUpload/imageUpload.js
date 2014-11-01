@@ -1,5 +1,11 @@
 'use strict';
-
+/**
+ * @ngdoc controller
+ * @name cbdIdeaConstruction.controler:uploaderCtrl
+ * @description
+ * Directive that wraps the summernote directive. it contains different customizations
+ * of summernote.
+ */
 angular.module('cbdIdeaConstruction')
 .controller('uploaderCtrl', ['$scope', 'FileUploader', function ($scope, FileUploader) {
 

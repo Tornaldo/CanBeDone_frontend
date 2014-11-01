@@ -11,13 +11,9 @@ angular.module('cbdIdeaConstruction', ['cbdCommon', 'angularFileUpload', 'summer
 function ($scope,ideaService, notification, FileUploader) {
 
     $scope.submitted = false;
-    $scope.languages = [{name: 'English'}, {name: 'Norwegian'}];
-    $scope.language = $scope.languages[0];
     $scope.idea = {};
-    $scope.idea.categoryIds = []
-
-   
-    
+    $scope.idea.categoryIds = [];
+    $scope.idea.purpose = {};
 
     $scope.submit = function() {
         ideaService.postIdea($scope.idea)
@@ -33,6 +29,14 @@ function ($scope,ideaService, notification, FileUploader) {
 
 }])
 
+ /** @ngdoc directive
+ * @name cbdIdeaConstruction.directive:controlGroup
+ * @param  {String} label Where the user selection is stored
+ * @description
+ * Directive contain logic and gui representation of 1 question and its alternatives.
+ * Two modes of operations are supported: multiple and single selection. These are represented
+ * by using either checkboxes or radioboxes.
+ */
 .directive("controlGroup", function () {
     return {
         template:

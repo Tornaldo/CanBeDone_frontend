@@ -1,3 +1,11 @@
+/**
+ * @ngdoc directive
+ * @name cbdIdeaConstruction.directive:editor
+ * @param  {object} content The editors multimedia content.
+ * @description
+ * Directive that wraps the summernote directive. it contains different customizations
+ * of summernote.
+ */
 angular.module('cbdIdeaConstruction')
 .directive('editor', [ function() {
   return {
@@ -26,9 +34,6 @@ angular.module('cbdIdeaConstruction')
         ]
       };
 
-      $scope.test = function() {
-        console.log("TEST");
-      };
     }],
 
     link: function(scope, elem, attrs) {
