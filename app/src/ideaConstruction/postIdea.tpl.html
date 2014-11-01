@@ -1,10 +1,20 @@
 <div class="browse">
     <div class="row">
-        <h1>Add idea</h1>
+        <h1>Describe your idea!</h1>
     </div>
     <form name="form" novalidate valid-submit="submit()" >
         <div class="row">
-                <div control-group label="Title">
+            <security-panel model="idea"></security-panel>
+        </div>
+        <div ng-controller="questionaireCtrl">
+            <div class="row" ng-repeat="q in purposeQuestionaire">
+                <question text="{{q.question}}" answer="idea.purpose[q.name]" alternatives="q.alternatives"></question>
+            </div>
+        </div>
+
+        <div class="row">
+
+                <div control-group label="Title" validate>
                     <input 
                     type="text" 
                     class="form-control" 
@@ -13,7 +23,7 @@
                     placeholder="Enter title" 
                     ng-model="idea.title" 
                     required />
-                    <span class="help-inline" ng-show="form.title.$error.required">This input is required</span>
+                    <span style="color:red" class="help-inline" ng-show="form.title.$error.required && form.$submitted">This input is required</span>
                 </div>
 
                 <div control-group label="What">
@@ -27,7 +37,7 @@
                     ng-maxlength="160" 
                     required> 
                     </textarea>
-                    <span class="help-inline" ng-show="form.what.$error.required">This input is required</span>
+                    <span class="help-inline" ng-show="form.what.$error.required && form.$submitted">This input is required</span>
                     <span class="help-inline"
                     ng-show="form.what.$error.maxlength">Max 160 characters! Short and sweet</span>
                 </div>
@@ -42,34 +52,49 @@
                     ng-model="idea.shortDescriptionWhy" 
                     ng-maxlength="160">
                 </textarea>
-                <span class="help-inline" ng-show="form.why.$error.required">This input is required</span>
+                <span class="help-inline" ng-show="form.why.$error.required && form.$submitted">This input is required</span>
                 <span class="help-inline"
                 ng-show="form.why.$error.maxlength">Max 160 characters! Short and sweet</span>
             </div>
-    </div>
+        </div>
+        <div ng-controller="uploaderCtrl" class="row" style="margin:30px">
+            <!--uploader use legazy mode if not html5-->
+            <div ng-show="uploader.isHTML5">
+                    <div nv-file-drop="" uploader="uploader">
+                    <div nv-file-over="" uploader="uploader" over-class="another-file-over-class" class=" my-drop-zone">
+                        Another drop zone with its own settings
+                    </div>
+                </div>
+            </div>
+            <input type="file" nv-file-select uploader="uploader">
+            <ul>
+                <li ng-repeat="item in uploader.queue">
+                    <strong><span ng-bind="item.file.name"></span></strong><br/>
+                     <div ng-show="uploader.isHTML5" ng-thumb="{ file: item._file, height: 100 }"></div>
+                    <button ng-click="item.upload()">upload</button>
+                </li>
+            </ul>
+        </div>
 
+        <div class="row">
+            <div class="form-group">
+                <label for="ideaDescription">Idea description</label>
+                <editor content="idea.description"></editor>
 
-    <div class="row">
-        <div class="form-group">
-            <label for="ideaDescription">Idea description</label>
-            <summernote class="form-control" ng-model="idea.description" id="ideaDescription"
-            placeholder="Describe your idea" height="400"></summernote>
+            </div>
 
         </div>
 
+        <div class="row">
+            <category-picker result="idea.categoryIds"></category-picker>
+        </div>
 
-    </div>
-    <div class="row">
-        <category-picker result="idea.categoryIds"></category-picker>
-    </div>
-    <div class="row">
-        <input type="submit"  class="btn btn-primary btn-lg" value="Post idea" />
-    </div>
+        <div class="row">
+            <input type="submit"  class="btn btn-primary btn-lg" value="Post idea" />
+        </div>
 
     </form>
 </div>
-
-
 <pre>
-    {{ idea }}
+    {{idea}}
 </pre>

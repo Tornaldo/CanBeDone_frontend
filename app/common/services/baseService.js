@@ -37,11 +37,14 @@ factory('baseService', ['$http', '$q', function ($http, $q) {
      */
     postResource: function(url, resource) {
         var deferred = $q.defer();
+            console.log(resource)
         $http.post(url, resource).success(function(data){
             //Passing data to deferred's resolve function on successful completion
+            console.log("VIRKET")
+            console.log(data)
             deferred.resolve(data);
         }).error(function(error){
-
+            console.log(error)
             //Sending a friendly error message in case of failure
             deferred.reject(error);
         });

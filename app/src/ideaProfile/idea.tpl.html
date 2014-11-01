@@ -105,7 +105,7 @@
             </div>
         </div>
         <div ng-hide="descriptionEditorOn" class="idea-profile-description col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            {{idea.description}} <a class="btn-idea-editor" ng-click="enableIdeaEditor('description')"> Edit </a>
+            <div id="description" ng-bind-html="idea.description"></div> <a class="btn-idea-editor" ng-click="enableIdeaEditor('description')"> Edit </a>
         </div>
         <div ng-show="descriptionEditorOn" class="idea-profile-description col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <p>

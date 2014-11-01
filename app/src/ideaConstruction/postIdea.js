@@ -1,4 +1,4 @@
-angular.module('cbdIdeaConstruction', ['cbdCommon'])
+angular.module('cbdIdeaConstruction', ['cbdCommon', 'angularFileUpload', 'summernote'])
   .config(['$routeProvider', function ($routeProvider) {
     $routeProvider
       .when('/post-idea', {
@@ -7,21 +7,15 @@ angular.module('cbdIdeaConstruction', ['cbdCommon'])
       })
   }])
 
+.controller('postIdeaCtrl', ['$scope','ideaService', 'notification', 'FileUploader',
+function ($scope,ideaService, notification, FileUploader) {
 
-.controller('postIdeaCtrl', ['$scope','ideaService', 'notification',
-function ($scope,ideaService, notification) {
-
-    
     $scope.submitted = false;
-    $scope.languages = [{name: 'English'}, {name: 'Norwegian'}];
-    $scope.language = $scope.languages[0];
     $scope.idea = {};
-    $scope.idea.categoryIds = []
-
-    
+    $scope.idea.categoryIds = [];
+    $scope.idea.purpose = {};
 
     $scope.submit = function() {
-
         ideaService.postIdea($scope.idea)
             .then(function(data) {
                 notification.success("Idea posted");
@@ -35,10 +29,18 @@ function ($scope,ideaService, notification) {
 
 }])
 
+ /** @ngdoc directive
+ * @name cbdIdeaConstruction.directive:controlGroup
+ * @param  {String} label Where the user selection is stored
+ * @description
+ * Directive contain logic and gui representation of 1 question and its alternatives.
+ * Two modes of operations are supported: multiple and single selection. These are represented
+ * by using either checkboxes or radioboxes.
+ */
 .directive("controlGroup", function () {
     return {
         template:
-        '<div class="control-group" ng-class="{ error: isError }">\
+        '<div class="control-group" ng-class="{ \'has-error\': isError && submitted}">\
             <label class="control-label" for="{{for}}">{{label}}</label>\
             <div class="controls" ng-transclude></div>\
         </div>',
@@ -48,7 +50,7 @@ function ($scope,ideaService, notification) {
         require: "^form",
 
         scope: {
-            label: "@" // Gets the string contents of the `label` attribute
+            label: "@", // Gets the string contents of the `label` attribute
         },
 
         link: function (scope, element, attrs, formController) {
@@ -65,9 +67,14 @@ function ($scope,ideaService, notification) {
             var errorExpression = [formController.$name, inputName, "$invalid"].join(".");
             // Watch the parent scope, because current scope is isolated.
             scope.$parent.$watch(errorExpression, function (isError) {
-                scope.isError = isError;
+
+                    scope.isError = isError;
+            }); var submittedExpression = [formController.$name, "$submitted"].join(".");
+            scope.$parent.$watch(submittedExpression, function (isSubmitted) {
+                scope.submitted = isSubmitted;
             });
         }
 
     };
 });
+

@@ -16,7 +16,6 @@ function (baseService, config) {
         },
 
         getIdea:  function (id) {
-            //wrong url. Need api endpoint
         var url = config.apiBaseUrl + 'ideas/' + id;
         return baseService.getResources(url);
         },
@@ -27,6 +26,7 @@ function (baseService, config) {
             //Need to convert array into a string, because of backend
             idea.categoryIds = idea.categoryIds.toString();
             var url = config.apiBaseUrl + 'ideas';
+            console.log(idea)
             return baseService.postResource(url, idea);
         },
 

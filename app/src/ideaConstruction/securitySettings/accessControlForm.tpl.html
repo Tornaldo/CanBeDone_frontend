@@ -1,7 +1,7 @@
 
 
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-6 ">
 
         <div class="row" style=" border-radius: 10px;margin: 3px "
         ng-style="idea.access =='public' && {'background-color': '#99D6FF'}  || idea.access !='public' && {'background-color': 'white'}">
@@ -11,8 +11,7 @@
                 'has-error': form.restrictOption.$invalid && form.$submitted,
                 'has-success': form.$submitted && form.restrictOption.$valid}">
 
-                    <input id="publicRadio" type="radio" name="restrictOption" value="public"
-                    ng-model="idea.access" ng-click="showOptionsForRestricted(false)" ng-required="!idea.access">
+                    <input id="publicRadio" type="radio" name="restrictOption" ng-click="showOptionsForRestricted(false)" ng-required="!idea.access">
                     <label class="control-label" for="publicRadio"> <strong>Public (recommended)</strong></label>
                 </div>
                 <p>Everyone can see your idea, increasing your chances of finding help for implementing
@@ -37,8 +36,7 @@
 
                 'has-error': form.restrictOption.$invalid && form.$submitted,
                 'has-success': form.$submitted && form.restrictOption.$valid}">
-                    <input id="restrictedRadio" type="radio" name="restrictOption" value="restricted"
-                    ng-model="idea.access" ng-click="showOptionsForRestricted(true)" ng-required="!idea.access">
+                    <input id="restrictedRadio" type="radio" name="restrictOption" ng-click="showOptionsForRestricted(true)">
                     <label for="restrictedRadio" class="control-label" ><strong>Restricted</strong></label>
                 </div>
                 <p>You set rules for who can see the idea and who cannot.</p>
@@ -57,33 +55,11 @@
         <div class="row" style=" border-radius: 10px;margin: 3px ">
             <p><strong>Requirements for being allowed to read idea:</strong></p>
         </div>
-        <div class="row" style=" border-radius: 10px;margin: 3px ">
-
-            <input id="check1" type="checkbox" ng-model="securityModel.googlable">
-            <label for="check1">Googlable</label>
+        <div class="row" ng-repeat="option in securityOptions" style=" border-radius: 10px;margin: 3px ">
+           <input type="checkbox" ng-model="model[option.name]">
+            <label for="check1">{{option.title}}</label>
+            <span><a ng-click="option.show = !option.show">What?</a></span>
+            <p ng-show="option.show">{{option.description}}</p>
         </div>
-        <div class="row" style=" border-radius: 10px;margin: 3px ">
-
-            <input id="check1" type="checkbox" ng-model="securityModel.openAllVisitors">
-            <label for="check1">Open for all visitors</label>
-        </div>
-        <div class="row" style=" border-radius: 10px;margin: 3px ">
-
-
-            <input id="check3" type="checkbox" ng-model="securityModel.openAllUsers">
-            <label for="check3">Open for all logged in users</label>
-        </div>
-        <div class="row" style=" border-radius: 10px;margin: 3px ">
-
-            <input id="check2" type="checkbox" ng-model="securityModel.nonPosterProjectsAllowed">
-            <label for="check2">Allow others to start project off your idea</label>
-        </div>
-        <div class="row" style=" border-radius: 10px;margin: 3px ">
-
-            <input id="check4" type="checkbox" ng-model="securityModel.nonPosterProjectsNeedPermission">
-            <label for="check4">Must have permission to start project off your idea</label>
-        </div>
-        <input type="text" ng-model="securityModel.test">
-        <p>{{securityModel.test}}</p>
     </div>
 </div>

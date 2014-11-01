@@ -5,15 +5,15 @@ angular.module('cbdCommon', ['ui.bootstrap'], function($httpProvider) {
   //data so data has to be converted to form-url-encoded format 
   //before sending
   $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
- 
+  console.log("The")
   /**
-   * The workhorse; converts an object to x-www-form-urlencoded serialization.
+   * TES workhorse; converts an object to x-www-form-urlencoded serialization.
    * @param {Object} obj
    * @return {String}
    */ 
   var param = function(obj) {
     var query = '', name, value, fullSubName, subName, subValue, innerObj, i;
-      
+    console.log("HEI")
     for(name in obj) {
       value = obj[name];
         
