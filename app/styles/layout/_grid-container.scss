@@ -4,7 +4,7 @@
 
 .grid {
 	@extend %clearfix;
-	@extend .centered;
+	@extend .centered !optional; //TODO remove optional
 	width: 90%;
 
 	// Make nested grid 100%;

@@ -25,8 +25,8 @@
 
 
 /*		Media Query
-**
-**
+**	Simple mixin that uses the given Media-Query. This
+**	mixin should be included instead of defining new MQs.
 */
 @mixin mq($break) {
 	@if $break == "small" {
@@ -40,7 +40,7 @@
 		}
 	}
 	@else if $break == "large" {
-		@media (min-width: $breakpoint-lg) {
+		@media (min-width: $breakpoint-lg+1) {
 			@content;
 		}
 	}
@@ -78,8 +78,8 @@
 @mixin g-columns {
 	@for $i from 1 through $g-col-count {
 		
-		$context: $g-context($g-col-width, $g-col-count, $g-gutter-width) !global;
-		$target: ($g-col-width * $i) + ($g-gutter-width * ($i -1));
+		$context: g-context($g-col-width, $g-col-count, $g-gutter-width) !global;
+		$target: ($g-col-width * $i) + ($g-gutter-width * ($i - 1));
 
 		//generate column modifier class
 		&--#{$i} {

@@ -14,7 +14,7 @@
 */
 
 // COMPASS
-//@import "compass";
+@import "compass";
 
 
 
@@ -27,6 +27,7 @@
 **	manifest-file called index.scss, referenced below that keeps
 **	track of all the files in the given category.
 */
+
 
 // UTILITIES		config, functions, mixins, helpers
 @import "utilities/index";
@@ -55,12 +56,11 @@
 /* Old files waiting to be moved/removed.
 */
 
-/*
+
 //page specific pages.
 @import "depricated/pages/home",
         "depricated/pages/common",
         "depricated/pages/ideaPage";
 
 //Old
-@import "depricated/custom";
-*/
+@import "depricated/_custom.scss";

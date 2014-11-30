@@ -8,14 +8,14 @@
 
 	@include m(centered) {
 		@extend %panel-default;
-		@extend %center-align;
+//		@extend %center-align;
 	}
 
 	@include m(padded) {
 		@extend %panel-padding;
 
 		@include m(centered) {
-			@extend %center-align;
+	//		@extend %center-align;
 			@extend %panel-padding;
 		}
 	}

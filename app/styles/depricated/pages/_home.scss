@@ -5,7 +5,15 @@
 
 
 .home-intro {
-	//background-image:url(http://www.wallchan.com/images/sandbox/53110-space-shuttle-launch.jpg);
+
+	@include mq(large) {
+    	background-image:url(http://www.wallchan.com/images/sandbox/53110-space-shuttle-launch.jpg);
+  	}
+  	@include mq(small) {
+  		background: #000;
+  		
+  	}
+
 	background-size: cover;
 	padding-bottom: 20px;
  	.intro-image {
