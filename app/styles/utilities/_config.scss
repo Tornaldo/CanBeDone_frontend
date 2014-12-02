@@ -38,7 +38,7 @@ $color-secondary: $scooter;
 $color-shadow	: $grey;
 
 
-/*
+
 // Color palette modifiers
 $palettes: (
 	grey: (
@@ -53,9 +53,12 @@ $palettes: (
 		light    : lighten($black, 10%),
 		base     : $black,
 		dark     : darken($black, 10%)
+	),
+	white: (
+		base 	 : $white
 	)
 );
-*/
+
 
 //UI colors
 /*

@@ -33,7 +33,7 @@
 @import "utilities/index";
 
 //Depricated
-@import "depricated/bits";
+//@import "depricated/_custom.scss";
 
 // BASE STYLES		base, normalize
 @import "base/index";
@@ -56,7 +56,7 @@
 /* Old files waiting to be moved/removed.
 */
 
-
+/*
 //page specific pages.
 @import "depricated/pages/home",
         "depricated/pages/common",
@@ -64,3 +64,4 @@
 
 //Old
 @import "depricated/_custom.scss";
+*/

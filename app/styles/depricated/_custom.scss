@@ -1,11 +1,30 @@
-/*
-**  IMPORTS
-*/
+//colors
+$bodyBackgroundColor: #f7f7f7;
+$commonHeaderAndOtherBackgroundColor: #ffffff;
+$commonHeaderBorderColor: #d4d4d4;
+$fontColor_1: #ffffff;
+$fontColor_2: black;
+$fontColor_3: #333;
+$fontColor_4: #7D8D7C;
+$fontColor_5: #999;
+$fontColor_6: #ffa500;
+$sideNavLeftBackgroundColor: #080808;
+$thumbnailBoxShadow: rgba(0,0,0,0.117647);
+$fontColor_7: #898989;
+$fontColor_8: #000;
+$homeIdeaAreaBackgroundColor: #f3f6f6;
+$frontAreaContainerBorderColor: rgba(0,0,0,0.05);
+$fontColor_9: #444;
+$fontColor_10: #808080;
+$frontAreaContainerBackgroundColor: #fdfdfd;
+$textAndBorderShadows: #ccc;
 
-@import "bits";
-
-//Navbar
-$navbarLinks: #1e1e1e;
+//fonts
+$font_0: arial;
+$font_1: helvetica neue;
+$font_2: helvetica;
+$font_3: sans-serif;
+$font_4: default;
 
 //@extend-elements
 //original selectors
@@ -17,7 +36,7 @@ $navbarLinks: #1e1e1e;
   border-bottom: 1px solid $frontAreaContainerBorderColor;
   border-top: 1px solid $frontAreaContainerBorderColor;
 }
-//
+
 //original selectors
 //.carousel-control .glyphicon-chevron-left,  .carousel-control .glyphicon-chevron-right,  
 .carousel-control .icon-prev,  .carousel-control .icon-next
@@ -49,10 +68,15 @@ $navbarLinks: #1e1e1e;
   margin-top: 100px;
 }
 
-/*
+
+body {
+  background: $bodyBackgroundColor;
+  z-index: -1;
+  min-height: 100%;
+}
+
 .common-header {
-  background: $palette_darkGrey;//$commonHeaderAndOtherBackgroundColor;
-  height: 50px;
+  background: $commonHeaderAndOtherBackgroundColor;
   z-index: 1;
   position: relative;
   border-bottom: 1px solid $commonHeaderBorderColor;
@@ -73,11 +97,10 @@ $navbarLinks: #1e1e1e;
     li> a {
       font-size: 14px;
       font-style: bold;
-      color: $palette_lightgrey;
+      color: #1e1e1e;
     }
   }
 }
-*/
 .header-container-home {
   display: table;
   margin: 0 auto;
@@ -119,41 +142,27 @@ $navbarLinks: #1e1e1e;
   padding-right: 7px;
   margin-right: 5px;
   background-image: none;
-//  border: 1px;
-//  border-radius: 4px;
-//  background-color: $fontColor_1;
+  border: 1px;
+  border-radius: 4px;
+  background-color: $fontColor_1;
   text-decoration: none;
   margin-top: 3px;
-  .pull-left {
-    color: $palette_lightgrey;
-    .icon-bar-nav {
-      display: block;
-      background: $palette_lightgrey;
-      width: 22px;
-      height: 2px;
-      border-radius: 1px;
-      margin-bottom: 5px;
-    }
-  }
-  .pull-right {
-    color: $palette_lightgrey;
-  }
   &:hover {
-//    opacity: 0.4;
-    background-color: $palette_lightgrey;
-    .icon-bar-nav {
-      background: $palette_darkGrey;
-    }
-    .pull-right {
-      color: $palette_darkGrey;
-    }
-
+    opacity: 0.4;
+    background-color: #F1EEEE;
   }
   > img:hover {
     background: none;
   }
 }
-
+.icon-bar-nav {
+  display: block;
+  background: #414141;
+  width: 22px;
+  height: 2px;
+  border-radius: 1px;
+  margin-bottom: 5px;
+}
 .fa-caret-down {
   color: $fontColor_2;
 }
@@ -237,10 +246,21 @@ $navbarLinks: #1e1e1e;
   line-height: 1.5;
   padding: 5px 0;
 }
-
-
-//SIDEBAR
-/*
+.nav-flag {
+  padding: 15px 10px;
+  color: f$fontColor_4;
+}
+.nav-envelope {
+  padding: 15px 10px;
+  color: f$fontColor_4;
+}
+#inputnav {
+  height: 30px;
+  border: 1px solid #DBD9D9;
+}
+#inputfront {
+  border: 1px solid #DBD9D9;
+}
 .side-nav-left {
   margin-left: -225px;
   left: 225px;
@@ -288,7 +308,7 @@ $navbarLinks: #1e1e1e;
   ul> {
     li> a {
       width: 225px;
-      color: $fontColor_2;
+      color: $fontColor_5;
       padding: 7px 10px 7px 15px;
     }
     li.side-nav-categories-popular> a {
@@ -321,7 +341,6 @@ $navbarLinks: #1e1e1e;
   margin-top: 5px;
   height: 35px;
 }
-*/
 .dropdown-submenu2 {
   border-radius: 0;
   position: fixed;
@@ -363,7 +382,14 @@ $navbarLinks: #1e1e1e;
     }
   }
 }
-
+.carousel-inner {
+  width: 940px;
+  margin: 0 auto;
+}
+.carousel-container {
+  width: 1070px;
+  margin: 0 auto;
+}
 .carouselin-thumb {
   padding-bottom: 20px;
   margin-left: auto;
@@ -386,7 +412,6 @@ $navbarLinks: #1e1e1e;
   width: 220px;
   height: 290px;
 }
-/*
 .thumbnail-modified-ideas {
   box-shadow: $thumbnailBoxShadow 0 2px 2px 0;
   color: $fontColor_7;
@@ -402,7 +427,6 @@ $navbarLinks: #1e1e1e;
   &:hover {
   }
 }
-
 .image-inside-thumb-container-ideas {
   overflow: hidden;
   position: relative;
@@ -412,7 +436,6 @@ $navbarLinks: #1e1e1e;
   padding-top: 0;
   cursor: pointer;
 }
-*/
 .carousel-control {
   position: absolute;
   top: 0;
@@ -531,7 +554,6 @@ $navbarLinks: #1e1e1e;
 .carousel-indicators {
   display: none;
 }
-/*
 .home-intro {
   background-size: cover;
   padding-bottom: 20px;
@@ -566,7 +588,6 @@ iframe {
   width: 498px;
   margin-bottom: 10px;
 }
-*/
 .common-popular-idea-container {
   background: $frontAreaContainerBackgroundColor;
   box-shadow: 1px 1px 1px #d8d8d8 inset;
@@ -684,13 +705,11 @@ iframe {
   background: #FFF;
   border-bottom: 1px solid #c0c0c0;
 }
-/*
 .sid-nav-right-title {
   font-weight: 700;
   margin: 0;
   padding: 0 0 0 8px;
 }
-
 .other-ideas-text {
   font-size: 11px;
   font-style: default;
@@ -699,7 +718,6 @@ iframe {
     color: #fe9a2e;
   }
 }
-
 .image-inside-thumb-container-other-ideas {
   width: 110px;
   height: 80px;
@@ -714,7 +732,6 @@ iframe {
   margin: -100px -1055px 100px -105px;
   padding: 0;
 }
-*/
 .idea-profile-other-ideas-super-containter {
   background: #ecf8e0;
   position: fixed;
@@ -750,12 +767,9 @@ iframe {
 .team-box-sub-header {
   color: #383838;
 }
-
-/*
 .idea-profile {
   width: 100%;
 }
-
 .idea-profile-container {
   float: none;
   background: $commonHeaderAndOtherBackgroundColor;
@@ -769,7 +783,6 @@ iframe {
   z-index: -1;
   margin: auto;
 }
-
 .idea-profile-title {
   font-style: default;
   font-family: $font_4;
@@ -780,7 +793,6 @@ iframe {
   padding-right: 10%;
   font-size: 24px;
 }
-
 .idea-profile-image-container {
   overflow: hidden;
   width: 664px;
@@ -791,7 +803,6 @@ iframe {
   z-index: 1;
   position: relative;
 }
-*/
 .well {
   display: table;
   width: 664px;
@@ -991,7 +1002,6 @@ iframe {
   background: none;
   color: $fontColor_1;
 }
-/*
 .navbar-nav > li {
   &.dropdown-reg > {
     a {
@@ -1019,7 +1029,6 @@ iframe {
     }
   }
 }
-*/
 li.dropdown-submenu2 > a {
   color: $fontColor_5;
   padding-left: 35px;
@@ -1071,7 +1080,7 @@ ul.dropdown-menu-mod1 > .dropdown-menu-mod1-li {
 .home-find-team-col:hover {
   background: #808080;
 }
-/*
+
 .side-nav-right> li.side-nav-right-idea-container {
   margin-top: 20px;
   margin-left: 5px;
@@ -1082,8 +1091,12 @@ ul.dropdown-menu-mod1 > .dropdown-menu-mod1-li {
   background: #f0f0f0;
   opacity: .8;
 }
-*/
 .media-body > h4 {
   padding-bottom: 4px;
   margin: 0;
+}
+
+/*Description in idea profile.*/
+#description img {
+  max-width: 90%;
 }
