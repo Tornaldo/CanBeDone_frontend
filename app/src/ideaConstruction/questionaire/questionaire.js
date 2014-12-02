@@ -45,7 +45,7 @@ function ($scope) {
     scope: {
       answer: '=',
       text: '@',
-      alternatives: '='
+      alternatives: '=',
       mode: '@'
     },
     //Mode is whether one or several of the alternatives can be selected.
