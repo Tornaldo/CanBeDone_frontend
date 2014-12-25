@@ -1,5 +1,122 @@
 // =========================================================
 //		NAVBAR
 // =========================================================
+/*
+.navbar {
+
+	height: 50px;
+	position: fixed;
+	background: palette(black, light);
+
+	@include opacity(0.8);
+
+	@include e(toggle) {
+		position: relative;
+		float: right;
+		height: 100%;
+		text-align: center;
+
+		@include transition(all, $transition-duration);
+	}
+}
+
+.icon-bar-nav {
+	display: block;
+	background: palette(white);
+	width: 25px;
+	height: 4px;
+	margin-bottom: 4px;
+}
+*/
+/*
+.nav-search {
+	position: relative;
+	width: 0%;
+	min-width: 50px;
+	height: 50px;
+	float: right;
+	overflow: hidden;
+
+	@include transition(width 0.3s);
+	@include backface-visibility(hidden);
+
+	@include e(input) {
+		position: absolute;
+		top: 0;
+		right: 0;
+		border: none;
+		outline: none;
+		background: palette(white);
+		width: 100%;
+		height: 50px;
+		margin: 0;
+		z-index: 10;
+
+		font-family: inherit;
+		font-size: 18px; //TODO
+		color: #2c3e50; //TODO
+	}
+
+	@include e(submit) {
+		@extend %search-btn;
+
+		background: palette(white);
+		color: transparent;
+		border: none;
+		outline: none;
+		z-index: -1;
+
+		@include opacity(0);
+
+	}
+	@include e(icon) {
+		@extend %search-btn;
+
+		color: palette(white);
+		background: #e67e22; //TODO
+		z-index: 90;
+
+		//TODO find icon font!
+		font-size: 22px;
+		//font-family: "icomoon";
+
+		&:before {
+			content: "\e000";
+		}
+
+	}
+
+	.no-js, {
+		width: 100%;
+	}
+
+	@include m(open) {
+		width: 100%;
+	}
+}
+
+.nav-search.nav-search--open,
+.no-js .nav-search {
+    width: 100%;
+}
+
+.nav-search.nav-search--open .nav-search__icon,
+.no-js .nav-search .nav-search__icon {
+    background: #da6d0d;
+    color: #fff;
+    z-index: 11;
+}
+
+.nav-search.nav-search--open .nav-search__submit,
+.no-js .nav-search .nav-search__submit {
+    z-index: 90;
+}
 
 
+input[type="search"].nav-search__input {
+
+	@include appearance(hidden);
+	@include border-radius(0px);
+}
+
+*/
