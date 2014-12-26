@@ -25,7 +25,8 @@
     'cbdBrowse',
     'cbdIdea',
     'cbdIdeaConstruction',
-    'cbdLogin'
+    'cbdLogin',
+    'cbdUserProfile'
   ])
 
   .config(['$routeProvider', function ($routeProvider) {
