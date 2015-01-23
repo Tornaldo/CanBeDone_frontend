@@ -143,13 +143,12 @@ body {
   margin-right: 5px;
   background-image: none;
   border: 1px;
-  border-radius: 4px;
   background-color: $fontColor_1;
   text-decoration: none;
   margin-top: 3px;
   &:hover {
     opacity: 0.4;
-    background-color: #F1EEEE;
+    
   }
   > img:hover {
     background: none;
@@ -671,10 +670,17 @@ iframe {
 }
 .side-nav-right {
   width: 330px;
-  border-radius: 0;
   overflow-y: auto;
-  background: $bodyBackgroundColor;
   list-style-type: none;
+  background: #ecf8e0;
+  position: fixed;
+  right: 0;
+  overflow: hidden;
+  border: 1px solid rgba(192, 192, 192, 0.8);
+  border-radius: 0px;
+  padding: 0px;
+  margin-top: 20px;
+
 }
 .other-ideas-container {
   position: absolute;
@@ -719,17 +725,16 @@ iframe {
   }
 }
 .image-inside-thumb-container-other-ideas {
-  width: 110px;
-  height: 80px;
+  padding: 0;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
   position: relative;
-  padding: 0;
 }
 .image-inside-other-ideas-element {
-  outline: $fontColor_7 none 0;
+  outline: #898989 none 0;
   width: 100%;
-  height: auto;
-  margin: -100px -1055px 100px -105px;
+  height: 100%;
   padding: 0;
 }
 .idea-profile-other-ideas-super-containter {
@@ -768,7 +773,11 @@ iframe {
   color: #383838;
 }
 .idea-profile {
-  width: 100%;
+  margin-top: 10px;
+  margin: 0px;
+  width: 740px;
+  margin-left: 150px;
+
 }
 .idea-profile-container {
   float: none;
@@ -779,7 +788,7 @@ iframe {
   border-radius: 0;
   outline: #121a0d none 0;
   padding-bottom: 30px;
-  width: 664px;
+  width: 100%;
   z-index: -1;
   margin: auto;
 }
@@ -795,7 +804,7 @@ iframe {
 }
 .idea-profile-image-container {
   overflow: hidden;
-  width: 664px;
+  width: 100%;
   border-bottom: 1px solid $textAndBorderShadows;
   height: 250px;
   border-radius: 0;
@@ -803,15 +812,7 @@ iframe {
   z-index: 1;
   position: relative;
 }
-.well {
-  display: table;
-  width: 664px;
-  color: $fontColor_7;
-  z-index: -1;
-  position: relative;
-  margin: -100px -105px -100px -100px;
-  padding: 0;
-}
+
 .idea-profile-why-what-container {
   display: table;
   background: #FFF;
@@ -820,6 +821,11 @@ iframe {
   width: 100%;
   margin: auto;
 }
+
+.img.image-title {
+  width: 100%;
+}
+
 .idea-profile-what-why-date-view {
   display: table;
   background: #FFF;
@@ -1082,11 +1088,20 @@ ul.dropdown-menu-mod1 > .dropdown-menu-mod1-li {
 }
 
 .side-nav-right> li.side-nav-right-idea-container {
-  margin-top: 20px;
-  margin-left: 5px;
   margin-right: 0;
-  padding: 0;
+  padding: 0px;
+  width: 100%;
+  height: 107px;
+  border-bottom: 1px solid rgba(192, 192, 192, 0.8);
+  float: left;
 }
+
+.sid-nav-right-image {
+  padding-left: 0px;
+  padding-right: 3px;
+  height: 100%;
+}
+
 .side-nav-right-idea-container:hover {
   background: #f0f0f0;
   opacity: .8;

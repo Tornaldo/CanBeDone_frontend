@@ -28,7 +28,7 @@ angular.module('cbdIdea', ['cbdCommon'])
 
     $scope.idea = idea.idea;
     $scope.ideaComment = idea.comment_section;
-   
+    console.log("idea id: " + $scope.idea);
     $scope.titleEditorOn = false;
     $scope.whatEditorOn = false;
     $scope.whyEditorOn = false;    
