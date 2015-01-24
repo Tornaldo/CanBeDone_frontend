@@ -30,8 +30,7 @@
 **	track of all the files in the given category.
 */
 
-//Depricated
-@import "depricated/_custom.scss";
+
 
 // UTILITIES		config, functions, mixins, helpers
 @import "utilities/index";
@@ -48,7 +47,10 @@
 // STATES 			[empty]
 @import "states/index";
 
-
+/*
+//Depricated
+@import "depricated/_custom.scss";
+*/
 
 // ----------------
 //	Depricated

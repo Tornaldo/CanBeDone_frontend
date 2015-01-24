@@ -30,14 +30,42 @@ $fern		: #5cb85c;
 $scooter	: #39b3d7;
 
 
-
 // Color Usage
 $color-primary	: $fern;
 $color-secondary: $scooter;
 //$color-accent	: ;
 $color-shadow	: $grey;
 
+// =========================================================
+//		From Custom
+// =========================================================
+	//colors
+	$bodyBackgroundColor: #f7f7f7;
+	$commonHeaderAndOtherBackgroundColor: #ffffff;
+	$commonHeaderBorderColor: #d4d4d4;
+	$fontColor_1: #ffffff;
+	$fontColor_2: black;
+	$fontColor_3: #333;
+	$fontColor_4: #7D8D7C;
+	$fontColor_5: #999;
+	$fontColor_6: #ffa500;
+	$sideNavLeftBackgroundColor: #080808;
+	$thumbnailBoxShadow: rgba(0,0,0,0.117647);
+	$fontColor_7: #898989;
+	$fontColor_8: #000;
+	$homeIdeaAreaBackgroundColor: #f3f6f6;
+	$frontAreaContainerBorderColor: rgba(0,0,0,0.05);
+	$fontColor_9: #444;
+	$fontColor_10: #808080;
+	$frontAreaContainerBackgroundColor: #fdfdfd;
+	$textAndBorderShadows: #ccc;
 
+	//fonts
+	$font_0: arial;
+	$font_1: helvetica neue;
+	$font_2: helvetica;
+	$font_3: sans-serif;
+	$font_4: default;	
 
 // Color palette modifiers
 $palettes: (
