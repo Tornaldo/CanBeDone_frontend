@@ -49,7 +49,7 @@ function ($scope) {
       mode: '@'
     },
     //Mode is whether one or several of the alternatives can be selected.
-    template: '<p>{{text}}</p><p ng-repeat="alt in alternatives"><input type="checkbox">{{alt.value}}</p>',
+    template: '<ul class="list-unstyled questionaire-list"><h4>{{text}}</h4><li ng-repeat="alt in alternatives"><input type="checkbox"> {{alt.value}}</li></ul>',
     controller: ['$scope', function($scope) {
         
       $scope.option_clicked = function(option) {
