@@ -11,6 +11,15 @@
 
 .user-profile-thumbnail-container {
 	border-radius: 0px;
+	display: block;
+	padding: 4px;
+	margin-bottom: 20px;
+	line-height: 1.42857143;
+	background-color: #fff;
+	border: 1px solid #FFF;
+	border-radius: 4px;
+	-webkit-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;	
 	> {
 		img {
 			width: 121px;
@@ -50,8 +59,8 @@
 .user-profile-ideas-and-teams-container > h3, .user-profile-favorite-ideas-container > h3  {
 	margin: 2px;
 	padding-left: 2px;
-	border: 1px solid rgb(255, 255, 255);
-	box-shadow: 1px 1px rgb(234, 234, 234);
+	border: 1px solid white;
+	box-shadow: 1px 1px #F4F4F4;
 	background: #F9F9F9;
 }
 
@@ -59,7 +68,7 @@
 .user-profile-education-container, .user-profile-recomendations-container,
 .user-profile-ideas-and-teams-container, .user-profile-favorite-ideas-container {
 	background: white;
-	border: 1px solid #ddd;
+	border: 1px solid #FCFCFC;
 	margin-bottom: 14px;
 }
 

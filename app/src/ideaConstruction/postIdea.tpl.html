@@ -133,7 +133,7 @@
             <div class="purpose-questionaire">
                 <div ng-controller="questionaireCtrl">                
                     <div class="row purpose-questionaire-container"> 
-                        <h3 class="add-idea-section-header">Questionaire</h3>
+                        <h3 class="add-idea-section-header">Questionnaire</h3>
 
                         <div ng-repeat="q in purposeQuestionaire">
                             <question text="{{q.question}}" answer="idea.purpose[q.name]" alternatives="q.alternatives"></question>
@@ -144,10 +144,10 @@
 
             <div class="add-idea-input-form">
                 <div class="row add-idea-input-form-container">
-                <h3 class="add-idea-section-header"> Idea form</h3>
-                        
+                    <h3 class="add-idea-section-header"> Idea form</h3>
+                            
                     <div class="">  
-                        <div class="col-lg-6 add-idea-input-form-inner">
+                        <div class="col-lg-5 add-idea-input-form-inner">
                             <div control-group label="" validate>
                                 <input 
                                 type="text" 
@@ -201,7 +201,7 @@
                                     </div>
                                 </div>
                                 <div class="fileUpload btn btn-default">
-                                    <span>File Upload</span>
+                                    <span>Image Upload</span>
                                     <input type="file" class="upload" nv-file-select uploader="
                                     uploader">
                                 </div>
@@ -214,32 +214,49 @@
                                 </ul>
                             </div> 
                         </div>
-                        <div class="col-lg-6">
-                            <div class="thumbnail-containter-idea" ng-controller="IdeaThumbCtrl" ng-click="redirectToIdea(idea.id)">
-                                <div class="thumbnail-modified-ideas clearfix ">
-                                    <div class="image-inside-thumb-container-ideas">
-                                        <img src="img/SolarCell.jpg"
-                                             class="img-responsive" alt="My Image">
-                                    </div>
-                                    <div class="caption-modified-ideas clearfix">
-                                        <h5 class="thumbnail-modified-title"><b>{{idea.title}}</b></h5>
-                                        <h5 class="thumbnail-modified-desc">{{idea.shortDescriptionWhat}}</h5>
-
-                                        <div class="glyp-thumb-modified">
-                                            <div class="profile-image-inside-thumb-container">
-                                                <img src="img/SolarCell.jpg" class="image-responsive profile-image-in-thumbnail"
-                                                     alt="Profile icon">
-                                            </div>
-                                            <p class="by-name-text">from Elon</p>
+                        <div class="col-lg-7">
+                            <div class="pull-left">
+                                <div class="thumbnail-containter-idea" ng-controller="IdeaThumbCtrl">
+                                    <div class="thumbnail-modified-ideas clearfix ">
+                                        <div class="image-inside-thumb-container-ideas">
+                                           <div ng-show="imageCropResult">
+                                             <img ng-src="{{ imageCropResult }}" alt="The Cropped Image">
+                                             
+                                           </div>  
                                         </div>
+                                        <div class="caption-modified-ideas clearfix">
+                                            <h5 class="thumbnail-modified-title"><b>{{idea.title}}</b></h5>
+                                            <h5 class="thumbnail-modified-desc">{{idea.shortDescriptionWhat}}</h5>
 
-                                    </div>
+                                            <div class="glyp-thumb-modified">
+                                                <div class="profile-image-inside-thumb-container">
+                                                    <img src="img/SolarCell.jpg" class="image-responsive profile-image-in-thumbnail"
+                                                         alt="Profile icon">
+                                                </div>
+                                                <p class="by-name-text">from Elon</p>
+                                            </div>
+                                        </div>            
+                                    </div>                        
+                                </div>  
+                            </div>
+                            <div class="pull-right">
+                               <div ng-hide="imageCropResult">
+                                   <image-crop
+                                     data-width="220"
+                                     data-height="145"
+                                     data-shape="square"
+                                     data-step="imageCropStep"
+                                     data-result="imageCropResult"
+                                     ng-show="showImageCropper"
+                                   ></image-crop>
                                 </div>
-                            </div>                            
-                        </div>                        
-                    </div>                
-                </div>
-            </div>    
+                                                               
+                            </div>
+             
+                        </div>
+                    </div>   
+                </div> 
+            </div>
 
             
         

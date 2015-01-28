@@ -133,3 +133,64 @@
 .questionaire-list > li{
 	padding-left: 15px;
 }
+
+/* Core component styles */
+  .ng-image-crop {
+    text-align: center;
+    
+    position: relative;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+  }
+  /* Each of the 3 steps in the process are contained within sections */
+  .ng-image-crop > section {
+    background: #fff;
+    border: 1px solid rgb(203, 203, 203);
+  }
+  /* The cropping button */
+  .ng-image-crop button {
+    margin-top: 10px;
+  }
+  /* The dashed cropping guideline */
+  .ng-image-crop .cropping-guide {
+	display: block;
+	background: rgba(221, 221, 221, 0.3);
+	border: 3px dashed rgb(182, 124, 124);
+	position: absolute;
+pointer-events: none;
+  }
+  /* The circular themed cropping guideline */
+  .ng-image-crop--circle .cropping-guide {
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+  }
+  /* The canvas where the user positions the image via dragging and zooming */
+  .ng-image-crop .cropping-canvas {
+    background: rgba(255, 255, 255, .3);
+    margin: 0 auto;
+    cursor: move;
+  }
+  /* The overlayed draggable zoom handle in the corner of the module */
+  .ng-image-crop .zoom-handle {
+    display: block;
+    position: absolute;
+    bottom: 1px;
+    left: 1px;
+    background: rgba(255,255,255,0.7);
+    width: 100px;
+    height: 20px;
+    cursor: move;
+  }
+  /* The text within the zoom handle */
+  .ng-image-crop .zoom-handle > span {
+    color: rgba(0, 0, 0, 0.5);
+    display: block;
+    position: relative;
+    /*top: 32px;*/
+  }

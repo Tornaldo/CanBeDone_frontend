@@ -1,4 +1,4 @@
-angular.module('cbdIdeaConstruction', ['cbdCommon', 'angularFileUpload', 'summernote'])
+angular.module('cbdIdeaConstruction', ['cbdCommon', 'angularFileUpload', 'summernote', 'ImageCropper'])
   .config(['$routeProvider', function ($routeProvider) {
     $routeProvider
       .when('/post-idea', {
@@ -76,5 +76,7 @@ function ($scope,ideaService, notification, FileUploader) {
         }
 
     };
-});
+})
+
+
 
