@@ -24,7 +24,7 @@ angular.module('cbdIdea', ['cbdCommon'])
   }])
 
 
-.controller('IdeaCtrl', ['$scope','ideaService','idea', 'notification', function ($scope,  ideaService, idea, notification) {
+.controller('IdeaCtrl', ['$scope','ideaService','idea', 'notification',  function ($scope,  ideaService, idea, notification) {
 
     $scope.idea = idea.idea;
     $scope.ideaComment = idea.comment_section;
@@ -132,7 +132,9 @@ angular.module('cbdIdea', ['cbdCommon'])
           $scope.sortAttribute = "id";
         }
       });    
-   
+
+
+         
 }])
 
 .controller('IdeaThumbCtrl', ['$scope', '$location', function ($scope, $location) {

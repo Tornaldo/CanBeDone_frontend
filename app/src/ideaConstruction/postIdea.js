@@ -5,6 +5,10 @@ angular.module('cbdIdeaConstruction', ['cbdCommon', 'angularFileUpload', 'summer
         templateUrl: 'src/ideaConstruction/postIdea.tpl.html',
         controller: 'postIdeaCtrl'
       })
+      .when('summerNoteImage', {
+        templateUrl: 'src/ideaConstruction/summerNoteImage/summerNoteImage.tpl.html',
+        controller: 'summernotetestCtrl'
+      })      
   }])
 
 .controller('postIdeaCtrl', ['$scope','ideaService', 'notification', 'FileUploader',
@@ -21,9 +25,8 @@ function ($scope,ideaService, notification, FileUploader) {
                 notification.success("Idea posted");
             }, function(error) {
                 notification.error("Could not post your idea." + error);
-            });
             
-
+            });        
     };
 
 

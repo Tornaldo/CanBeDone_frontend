@@ -1,0 +1,46 @@
+
+
+<br><br>
+
+
+<div class="add-idea-input-form">
+	<div class="row add-idea-input-form-container">
+	    <h3 class="add-idea-section-header"> Idea form</h3>
+	            
+	    <div class="">  
+	        <div class="col-lg-5 add-idea-input-form-inner">
+	            <div >
+	                <input  type="text"  class="form-control" placeholder="Enter title"  ng-model="idea.title" />
+	            </div>
+
+	            <div >
+	                <textarea type="text" class="form-control" placeholder="What" ng-model="idea.shortDescriptionWhat" >   </textarea>
+
+	            </div>
+
+	            <div >
+	                <textarea  type="text" class="form-control" placeholder="Why" ng-model="idea.shortDescriptionWhy">   </textarea>
+	            </div>
+	        
+
+	        </div>
+	        <div class="col-lg-7">
+
+
+	        </div>
+	    </div>   
+	</div> 
+</div>      
+
+<div class="idea-editor-summer-note">
+<div class="row idea-editor-summer-note-container">
+<h3 class="add-idea-section-header">Idea description</h3>
+    
+    <div class="form-group">
+        <summer-editor content="idea.description" ideamodel="idea" comment-model="ideaComment" filemodel="ideaDescriptionImage"></summer-editor>
+    </div>
+</div>
+
+</div>         
+
+
