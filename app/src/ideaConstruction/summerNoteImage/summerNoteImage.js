@@ -29,7 +29,7 @@ function ($scope,ideaService, notification, FileUploader, config, $http) {
       ideamodel: '=',
     },
 
-    template: '<summernote config="options"  ng-model="content" id="ideaDescription" on-image-upload="imageUpload(files, editor)" '+
+    template: '<summernote config="options"  ng-model="content" id="ideaDescription"  on-image-upload="imageUpload(files, editor);" editable="editable"  '+
             '></summernote>'+
                  '<br>'+
             '<button ng-click="add()">Add</button>'+
@@ -39,7 +39,6 @@ function ($scope,ideaService, notification, FileUploader, config, $http) {
         //TODO: Automatically delete font styling
       
     $scope.ideamodel.categoryIds = [];
-
       $scope.options = {
         height: 200,
         width: 600,
@@ -51,7 +50,8 @@ function ($scope,ideaService, notification, FileUploader, config, $http) {
           ['para', ['ul', 'ol', 'paragraph']],
           ['table', ['table']],
           ['insert', ['picture', 'link', 'video']],
-          ['fullscreen', ['fullscreen']]
+          ['fullscreen', ['fullscreen']],
+          ['view', ['fullscreen', 'codeview']]
         ]
       };
 
