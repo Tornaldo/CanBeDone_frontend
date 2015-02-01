@@ -5,7 +5,7 @@ function (baseService, config) {
     return {
         getMainCategories: function() {
         //wrong url. need api endpoint.
-        var url = config.apiBaseUrl + 'categories?mainCategoriesOnly=true';
+        var url = config.apiBaseUrl + 'categories?mainCategoriesOnly=1';
         return baseService.getResources(url);
         },
 

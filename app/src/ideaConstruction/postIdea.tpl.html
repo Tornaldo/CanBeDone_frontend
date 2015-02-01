@@ -1,121 +1,3 @@
-
-<!--
-<div class="addIdea">
-
-    <div class="">
-        <h1 align="center">Describe your idea!</h1>
-    </div>
-    <form name="form" class="add-idea-form-container" novalidate valid-submit="submit()" >
-        <tabset>
-        <tab heading="Accessibility">
-            <div class="row security-panel-container">
-                <security-panel model="idea"></security-panel>
-            </div>
-        </tab>
-        <tab heading="Questionaire">
-            <div ng-controller="questionaireCtrl">
-                <div class="row purpose-questionaire-container" ng-repeat="q in purposeQuestionaire">
-                    <question text="{{q.question}}" answer="idea.purpose[q.name]" alternatives="q.alternatives"></question>
-                </div>
-            </div>
-        </tab>
-        <tab heading="Idea form">
-            <div class="row add-idea-input-form-container">
-
-                    <div control-group label="Title" validate>
-                        <input 
-                        type="text" 
-                        class="form-control" 
-                        id="title" 
-                        name="title" 
-                        placeholder="Enter title" 
-                        ng-model="idea.title" 
-                        required />
-                        <span style="color:red" class="help-inline" ng-show="form.title.$error.required && form.$submitted">This input is required</span>
-                    </div>
-
-                    <div control-group label="What">
-                        <textarea 
-                        type="text" 
-                        class="form-control" 
-                        id="what" 
-                        name="what" 
-                        placeholder="Summarize what your idea is in 160 characters or less." 
-                        ng-model="idea.shortDescriptionWhat"
-                        ng-maxlength="160" 
-                        required> 
-                        </textarea>
-                        <span class="help-inline" ng-show="form.what.$error.required && form.$submitted">This input is required</span>
-                        <span class="help-inline"
-                        ng-show="form.what.$error.maxlength">Max 160 characters! Short and sweet</span>
-                    </div>
-
-                    <div control-group label="Why">
-                        <textarea 
-                        type="text" 
-                        class="form-control" 
-                        id="why" 
-                        name="why" 
-                        placeholder="Summarize in 160 characters or less what the point of the idea is. What good will it do?" 
-                        ng-model="idea.shortDescriptionWhy" 
-                        ng-maxlength="160">
-                    </textarea>
-                    <span class="help-inline" ng-show="form.why.$error.required && form.$submitted">This input is required</span>
-                    <span class="help-inline"
-                    ng-show="form.why.$error.maxlength">Max 160 characters! Short and sweet</span>
-                </div>
-            </div>
-
-            <div ng-controller="uploaderCtrl" class="row" style="margin:30px">
-                <!--uploader use legazy mode if not html5-->
-        <!--        <div ng-show="uploader.isHTML5">
-                        <div nv-file-drop="" uploader="uploader">
-                        <div nv-file-over="" uploader="uploader" over-class="another-file-over-class" class=" my-drop-zone">
-                            Another drop zone with its own settings
-                        </div>
-                    </div>
-                </div>
-                <div class="fileUpload btn btn-default">
-                    <span>Upload image</span>
-                    <input type="file" class="upload" nv-file-select uploader="
-                    uploader">
-                </div>
-                <ul>
-                    <li ng-repeat="item in uploader.queue">
-                        <strong><span ng-bind="item.file.name"></span></strong><br/>
-                         <div ng-show="uploader.isHTML5" ng-thumb="{ file: item._file, height: 100 }"></div>
-                        <button ng-click="item.upload()">upload</button>
-                    </li>
-                </ul>
-            </div>
-        </tab>
-
-        <tab heading="Idea description">
-            <div class="row idea-editor-summer-note-container">
-                <div class="form-group">
-                    <editor content="idea.description"></editor>
-
-                </div>
-
-            </div>
-
-            <div class="row">
-                <category-picker result="idea.categoryIds"></category-picker>
-            </div>
-
-            <div class="row">
-                <input type="submit"  class="btn btn-primary btn-lg" value="Post idea" />
-            </div>
-        </tab>
-
-    </form>
-</div> -->
-
-<!--<br><br>
-<pre>
-    {{idea}}
-</pre>-->
-
 <div class="addIdea">
 
     <!--<div class="">
@@ -266,7 +148,6 @@
                     
                     <div class="form-group">
                         <editor content="idea.description"></editor>
-
                     </div>
 
                 </div>
@@ -274,11 +155,10 @@
 
             <div class="idea-form-category-picker">
                 <div class="row idea-form-category-picker-container">
-                <h3 class="add-idea-section-header">Category Picker</h3>
+                <h3 class="add-idea-section-header">Categorize</h3>
 
                     <category-picker result="idea.categoryIds"></category-picker>
-                <input type="submit"  class="btn btn-primary btn-lg pull-right idea-form-post-idea" value="Post idea" />
-
+                <input type="submit"  class="btn btn-primary btn-lg pull-right idea-form-post-idea" value="Post idea"/>
                 </div>
             </div>
 
