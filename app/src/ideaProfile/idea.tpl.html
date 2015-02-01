@@ -108,8 +108,14 @@
             </div>
             <div ng-hide="descriptionEditorOn" class="idea-profile-description col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
-                <div id="description" >{{idea.description.split('+')[0]}}</div> <a class="btn-idea-editor" ng-click="enableIdeaEditor('description')"> <i class="fa fa-pencil-square-o"></i> </a>
-                <div><img src="{{idea.description.split('+')[1]}}"></div>
+                <div id="description" >
+                        <figure>
+                        <img src="{{idea.description.split('+')[1]}}" alt="{{idea.title}}" />
+                        <br />
+                        <figcaption>{{idea.description.split('+')[0]}}</figcaption>
+                        </figure>
+                        </div> <a class="btn-idea-editor" ng-click="enableIdeaEditor('description')"> <i class="fa fa-pencil-square-o"></i> </a>
+                <div></div>
                 
             </div>
             <div ng-show="descriptionEditorOn" class="idea-profile-description col-xs-12 col-sm-12 col-md-12 col-lg-12">
