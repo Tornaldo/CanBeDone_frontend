@@ -7,15 +7,17 @@ function ($scope) {
         {
           question: "Why are you posting this idea?", 
           name: "whyPost",
-          alternatives: [{name: "implement", value: "To find people who can help me implement it"},
-           {name:"feedback", value: "To get feedback so that I can see if I should go forward with this or not"},
-           {name :"share", value: "To share it with the world in the hope that someone else makes something out of it"}]},
+          alternatives: [{name: "postingToFindPeople", value: "To find people who can help me implement it"},
+           {name:"postingToGetFeedback ", value: "To get feedback"},
+           {name :"postingToSeeIfOthersAreInterested", value: "To see if others are interested in working on this idea"},
+           {name :"postingToInspireOthers", value: "To share it with the world in the hope that someone else makes something out of it"}
+           ]},
         {
-          question: "Would you be ok with somebody else implementing this idea independently?", 
+          question: "Would you be ok with somebody else taking this idea and implementing it independently of you?", 
           name: "otherImplementers",
-          alternatives: [{name:"accept", value: "Yes"},
-            {name:"decline",value: "No."},
-            {name: "permisson", value: "They would need my permission."}]
+          alternatives: [{name:"posterProjectsAllowed", value: "Yes"},
+            {name:"nonPosterProjectsAllowed",value: "No"},
+            {name: "nonPosterProjectsNeedPermission", value: "They would have to talk with me about it"}]
         },{
           question: "Would you like to enable people to express interest in helping you implement this by creating a team-page?", 
           name: "otherImplementers",
