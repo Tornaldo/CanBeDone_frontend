@@ -18,6 +18,7 @@
     'ngTouch',
     'ui.bootstrap',
     'ngTagsInput',
+    'ngCkeditor',
     'summernote',
     'cbdConfig',
     'cbdFront',
@@ -26,8 +27,9 @@
     'cbdIdea',
     'cbdIdeaConstruction',
     'cbdLogin',
-    'cbdUserProfile',
+    'cbdUserProfile',    
     'cbdSummerNoteTest'
+
   ])
 
   .config(['$routeProvider', function ($routeProvider) {
