@@ -192,3 +192,48 @@ pointer-events: none;
     position: relative;
     /*top: 32px;*/
   }
+
+.par {
+	width: 100%;
+}
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
+	border-top: 1px solid #FFF;
+	padding: 0px;
+}
+img {
+	width:100%;
+}
+
+.table>tbody>tr>td>figure,#description>figure {
+	margin: 0px;
+}
+
+#description>figure {
+	border: 1px solid rgb(203, 203, 203);
+	padding: 2px;
+	width:30%;
+}
+
+#description>figure > figcaption{
+	text-align: center;
+}
+
+.table {
+	width:30%;
+	border: 1px solid rgb(203, 203, 203);
+}
+
+#description img {
+	max-width:100%;
+	padding: 2px;
+}
+
+figcaption {
+	max-width: 100%;
+	text-align: center;
+}
+
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+	border-top: 0px solid rgba(255, 255, 255, 0);
+}
+
