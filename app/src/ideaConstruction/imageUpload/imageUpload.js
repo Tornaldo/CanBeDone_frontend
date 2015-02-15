@@ -89,6 +89,7 @@ angular.module('cbdIdeaConstruction')
                 var img = new Image();
                 img.onload = onLoadImage;
                 img.src = event.target.result;
+                console.log(img)
             }
 
             function onLoadImage() {

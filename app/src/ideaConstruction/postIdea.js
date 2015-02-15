@@ -15,9 +15,13 @@ function ($scope,ideaService, notification, FileUploader) {
     $scope.idea.categoryIds = [];
 
     $scope.submit = function() {
+        $scope.idea.imageFile = $scope.imageCropResult;
+        console.log($scope.idea)
         ideaService.postIdea($scope.idea)
             .then(function(data) {
                 notification.success("Idea posted");
+                console.log("IDEA");
+                console.log(data);
             }, function(error) {
                 notification.error("Could not post your idea." + error);
             });
