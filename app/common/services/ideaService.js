@@ -21,7 +21,7 @@ function (baseService, config) {
         },
 
         postIdea: function (idea) {
-            console.log(idea);
+            console.log('post ' + idea);
             //TODO: WHERE TO PLACE
             //Need to convert array into a string, because of backend
             idea.categoryIds = idea.categoryIds.toString();
