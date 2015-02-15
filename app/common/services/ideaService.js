@@ -11,7 +11,7 @@ function (baseService, config) {
 
         getSearchResult: function(searchQuery, page, pageSize) {
         //wrong url. Need api endpoint.
-        var url = config.apiBaseUrl + 'ideas?page='+page+'&pageSize='+ pageSize;
+        var url = config.apiBaseUrl + 'ideas?query='+searchQuery+'&page='+page+'&pageSize='+ pageSize;
         return baseService.getResources(url);
         },
 

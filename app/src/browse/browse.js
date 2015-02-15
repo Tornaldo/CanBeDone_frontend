@@ -9,7 +9,6 @@ angular.module('cbdBrowse', ['cbdCommon'])
         resolve: {
           searchResult: ['$route','ideaService', function($route, ideaService) {
             var searchParam = $route.current.params.search;
-            console.log("TESTER");
             if(angular.isDefined(searchParam)) {
               return ideaService.getSearchResult(searchParam, 0, 20).then(function (response) {
                 return response;
