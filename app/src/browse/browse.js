@@ -26,9 +26,13 @@ angular.module('cbdBrowse', ['cbdCommon'])
   .controller('BrowseCtrl', 
   ['$scope', '$routeParams', '$location', '$routeParams','ideaService' ,'searchResult', 
   function ($scope,$routeParams, $location, routeParams, ideaService, searchResult) {
-    $scope.results = searchResult;
-    console.log('searresult: ' +  searchResult);
     $scope.error = null;
+    if(searchResult == null || searchResult.ideas.length <= 0) {
+      $scope.error = 'Found no ideas matching your search criterias';
+    }
+    else {
+      $scope.results = searchResult;
+    }
     $scope.search = $routeParams.search;
 
 
