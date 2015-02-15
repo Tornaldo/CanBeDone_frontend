@@ -18,10 +18,10 @@
                         <h3 class="add-idea-section-header">Questionnaire</h3>
 
                         <div ng-repeat="q in purposeQuestionaire">
-                            {{q.name}}
-
-                            <question-multiple ng-if="q.type =='checkbox'" text="{{q.question}}" answer="idea" alternatives="q.alternatives"></question-multiple>
-                            <question-single ng-if="q.type =='radio'" text="{{q.question}}" answer="idea" alternatives="q.alternatives"></question-single>
+                            <question-multiple ng-if="q.type =='checkbox'" text="{{q.question}}" answer="idea" alternatives="q.alternatives">
+                            </question-multiple>
+                            <question-single ng-if="q.type =='radio'" group="{{q.name}}" text="{{q.question}}" answer="idea" alternatives="q.alternatives">
+                            </question-single>
                         </div>
                     </div>
                 </div>

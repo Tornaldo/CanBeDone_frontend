@@ -15,11 +15,11 @@ function ($scope) {
            ]},
         {
           question: "Would you be ok with somebody else taking this idea and implementing it independently of you?", 
-          name: "otherImplementers",
+          name: "independentImplementation",
           type: "radio",
-          alternatives: [{name:"posterProjectsAllowed", value: "Yes"},
-            {name:"nonPosterProjectsAllowed",value: "No"},
-            {name: "nonPosterProjectsNeedPermission", value: "They would have to talk with me about it"}]
+          alternatives: [{name:"yes", value: "Yes"},
+            {name:"no",value: "No"},
+            {name: "talkToMe", value: "They would have to talk with me about it"}]
         }
     ];
 
@@ -45,9 +45,10 @@ function ($scope) {
       answer: '=',
       text: '@',
       alternatives: '=',
+      group: '@',
     },
     //Mode is whether one or several of the alternatives can be selected.
-    template: '<ul class="list-unstyled questionaire-list"><h4>{{text}}</h4><li ng-repeat="alt in alternatives"><input type="radio"  name="group" ng-model="answer[alt.name]"> {{alt.value}}</li></ul>',
+    template: '<ul class="list-unstyled questionaire-list"><h4>{{text}}</h4><li ng-repeat="alt in alternatives"><input type="radio" name="group" ng-model="answer[group]" ng-value="alt.name"> {{alt.value}}</li></ul>',
     controller: ['$scope', function($scope) {
         
       $scope.option_clicked = function(option) {
