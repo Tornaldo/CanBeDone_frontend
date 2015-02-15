@@ -13,6 +13,7 @@
 	width: 100%;	
 	margin: 0 auto;
 	margin-top: 40px;
+
 }
 
 .add-idea-section-header {
@@ -194,3 +195,27 @@ pointer-events: none;
     position: relative;
     /*top: 32px;*/
   }
+
+
+/*Category-picker*/
+.add-idea-category-picker {
+	label {
+		font-weight: normal;
+		margin-top: 5px;
+		margin-bottom: 5px;
+		margin-right: 15px;
+	}
+
+	p {
+		font-weight: bold;
+	}
+
+	.sub-category {
+		margin-top: 20px;
+		margin-bottom: 20px
+	}
+
+	.main-category, .sub-category>div {
+		display: inline;
+	}
+}

@@ -782,7 +782,7 @@
                               '<span>&larr; zoom &rarr;</span>'+
                           '</div>'+
 
-                          '<button ng-click="crop()">Crop</button>'+
+                          '<input class="btn btn-default" ng-click="crop()" value="Crop">'+
                       '</section>'+
 
                       '<section ng-style="sectionStyles" class="image-crop-section-final" ng-show="step==3">'+
@@ -796,7 +796,8 @@
           height: '@',
           shape: '@',
           result: '=',
-          step: '='
+          step: '=',
+          original: '=',
         },
         link: function (scope, element, attributes) {
 
@@ -853,6 +854,7 @@
           // ---------- EVENT HANDLERS ---------- //
           fileReader.onload = function(e) {
             $img.src = this.result;
+            scope.original = this.result;
             scope.step = 2;
             scope.$apply();
 

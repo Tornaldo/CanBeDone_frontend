@@ -34,6 +34,7 @@ angular.module('cbdIdeaConstruction')
       $scope.getMain = function() {
         categoryService.getMainCategories()
         .then(function(data) {
+          console.log(data);
           $scope.main = data.categories;
         });
 

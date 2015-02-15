@@ -2,28 +2,27 @@
 angular.module('cbdIdeaConstruction')
 .controller('questionaireCtrl', ['$scope',
 function ($scope) {
-    $scope.idea.purpose = {};
+    //$scope.idea.purpose = {};
     $scope.purposeQuestionaire = [
         {
           question: "Why are you posting this idea?", 
+          type: "checkbox",
           name: "whyPost",
-          alternatives: [{name: "implement", value: "To find people who can help me implement it"},
-           {name:"feedback", value: "To get feedback so that I can see if I should go forward with this or not"},
-           {name :"share", value: "To share it with the world in the hope that someone else makes something out of it"}]},
+          alternatives: [{name: "postingToFindPeople", value: "To find people who can help me implement it"},
+           {name:"postingToGetFeedback ", value: "To get feedback"},
+           {name :"postingToSeeIfOthersAreInterested", value: "To see if others are interested in working on this idea"},
+           {name :"postingToInspireOthers", value: "To share it with the world in the hope that someone else makes something out of it"}
+           ]},
         {
-          question: "Would you be ok with somebody else implementing this idea independently?", 
-          name: "otherImplementers",
-          alternatives: [{name:"accept", value: "Yes"},
-            {name:"decline",value: "No."},
-            {name: "permisson", value: "They would need my permission."}]
-        },{
-          question: "Would you like to enable people to express interest in helping you implement this by creating a team-page?", 
-          name: "otherImplementers",
-          alternatives: [{name: "accept",value: "Yes."},
-             {name: "decline", value: "No."}]
+          question: "Would you be ok with somebody else taking this idea and implementing it independently of you?", 
+          name: "independentImplementation",
+          type: "radio",
+          alternatives: [{name:"yes", value: "Yes"},
+            {name:"no",value: "No"},
+            {name: "talkToMe", value: "They would have to talk with me about it"}]
         }
     ];
-  
+
 }])
 /**
  * @ngdoc directive
@@ -38,7 +37,7 @@ function ($scope) {
  * Two modes of operations are supported: multiple and single selection. These are represented
  * by using either checkboxes or radioboxes.
  */
-.directive('question', [ function() {
+.directive('questionSingle', [ function() {
   return {
     restrict: 'AE',
 
@@ -46,18 +45,45 @@ function ($scope) {
       answer: '=',
       text: '@',
       alternatives: '=',
-      mode: '@'
+      group: '@',
     },
     //Mode is whether one or several of the alternatives can be selected.
-    template: '<ul class="list-unstyled questionaire-list"><h4>{{text}}</h4><li ng-repeat="alt in alternatives"><input type="checkbox"> {{alt.value}}</li></ul>',
+    template: '<ul class="list-unstyled questionaire-list"><h4>{{text}}</h4><li ng-repeat="alt in alternatives"><input type="radio" name="group" ng-model="answer[group]" ng-value="alt.name"> {{alt.value}}</li></ul>',
     controller: ['$scope', function($scope) {
         
       $scope.option_clicked = function(option) {
-        console.log("TEST");
+        console.log(option);
       };
     }],
 
     link: function(scope, elem, attrs) {
+      
+    }
+  };
+}])
+
+.directive('questionMultiple', [ function() {
+  return {
+    restrict: 'AE',
+
+    scope: {
+      answer: '=',
+      text: '@',
+      alternatives: '=',
+    },
+    //Mode is whether one or several of the alternatives can be selected.
+    template: '<ul class="list-unstyled questionaire-list"><h4>{{text}}</h4><li ng-repeat="alt in alternatives"><input type="checkbox" ng-model="answer[alt.name]" ng-change="option_clicked(alt)"> {{alt.value}}</li></ul>',
+    controller: ['$scope', function($scope) {
+        
+      $scope.option_clicked = function(option) {
+        console.log(option);
+      };
+    }],
+
+    link: function(scope, elem, attrs) {
+      if(scope.mode == 'radio') {
+        scope.groupName = 'radioGroup'
+      }
     }
   };
 }]);

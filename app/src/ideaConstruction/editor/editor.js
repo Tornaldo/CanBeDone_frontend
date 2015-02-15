@@ -19,9 +19,10 @@ angular.module('cbdIdeaConstruction')
             '></summernote>',
     controller: ['$scope', function($scope) {
         //TODO: Automatically delete font styling
-      
+      //TODO: Height option set to 700 interfere with the category picker, by
+      //making checkbox selection not possible (invisible overlay )
       $scope.options = {
-        height: 700,
+        height: 300,
         minHeight: null,
         maxHeight: null,
         toolbar: [
