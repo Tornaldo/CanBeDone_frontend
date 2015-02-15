@@ -2,10 +2,11 @@
 angular.module('cbdIdeaConstruction')
 .controller('questionaireCtrl', ['$scope',
 function ($scope) {
-    $scope.idea.purpose = {};
+    //$scope.idea.purpose = {};
     $scope.purposeQuestionaire = [
         {
           question: "Why are you posting this idea?", 
+          type: "checkbox",
           name: "whyPost",
           alternatives: [{name: "postingToFindPeople", value: "To find people who can help me implement it"},
            {name:"postingToGetFeedback ", value: "To get feedback"},
@@ -15,17 +16,13 @@ function ($scope) {
         {
           question: "Would you be ok with somebody else taking this idea and implementing it independently of you?", 
           name: "otherImplementers",
+          type: "radio",
           alternatives: [{name:"posterProjectsAllowed", value: "Yes"},
             {name:"nonPosterProjectsAllowed",value: "No"},
             {name: "nonPosterProjectsNeedPermission", value: "They would have to talk with me about it"}]
-        },{
-          question: "Would you like to enable people to express interest in helping you implement this by creating a team-page?", 
-          name: "otherImplementers",
-          alternatives: [{name: "accept",value: "Yes."},
-             {name: "decline", value: "No."}]
         }
     ];
-  
+
 }])
 /**
  * @ngdoc directive
@@ -40,7 +37,7 @@ function ($scope) {
  * Two modes of operations are supported: multiple and single selection. These are represented
  * by using either checkboxes or radioboxes.
  */
-.directive('question', [ function() {
+.directive('questionSingle', [ function() {
   return {
     restrict: 'AE',
 
@@ -48,18 +45,44 @@ function ($scope) {
       answer: '=',
       text: '@',
       alternatives: '=',
-      mode: '@'
     },
     //Mode is whether one or several of the alternatives can be selected.
-    template: '<ul class="list-unstyled questionaire-list"><h4>{{text}}</h4><li ng-repeat="alt in alternatives"><input type="checkbox"> {{alt.value}}</li></ul>',
+    template: '<ul class="list-unstyled questionaire-list"><h4>{{text}}</h4><li ng-repeat="alt in alternatives"><input type="radio"  name="group" ng-model="answer[alt.name]"> {{alt.value}}</li></ul>',
     controller: ['$scope', function($scope) {
         
       $scope.option_clicked = function(option) {
-        console.log("TEST");
+        console.log(option);
       };
     }],
 
     link: function(scope, elem, attrs) {
+      
+    }
+  };
+}])
+
+.directive('questionMultiple', [ function() {
+  return {
+    restrict: 'AE',
+
+    scope: {
+      answer: '=',
+      text: '@',
+      alternatives: '=',
+    },
+    //Mode is whether one or several of the alternatives can be selected.
+    template: '<ul class="list-unstyled questionaire-list"><h4>{{text}}</h4><li ng-repeat="alt in alternatives"><input type="checkbox" ng-model="answer[alt.name]" ng-change="option_clicked(alt)"> {{alt.value}}</li></ul>',
+    controller: ['$scope', function($scope) {
+        
+      $scope.option_clicked = function(option) {
+        console.log(option);
+      };
+    }],
+
+    link: function(scope, elem, attrs) {
+      if(scope.mode == 'radio') {
+        scope.groupName = 'radioGroup'
+      }
     }
   };
 }]);

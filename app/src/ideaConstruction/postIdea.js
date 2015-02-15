@@ -13,7 +13,6 @@ function ($scope,ideaService, notification, FileUploader) {
     $scope.submitted = false;
     $scope.idea = {};
     $scope.idea.categoryIds = [];
-    $scope.idea.purpose = {};
 
     $scope.submit = function() {
         ideaService.postIdea($scope.idea)
