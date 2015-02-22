@@ -25,6 +25,7 @@
     'cbdBrowse',
     'cbdIdea',
     'cbdIdeaConstruction',
+    'cbdFaq',
     'cbdLogin',
     'cbdUserProfile'
   ])

@@ -3,7 +3,7 @@
 angular.module('cbdIdea', ['cbdCommon'])
   .config(['$routeProvider', function ($routeProvider) {
     $routeProvider
-      .when('/idea/:ideaId', {
+      .when('/idea/:ideaId/', {
         templateUrl: 'src/ideaProfile/idea.tpl.html',
         controller: 'IdeaCtrl',
         resolve: {

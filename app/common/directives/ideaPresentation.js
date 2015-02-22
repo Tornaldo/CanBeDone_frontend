@@ -1,4 +1,4 @@
-angular.module('cbdCommon')
+  angular.module('cbdCommon')
 .directive('ideaViewer', [ function() {
   return {
     restrict: 'AE',

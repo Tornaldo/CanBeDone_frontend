@@ -1,6 +1,6 @@
 angular.module('cbdCommon').
-factory('ideaService', ['baseService', 'config',
-function (baseService, config) {
+factory('ideaService', ['baseService', 'config', '$q',
+function (baseService, config, $q) {
 
     return {
         getPopularIdeas: function(category) {
@@ -52,6 +52,19 @@ function (baseService, config) {
             return baseService.postResource(url, comment);
         },           
         
+        postFaq: function(ideaId, faq) {
+            var url = config.apiBaseUrl + 'ideas/faqs';
+            
+            //Each faq question has to be sent as its own request. Api limitation.
+            //All promises gather up and the super promise will resolve when all
+            //requests has been resolved.
+            var promises = [];
+            for(var i = 0; i<faq.length; i++) {
+                var faqPackage = {'ideaId': ideaId, 'question': faq[i].question, 'answer': faq[i].answer };
+                promises.push(baseService.postResource(url, faqPackage));
+            }
+            return $q.all(promises);
+        },
 
     };
 
