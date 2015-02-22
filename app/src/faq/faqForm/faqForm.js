@@ -1,10 +1,11 @@
 angular.module('cbdFaq' )
-.controller('FaqFormCtrl', ['$scope', 'ideaService', '$routeParams',
-function ($scope, ideaService, $routeParams) {
+.controller('FaqFormCtrl', ['$scope', 'ideaService', '$routeParams', 'ideaId',
+function ($scope, ideaService, $routeParams, ideaId) {
     $scope.faq = [{question: "", answer: ""}];
+    $scope.ideaId = ideaId;
+
     $scope.submitFaq = function() {
-        var ideaId = $routeParams.ideaId;
-        ideaService.postFaq(ideaId, $scope.faq)
+        ideaService.postFaq($scope.ideaId, $scope.faq)
         .then(function(success) {
         	console.log(success);
         }, function(error) {
