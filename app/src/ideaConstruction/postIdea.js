@@ -7,8 +7,8 @@ angular.module('cbdIdeaConstruction', ['cbdCommon', 'angularFileUpload', 'summer
       })
   }])
 
-.controller('postIdeaCtrl', ['$scope','ideaService', 'notification', 'FileUploader',
-function ($scope,ideaService, notification, FileUploader) {
+.controller('postIdeaCtrl', ['$scope','ideaService', 'notification', 'FileUploader', '$location',
+function ($scope,ideaService, notification, FileUploader, $location) {
 
     $scope.submitted = false;
     $scope.idea = {};
@@ -20,8 +20,8 @@ function ($scope,ideaService, notification, FileUploader) {
         ideaService.postIdea($scope.idea)
             .then(function(data) {
                 notification.success("Idea posted");
-                console.log("IDEA");
-                console.log(data);
+                $location.path('/idea/' +data.id + '/');
+
             }, function(error) {
                 notification.error("Could not post your idea." + error);
             });

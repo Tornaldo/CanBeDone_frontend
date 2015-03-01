@@ -1,15 +1,11 @@
-<div class="page_container">
-	<h1>Post faq</h1>
-    <a ng-href="#idea/{{ideaId}}">Go back to idea</a>
-	<form name="form" novalidate valid-submit="submitFaq()" >
-        <div ng-repeat="elem in faq">
-        	<textarea placeholder="Question" ng-model="elem.question">
-        	</textarea>
-        	<textarea placeholder="Answer" ng-model="elem.answer">
-        	</textarea>
-            <input type="button" ng-click="removeQuestionAnswer($index)" value="Remove">
-        </div>
-		<input type="button" ng-click="addQuestionAnswer()" value="Add new question" />
-    	<input type="submit" value="Post faq"/>
-    </form>
-</div>
+<form name="form" novalidate valid-submit="submitFaq()" >
+    <div ng-repeat="elem in faq">
+    	<textarea placeholder="Question" ng-model="elem.question">
+    	</textarea>
+    	<textarea placeholder="Answer" ng-model="elem.answer">
+    	</textarea>
+        <input type="button" ng-click="removeQuestionAnswer($index)" value="Remove">
+    </div>
+	<input type="button" ng-click="addQuestionAnswer()" value="Add new question" />
+	<input type="submit" value="Post faq"/>
+</form>
