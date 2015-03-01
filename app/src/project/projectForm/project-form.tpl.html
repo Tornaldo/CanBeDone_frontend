@@ -1,1 +1,8 @@
-<p>Project form</p>
+<form name="form" novalidate valid-submit="submitProject()" >
+	<p>Text displayed for non-members</p>
+	<textarea placeholder="" ng-model="project.textNonmembers"></textarea>
+    <p>Text displayed for members</p>
+	<textarea placeholder="" ng-model="project.textMembers"></textarea>
+    <br>
+	<input type="submit" value="Post project"/>
+</form>

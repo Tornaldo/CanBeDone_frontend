@@ -7,7 +7,7 @@ function ($scope, ideaId) {
 
 .controller('ProjectFormCtrl', ['$scope', 'ideaService', 'notification', '$location',
 function ($scope, ideaService, notification, $location) {
-    $scope.faq = [{question: "", answer: ""}];
+    $scope.project = {};
     $scope.ideaId = $scope.$parent.idea.id;
     //TODO: Make template and controller into a directive.
     

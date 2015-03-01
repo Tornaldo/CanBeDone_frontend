@@ -7,12 +7,21 @@ angular.module('cbdIdeaConstruction', ['cbdCommon', 'angularFileUpload', 'summer
       })
   }])
 
-.controller('postIdeaCtrl', ['$scope','ideaService', 'notification', 'FileUploader', '$location',
-function ($scope,ideaService, notification, FileUploader, $location) {
+.controller('postIdeaCtrl', ['$scope','ideaService', 'notification', 'FileUploader', '$location', 'categoryService',
+function ($scope,ideaService, notification, FileUploader, $location, categoryService) {
 
     $scope.submitted = false;
     $scope.idea = {};
     $scope.idea.categoryIds = [];
+
+    $scope.getMain = function() {
+        console.log("HEI");
+        return categoryService.getMainCategories()
+    };
+
+    $scope.getSubcategory = function(cid) {
+        return categoryService.getSubcategory(cid);
+    };
 
     $scope.submit = function() {
         //$scope.idea.imageFile = $scope.orig;

@@ -23,32 +23,33 @@ angular.module('cbdIdeaConstruction')
 
     scope: {
       result: '=',
+      onMain: '&',
+      onSubcategory: '&'
     },
 
     templateUrl: 'src/ideaConstruction/categoryPicker/category-picker.tpl.html',
-    controller: ['$scope','categoryService', function($scope, categoryService) {
+    controller: ['$scope', function($scope) {
       $scope.main = [];
       $scope.sub = {};
       $scope.ordered = [];
 
       $scope.getMain = function() {
-        categoryService.getMainCategories()
-        .then(function(data) {
-          console.log(data);
+        var promise = $scope.onMain();
+        promise.then(function(data) {
           $scope.main = data.categories;
         });
 
         $scope.getSubcategory = function(category, show) {
           if(show) {
             //If the user dont want the category hidden, retrive subcategories.
-            categoryService.getSubcategory(category.id)
-          .then(function(data) {
-            //Inclue the parent of the subcategories, and add them to the
-            //datastructure
-            var subCategory = {'parent': category.id, 'data': data};
-            $scope.sub[category.id] = subCategory;
-            $scope.ordered.push(subCategory);
-            $scope.result.push(category.id);
+            var promise = $scope.onSubcategory({"cid": category.id});
+            promise.then(function(data) {
+              //Inclue the parent of the subcategories, and add them to the
+              //datastructure
+              var subCategory = {'parent': category.id, 'data': data};
+              $scope.sub[category.id] = subCategory;
+              $scope.ordered.push(subCategory);
+              $scope.result.push(category.id);
           });
           }
           else {
