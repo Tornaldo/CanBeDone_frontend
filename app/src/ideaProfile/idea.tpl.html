@@ -47,7 +47,10 @@
     </div>
 
     <div class="idea-profile clearfix">
-        <div class="alert alert-success" ng-if="!faq.length>0">
+        <div class="alert alert-success" ng-if="!idea.project.length>0">
+            Realize your idea by creating a project for it! <a ng-href="#/idea/{{idea.id}}/create-project">Create Project</a>
+        </div>
+        <div class="alert alert-success" ng-if="!faq.length>0 ">
             Enhance your idea by creating a faq! <a ng-href="#/idea/{{idea.id}}/create-faq">Create FAQ</a>
         </div>
         <!--picture-->
