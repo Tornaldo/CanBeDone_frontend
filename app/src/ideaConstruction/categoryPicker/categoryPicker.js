@@ -24,7 +24,8 @@ angular.module('cbdIdeaConstruction')
     scope: {
       result: '=',
       onMain: '&',
-      onSubcategory: '&'
+      onSubcategory: '&',
+      key : "="
     },
 
     templateUrl: 'src/ideaConstruction/categoryPicker/category-picker.tpl.html',
@@ -36,7 +37,8 @@ angular.module('cbdIdeaConstruction')
       $scope.getMain = function() {
         var promise = $scope.onMain();
         promise.then(function(data) {
-          $scope.main = data.categories;
+          console.log($scope.key);
+          $scope.main = data[$scope.key];
         });
 
         $scope.getSubcategory = function(category, show) {
@@ -50,7 +52,7 @@ angular.module('cbdIdeaConstruction')
               $scope.sub[category.id] = subCategory;
               $scope.ordered.push(subCategory);
               $scope.result.push(category.id);
-          });
+            });
           }
           else {
             var queue = [];

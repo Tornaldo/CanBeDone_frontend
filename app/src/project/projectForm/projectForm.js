@@ -5,9 +5,10 @@ function ($scope, ideaId) {
     $scope.idea.id = ideaId;
 }])
 
-.controller('ProjectFormCtrl', ['$scope', 'ideaService', 'notification', '$location',
-function ($scope, ideaService, notification, $location) {
+.controller('ProjectFormCtrl', ['$scope', 'ideaService', 'notification', '$location', 'categoryService',
+function ($scope, ideaService, notification, $location, categoryService) {
     $scope.project = {};
+    $scope.project.skillIds = [];
     $scope.ideaId = $scope.$parent.idea.id;
     //TODO: Make template and controller into a directive.
     
@@ -25,4 +26,11 @@ function ($scope, ideaService, notification, $location) {
         });*/
     };
 
+     $scope.getMainSkills = function() {
+        return categoryService.getMainSkills()
+    };
+
+    $scope.getSkillSubcategory = function(cid) {
+        return categoryService.getSkillSubcategory(cid);
+    };
 }])

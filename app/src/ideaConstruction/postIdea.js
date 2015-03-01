@@ -20,7 +20,7 @@ function ($scope,ideaService, notification, FileUploader, $location, categorySer
     };
 
     $scope.getSubcategory = function(cid) {
-        return categoryService.getSubcategory(cid);
+        return categoryService.getCategorySubcategory(cid);
     };
 
     $scope.submit = function() {

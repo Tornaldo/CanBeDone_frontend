@@ -1,4 +1,4 @@
-angular.module('cbdProject', ['cbdCommon'])
+angular.module('cbdProject', ['cbdCommon', 'cbdIdeaConstruction'])
   .config(['$routeProvider', function ($routeProvider) {
     $routeProvider
       .when('/idea/:ideaId/create-project', {
