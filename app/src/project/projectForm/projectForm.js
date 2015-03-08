@@ -2,28 +2,24 @@ angular.module('cbdProject')
 .controller('ProjectFormPageCtrl', ['$scope', 'ideaId',
 function ($scope, ideaId) {
     $scope.idea = {};
-    $scope.idea.id = ideaId;
+    $scope.idea.id = parseInt(ideaId);
 }])
 
-.controller('ProjectFormCtrl', ['$scope', 'ideaService', 'notification', '$location', 'categoryService',
-function ($scope, ideaService, notification, $location, categoryService) {
+.controller('ProjectFormCtrl', ['$scope', 'projectService', 'notification', '$location', 'categoryService',
+function ($scope, projectService, notification, $location, categoryService) {
     $scope.project = {};
     $scope.project.skillIds = [];
     $scope.ideaId = $scope.$parent.idea.id;
-    //TODO: Make template and controller into a directive.
     
     $scope.submitProject = function() {
-        /*ideaService.postFaq($scope.ideaId, $scope.faq)
+    	$scope.project.ideaId = $scope.ideaId;
+        projectService.submitProject($scope.project)
         .then(function(success) {
-            notification.success("FAQ posted");
+            notification.success("Project posted");
             $location.path('/idea/' + $scope.ideaId  + '/');
-            if($scope.$parent.faq) {
-                $scope.$parent.faq.push.apply($scope.$parent.faq, $scope.faq)
-            }
-            $scope.faq = [{question: "", answer: ""}];
         }, function(error) {
             console.log(error);
-        });*/
+        });
     };
 
      $scope.getMainSkills = function() {
