@@ -47,7 +47,7 @@
     </div>
 
     <div class="idea-profile clearfix">
-        <div class="alert alert-success" ng-if="!idea.project.length>0">
+        <div class="alert alert-success" ng-if="!project.length>0">
             Realize your idea by creating a project for it! <a ng-href="#/idea/{{idea.id}}/create-project">Create Project</a>
         </div>
         <div class="alert alert-success" ng-if="!faq.length>0 ">
@@ -195,66 +195,10 @@
                 </div>
             </div>
             <!--Thanks for liking - nobody is working on this idea-->
-            <!--Team-box-->
-            <div class="team-box">
-                <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
-                    <br>
-                    <h4 class="team-box-sub-header"><b>About team</b></h4>
 
 
-                    <p ng-hide="teamEditorOn" class="about-team-text">
-                         {{ideaabt0}}
-                         <a class="btn-idea-editor" ng-click="enableIdeaEditor('about')"> Edit </a> 
+            <project-list elements="project" ></project-list>
 
-
-
-                    <p ng-show="teamEditorOn" class="about-team-text">
-                        
-                        <textarea ng-model="editIdeateam" type="text" class="form-control form-control-edit" id="what" name="what" > </textarea>    
-                        
-                            <a  ng-click="save('about')">save</a> or
-                            <a  ng-click="disableIdeaEditor('about')">cancel</a>
-                        </p>
-                    </p>
-                    </p>
-                    <a href="#" class="team-box-more hidden">...more</a>
-                </div>
-                <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
-                    <br>
-                    <h4 class="team-box-sub-header"><b>Comptence wanted</b></h4>
-                    <ul>
-                        <li>
-                            <b>IT: </b>Databases, Algorithms, Artificial intelligence
-                        </li>
-                        <li>
-                            <b>Mathematics: </b>Logic, Mathematical proofs, Algorithms
-                        </li>
-                        <li>
-                            <b>Web development </b>
-                        </li>
-                        <li>
-                            <b>Marketing </b>
-                        </li>
-                        <li>
-                            <b>Something: </b>Something, Something else <a class="btn-idea-editor"> Edit </a>
-
-                        </li>
-                    </ul>
-                    <a href="#" class="team-box-more hidden">...more</a>
-                </div>
-                <div class="team-box-button-section">
-                    <div class="team-box-jointeam-container col-xs-5 col-sm-5 col-md-5 col-lg-5">
-                        <a class="btn btn-primary btn-jointeam col-xs-12 col-sm-12 col-md-12 col-lg-12"><b><i
-                                class="fa fa-group"></i>&nbsp;Propose to join team</b></a>
-                    </div>
-                    <div class="team-box-getintouch-container col-xs-5 col-sm-5 col-md-5 col-lg-5">
-                        <a class="btn btn-primary btn-getintouch col-xs-12 col-sm-12 col-md-12 col-lg-12"><b><i
-                                class="fa fa-coffee"></i>&nbsp;Get in touch</b></a>
-                    </div>
-                </div>
-            </div>
-
-            <hr>
 
             <br><br>
             <div class="row">
