@@ -1,4 +1,4 @@
-<div class="row team-box" ng-if="idea.independentImplementation === 'yes'"> <!--team box temp-->
+<div class="row team-box" ng-if="idea.independentImplementation !== 'no'"> <!--team box temp-->
 	<div class="col-md-12" style="padding:20px; text-align: middle">
 		<p ng-if="nrProject <= 0">No projects created for this idea. Be the first!</p>
 		<p ng-if="nrProject >0">No projects that suits you? Create a new project yourself!</p>
@@ -7,4 +7,4 @@
 		<!-- Permission sent etc TODO-->
 	</div>
 </div>
-<hr>
+<hr ng-if="idea.independentImplementation !== 'no'">
