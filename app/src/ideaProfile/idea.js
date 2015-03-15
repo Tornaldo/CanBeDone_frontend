@@ -101,6 +101,17 @@ angular.module('cbdIdea', ['cbdCommon'])
       
     }; 
 
+    $scope.saveEdit = function() {
+      //Saves by sending the whole idea as is to the backend.
+      ideaService.editIdea($scope.idea)
+        .then(function(data) {
+          console.log('edited:idea: '+  data);
+          notification.success("Idea edited");
+        }, function(error) {
+          notification.error("Could not Edit your idea." + error);
+        });
+    }
+    
     //Comment sorting 
     $scope.commentSortOptions = ['Likes', 'Dislikes', 'Replies', 'id', 'Date'];
     $scope.sortCommentBy = "id";  
@@ -140,8 +151,6 @@ angular.module('cbdIdea', ['cbdCommon'])
 .controller('IdeaThumbCtrl', ['$scope', '$location', function ($scope, $location) {
 
     $scope.redirectToIdea = function(ideaId) {
-        console.log("hei");
-        console.log(ideaId);
         $location.path('/idea/' + ideaId);
     };
 
