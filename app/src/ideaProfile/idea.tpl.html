@@ -18,15 +18,15 @@
 
             </div>
             <!--Title + What and why-->
-            <edit-title content="idea.title" on-edit="saveEdit()" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-            </edit-title>
+            <edit-field content="idea.title" on-edit="saveEdit()" template="{{'title'}}" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+            </edit-field>
             
             <div class="row idea-profile-why-what-container">
                 <edit-field content="idea.shortDescriptionWhat" on-edit="saveEdit()" label="What" class=" idea-profile-what col-xs-6 col-sm-6 col-md-6 col-lg-6"></edit-field>
-                <edit-field content="idea.shortDescriptionWhy" on-edit="saveEdit()" label="Why" class="idea-profile-why col-xs-6 col-sm-6 col-md-6 col-lg-6"></edit-field>
+                <edit-field content="idea.shortDescriptionWhy" on-edit="saveEdit()"  label="Why" class="idea-profile-why col-xs-6 col-sm-6 col-md-6 col-lg-6"></edit-field>
                 
             </div>
-            <edit-text content="idea.description" on-edit="saveEdit()" class="col-xs-12 col-sm-12 col-md-12 col-lg-12"></edit-text>
+            <edit-field content="idea.description" on-edit="saveEdit()" template="{{'text'}}" class="col-xs-12 col-sm-12 col-md-12 col-lg-12"></edit-field>
 
             <!-- FAQ area -->
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
