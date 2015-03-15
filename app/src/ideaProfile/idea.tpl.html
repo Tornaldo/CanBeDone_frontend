@@ -39,6 +39,7 @@
                 <div ng-if="faq.showFaqForm" ng-include="'/src/faq/faqForm/faq-form.tpl.html'" ng-controller="FaqFormCtrl"></div>
             </div>
 
+            <!--User image and message button-->
             <div class="media written-by pull-right col-xs-3 col-sm-3 col-md-3 col-lg-3">
                 <a class="pull-left" href="#">
                     <div class="image-inside-thumb-written-by"><img class="media-object" src="img/ProfileImage7.jpg">
@@ -53,6 +54,12 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Category listing section -->
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <span ng-repeat="category in idea.categories"><a ng-click="redirectToCategory(category.id)">{{category.name}}</a></span>
+            </div>
+
             <!--Like this idea!-->
             <div class="idea-profile-like-this-idea col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="row">

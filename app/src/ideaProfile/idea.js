@@ -24,7 +24,8 @@ angular.module('cbdIdea', ['cbdCommon'])
   }])
 
 
-.controller('IdeaCtrl', ['$scope','ideaService','idea', 'notification', function ($scope,  ideaService, idea, notification) {
+.controller('IdeaCtrl', ['$scope','ideaService','idea', 'notification', '$location',
+  function ($scope,  ideaService, idea, notification, $location) {
 
     $scope.idea = idea.idea;
     $scope.relatedIdeas = [idea.idea, idea.idea, idea.idea, idea.idea]; //temp till related ideas endpoint is made;
@@ -32,7 +33,6 @@ angular.module('cbdIdea', ['cbdCommon'])
     $scope.faq = idea.FAQs;
     $scope.ideaComment = idea.comment_section;
     console.log("idea id: " + $scope.idea);
-    $scope.teamEditorOn = false;
     
     var ide = "Lorem ipsum dolor sit amet consectetur adipiscing eletra electrify denim vel ports";
     $scope.ideaabt = [{'idabt': ide}];
@@ -50,6 +50,11 @@ angular.module('cbdIdea', ['cbdCommon'])
         });
     }
 
+    $scope.redirectToCategory = function(categoryId) {
+      console.log(categoryId + "REDIRECT");
+      $location.search('category=' + categoryId);
+      $location.path('/browse');
+    }
     //Comment sorting 
     $scope.commentSortOptions = ['Likes', 'Dislikes', 'Replies', 'id', 'Date'];
     $scope.sortCommentBy = "id";  

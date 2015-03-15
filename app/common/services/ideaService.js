@@ -9,9 +9,15 @@ function (baseService, config, $q) {
         return baseService.getResources(url);
         },
 
-        getSearchResult: function(searchQuery, page, pageSize) {
+        getSearchResult: function(searchQuery, categoryPreference, page, pageSize) {
         //wrong url. Need api endpoint.
-        var url = config.apiBaseUrl + 'ideas?query='+searchQuery+'&page='+page+'&pageSize='+ pageSize;
+        var url = config.apiBaseUrl + 'ideas?'+'page='+page+'&pageSize='+ pageSize;
+        if(categoryPreference) {
+            url += '&categoryId='+categoryPreference;
+        }
+         if(searchQuery) {
+            url += '&query='+searchQuery;
+        }
         return baseService.getResources(url);
         },
 
