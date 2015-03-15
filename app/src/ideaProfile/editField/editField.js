@@ -17,11 +17,17 @@ angular.module('cbdIdea')
                 '<h1 ng-show="editorOn" class="idea-profile-title">' +
                     '<input ng-model="content" class="form-control form-control-edit">' +
                     '<a  class="btn-idea-editor" ng-click="onEdit()"><i class="fa fa-floppy-o"></i></a> <span class="btn-idea-editor"> or</span>' +
-                    '<a  class="btn-idea-editor" ng-click="editorOn=false"><i class="fa fa-times"></i></a>' +
+                    '<a  class="btn-idea-editor" ng-click="cancel()"><i class="fa fa-times"></i></a>' +
                 '</h1>'
             ,
     controller: ['$scope', function($scope) {
       $scope.editorOn = false;
+      $scope.contentCopy = $scope.content;
+
+      $scope.cancel = function() {
+        $scope.editorOn = false;
+        $scope.content = $scope.contentCopy;
+      };
     }],
 
     link: function(scope, elem, attrs) {
@@ -52,13 +58,19 @@ angular.module('cbdIdea')
                         '<textarea ng-model="content" type="text" class="form-control form-control-edit" id="{{label}}" name="{{label}}" > </textarea>'+  
                         '<p>'+
                             '<a  ng-click="onEdit()"><i class="fa fa-floppy-o"></i></a> or'+
-                            '<a  ng-click="editorOn=false"><i class="fa fa-times"></i></a>'+
+                            '<a  ng-click="cancel()"><i class="fa fa-times"></i></a>'+
                         '</p>'+
                     '</p>'+
                 '</div>'
             ,
     controller: ['$scope', function($scope) {
       $scope.editorOn = false;
+      $scope.contentCopy = $scope.content;
+
+      $scope.cancel = function() {
+        $scope.editorOn = false;
+        $scope.content = $scope.contentCopy;
+      };
     }],
 
     link: function(scope, elem, attrs) {
@@ -83,17 +95,24 @@ angular.module('cbdIdea')
                 '<p>'+
                     '<textarea ng-model="content" type="text" class="form-control form-control-edit" id="what" name="what" > </textarea>'+  
                     '<p>'+
-                        '<a  ng-click="save()"><i class="fa fa-floppy-o"></i></a> or'+
-                        '<a  ng-click="editorOn = false"><i class="fa fa-times"></i></a>'+
+                        '<a  ng-click="onEdit()"><i class="fa fa-floppy-o"></i></a> or'+
+                        '<a  ng-click="cancel()"><i class="fa fa-times"></i></a>'+
                     '</p>'+
                 '</p>'+
             '</div>'
             ,
     controller: ['$scope', function($scope) {
       $scope.editorOn = false;
+      $scope.contentCopy = $scope.content;
+
+      $scope.cancel = function() {
+        $scope.editorOn = false;
+        $scope.content = $scope.contentCopy;
+      };
     }],
 
     link: function(scope, elem, attrs) {
+      s
     }
   };
 }]);
