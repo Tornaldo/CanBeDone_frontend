@@ -65,3 +65,35 @@ angular.module('cbdIdea')
     }
   };
 }])
+
+.directive('editText', [ function() {
+  return {
+    restrict: 'AE',
+
+    scope: {
+      content: '=',
+      onEdit: '&',
+    },
+
+    template: 
+                '<div ng-show="!editorOn" class="idea-profile-description">'+
+                '<div id="description" ng-bind-html="content"></div> <a class="btn-idea-editor" ng-click="editorOn=true"> <i class="fa fa-pencil-square-o"></i> </a>'+
+            '</div>'+
+            '<div ng-show="editorOn" class="idea-profile-description">'+
+                '<p>'+
+                    '<textarea ng-model="content" type="text" class="form-control form-control-edit" id="what" name="what" > </textarea>'+  
+                    '<p>'+
+                        '<a  ng-click="save()"><i class="fa fa-floppy-o"></i></a> or'+
+                        '<a  ng-click="editorOn = false"><i class="fa fa-times"></i></a>'+
+                    '</p>'+
+                '</p>'+
+            '</div>'
+            ,
+    controller: ['$scope', function($scope) {
+      $scope.editorOn = false;
+    }],
+
+    link: function(scope, elem, attrs) {
+    }
+  };
+}]);
